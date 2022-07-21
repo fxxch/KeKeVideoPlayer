@@ -61,7 +61,6 @@
     self.myTextView.font = [UIFont systemFontOfSize:16];
     [self.myTextView setContentInset:UIEdgeInsetsMake(-3, 5, -3, -10)];//设置UITextView的内边距
     [self.view addSubview:self.myTextView];
-    self.myTextView.textColor = [UIColor blackColor];
         
     UIButton *button01 = [[UIButton alloc] initWithFrame:CGRectMake(30, KKApplicationHeight-44-30-40-15-40-15-40-15-40, KKApplicationWidth-60, 40)];
     [button01 setTitle:@"http://192.168.0.100" forState:UIControlStateNormal];

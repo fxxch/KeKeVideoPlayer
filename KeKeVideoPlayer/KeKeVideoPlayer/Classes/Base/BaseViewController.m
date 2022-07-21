@@ -22,7 +22,7 @@
 }
 
 - (KKButton*)showNavigationDefaultBackButton_ForNavPopBack{
-    UIImage *image = KKThemeImage(@"btn_NavBack");
+    UIImage *image = KKThemeImage(@"btn_NavBackDefault");
     UIImage *nImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     KKButton *leftButton = [self setNavLeftButtonImage:nImage highlightImage:nil selector:@selector(navigationControllerPopBack)];
     leftButton.imageView.tintColor = [UIColor whiteColor];

@@ -188,7 +188,6 @@
             
             UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-sizeM.height)/2.0, KKApplicationWidth-30, sizeM.height)];
             mainLabel.tag = 1101;
-            mainLabel.textColor = [UIColor blackColor];
             mainLabel.font = [UIFont systemFontOfSize:16];
             mainLabel.numberOfLines = 0;
             mainLabel.backgroundColor = [UIColor clearColor];
@@ -225,7 +224,6 @@
             
             UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, KKApplicationWidth-30, sizeM.height)];
             mainLabel.tag = 2201;
-            mainLabel.textColor = [UIColor blackColor];
             mainLabel.font = [UIFont systemFontOfSize:16];
             mainLabel.numberOfLines = 1;
             mainLabel.backgroundColor = [UIColor clearColor];
@@ -235,7 +233,6 @@
             
             UILabel *subLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, mainLabel.kk_bottom+5, KKApplicationWidth-30, sizeS.height)];
             subLabel.tag = 2202;
-            subLabel.textColor = [UIColor blackColor];
             subLabel.font = [UIFont systemFontOfSize:12];
             subLabel.numberOfLines = 1;
             subLabel.backgroundColor = [UIColor clearColor];
