@@ -1,71 +1,23 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
-      "filename" : "3_5_320w-480h_20211123@1x.png",
+      "filename" : "6_1_390w-844h_20220306@3x.png",
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
-      "filename" : "3_5_320w-480h_20211123@2x.png",
+      "filename" : "6_1_390w-844h_20220306@3x.png",
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
-      "filename" : "3_5_320w-480h_20211123@3x.png",
+      "filename" : "6_5_428w-926h_20220306@3x.png",
+      "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "4_0_320w-568h_20211123@1x.png",
-      "subtype" : "retina4",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "4_0_320w-568h_20211123@2x.png",
-      "subtype" : "retina4",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "4_0_320w-568h_20211123@3x.png",
-      "subtype" : "retina4",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "5_5_414w-736h_20211123@3x.png",
-      "subtype" : "736h",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "4_7_375w-667h_20211123@2x.png",
-      "subtype" : "667h",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "5_8_375w-812h_20211123@3x.png",
-      "subtype" : "2436h",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "6_5_414w-896h_20211123@3x.png",
-      "subtype" : "2688h",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "6_1_414w-896h_20211123@2x.png",
-      "subtype" : "1792h",
-      "scale" : "2x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
