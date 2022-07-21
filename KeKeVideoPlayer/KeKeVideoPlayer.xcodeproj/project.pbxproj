@@ -200,56 +200,6 @@
 		3AD2E68828891ED70086DEFE /* Unit4_Lesson4 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E67228891ED70086DEFE /* Unit4_Lesson4 */; };
 		3AD2E68928891ED70086DEFE /* Unit5_Lesson1 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E67328891ED70086DEFE /* Unit5_Lesson1 */; };
 		3AD2E68A28891ED70086DEFE /* Unit6_Lesson1 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E67428891ED70086DEFE /* Unit6_Lesson1 */; };
-		3AD2E6C128891F4B0086DEFE /* JapaneseA32.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E68F28891F490086DEFE /* JapaneseA32.wmv */; };
-		3AD2E6C228891F4B0086DEFE /* JapaneseA02.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69028891F490086DEFE /* JapaneseA02.wmv */; };
-		3AD2E6C328891F4B0086DEFE /* JapaneseA001.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69128891F490086DEFE /* JapaneseA001.wmv */; };
-		3AD2E6C428891F4B0086DEFE /* JapaneseA17.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69228891F490086DEFE /* JapaneseA17.wmv */; };
-		3AD2E6C528891F4B0086DEFE /* JapaneseA03.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69328891F490086DEFE /* JapaneseA03.wmv */; };
-		3AD2E6C628891F4B0086DEFE /* JapaneseA36.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69428891F490086DEFE /* JapaneseA36.wmv */; };
-		3AD2E6C728891F4B0086DEFE /* JapaneseA04.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69528891F490086DEFE /* JapaneseA04.wmv */; };
-		3AD2E6C828891F4B0086DEFE /* JapaneseA14.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69628891F490086DEFE /* JapaneseA14.wmv */; };
-		3AD2E6C928891F4B0086DEFE /* JapaneseA18.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69728891F490086DEFE /* JapaneseA18.wmv */; };
-		3AD2E6CA28891F4B0086DEFE /* JapaneseA002.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69828891F490086DEFE /* JapaneseA002.wmv */; };
-		3AD2E6CB28891F4B0086DEFE /* JapaneseA20.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69928891F490086DEFE /* JapaneseA20.wmv */; };
-		3AD2E6CC28891F4B0086DEFE /* JapaneseA01.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69A28891F490086DEFE /* JapaneseA01.wmv */; };
-		3AD2E6CD28891F4B0086DEFE /* JapaneseA16.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69B28891F490086DEFE /* JapaneseA16.wmv */; };
-		3AD2E6CE28891F4B0086DEFE /* JapaneseA24.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69C28891F4A0086DEFE /* JapaneseA24.wmv */; };
-		3AD2E6CF28891F4B0086DEFE /* JapaneseA21.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69D28891F4A0086DEFE /* JapaneseA21.wmv */; };
-		3AD2E6D028891F4B0086DEFE /* JapaneseA19.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69E28891F4A0086DEFE /* JapaneseA19.wmv */; };
-		3AD2E6D128891F4B0086DEFE /* JapaneseA41.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E69F28891F4A0086DEFE /* JapaneseA41.wmv */; };
-		3AD2E6D228891F4B0086DEFE /* JapaneseA29.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A028891F4A0086DEFE /* JapaneseA29.wmv */; };
-		3AD2E6D328891F4B0086DEFE /* JapaneseA35.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A128891F4A0086DEFE /* JapaneseA35.wmv */; };
-		3AD2E6D428891F4B0086DEFE /* JapaneseA07.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A228891F4A0086DEFE /* JapaneseA07.wmv */; };
-		3AD2E6D528891F4B0086DEFE /* JapaneseA48.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A328891F4A0086DEFE /* JapaneseA48.wmv */; };
-		3AD2E6D628891F4B0086DEFE /* JapaneseA22.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A428891F4A0086DEFE /* JapaneseA22.wmv */; };
-		3AD2E6D728891F4B0086DEFE /* JapaneseA06.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A528891F4A0086DEFE /* JapaneseA06.wmv */; };
-		3AD2E6D828891F4B0086DEFE /* JapaneseA40.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A628891F4A0086DEFE /* JapaneseA40.wmv */; };
-		3AD2E6D928891F4B0086DEFE /* JapaneseA13.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A728891F4A0086DEFE /* JapaneseA13.wmv */; };
-		3AD2E6DA28891F4B0086DEFE /* JapaneseA05.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A828891F4A0086DEFE /* JapaneseA05.wmv */; };
-		3AD2E6DB28891F4B0086DEFE /* JapaneseA45.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6A928891F4A0086DEFE /* JapaneseA45.wmv */; };
-		3AD2E6DC28891F4B0086DEFE /* JapaneseA47.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6AA28891F4A0086DEFE /* JapaneseA47.wmv */; };
-		3AD2E6DD28891F4B0086DEFE /* JapaneseA12.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6AB28891F4A0086DEFE /* JapaneseA12.wmv */; };
-		3AD2E6DE28891F4B0086DEFE /* JapaneseA38.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6AC28891F4A0086DEFE /* JapaneseA38.wmv */; };
-		3AD2E6DF28891F4B0086DEFE /* JapaneseA44.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6AD28891F4A0086DEFE /* JapaneseA44.wmv */; };
-		3AD2E6E028891F4B0086DEFE /* JapaneseA09.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6AE28891F4A0086DEFE /* JapaneseA09.wmv */; };
-		3AD2E6E128891F4B0086DEFE /* JapaneseA27.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6AF28891F4A0086DEFE /* JapaneseA27.wmv */; };
-		3AD2E6E228891F4B0086DEFE /* JapaneseA31.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B028891F4B0086DEFE /* JapaneseA31.wmv */; };
-		3AD2E6E328891F4B0086DEFE /* JapaneseA37.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B128891F4B0086DEFE /* JapaneseA37.wmv */; };
-		3AD2E6E428891F4B0086DEFE /* JapaneseA46.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B228891F4B0086DEFE /* JapaneseA46.wmv */; };
-		3AD2E6E528891F4B0086DEFE /* JapaneseA43.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B328891F4B0086DEFE /* JapaneseA43.wmv */; };
-		3AD2E6E628891F4B0086DEFE /* JapaneseA26.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B428891F4B0086DEFE /* JapaneseA26.wmv */; };
-		3AD2E6E728891F4B0086DEFE /* JapaneseA42.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B528891F4B0086DEFE /* JapaneseA42.wmv */; };
-		3AD2E6E828891F4B0086DEFE /* JapaneseA15.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B628891F4B0086DEFE /* JapaneseA15.wmv */; };
-		3AD2E6E928891F4B0086DEFE /* JapaneseA11.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B728891F4B0086DEFE /* JapaneseA11.wmv */; };
-		3AD2E6EA28891F4B0086DEFE /* JapaneseA08.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B828891F4B0086DEFE /* JapaneseA08.wmv */; };
-		3AD2E6EB28891F4B0086DEFE /* JapaneseA34.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6B928891F4B0086DEFE /* JapaneseA34.wmv */; };
-		3AD2E6EC28891F4B0086DEFE /* JapaneseA39.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6BA28891F4B0086DEFE /* JapaneseA39.wmv */; };
-		3AD2E6ED28891F4B0086DEFE /* JapaneseA10.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6BB28891F4B0086DEFE /* JapaneseA10.wmv */; };
-		3AD2E6EE28891F4B0086DEFE /* JapaneseA28.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6BC28891F4B0086DEFE /* JapaneseA28.wmv */; };
-		3AD2E6EF28891F4B0086DEFE /* JapaneseA30.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6BD28891F4B0086DEFE /* JapaneseA30.wmv */; };
-		3AD2E6F028891F4B0086DEFE /* JapaneseA33.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6BE28891F4B0086DEFE /* JapaneseA33.wmv */; };
-		3AD2E6F128891F4B0086DEFE /* JapaneseA25.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6BF28891F4B0086DEFE /* JapaneseA25.wmv */; };
-		3AD2E6F228891F4B0086DEFE /* JapaneseA23.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6C028891F4B0086DEFE /* JapaneseA23.wmv */; };
 		3AD2E72828891F640086DEFE /* JapaneseA002.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6F628891F620086DEFE /* JapaneseA002.wmv */; };
 		3AD2E72928891F640086DEFE /* JapaneseA35.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6F728891F620086DEFE /* JapaneseA35.wmv */; };
 		3AD2E72A28891F640086DEFE /* JapaneseA29.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E6F828891F620086DEFE /* JapaneseA29.wmv */; };
@@ -469,56 +419,6 @@
 		3AD2E67228891ED70086DEFE /* Unit4_Lesson4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit4_Lesson4; path = ../../../../../../English/Unit4_Lesson4; sourceTree = "<group>"; };
 		3AD2E67328891ED70086DEFE /* Unit5_Lesson1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit5_Lesson1; path = ../../../../../../English/Unit5_Lesson1; sourceTree = "<group>"; };
 		3AD2E67428891ED70086DEFE /* Unit6_Lesson1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit6_Lesson1; path = ../../../../../../English/Unit6_Lesson1; sourceTree = "<group>"; };
-		3AD2E68F28891F490086DEFE /* JapaneseA32.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA32.wmv; path = ../../../../../../Japanese/JapaneseA32.wmv; sourceTree = "<group>"; };
-		3AD2E69028891F490086DEFE /* JapaneseA02.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA02.wmv; path = ../../../../../../Japanese/JapaneseA02.wmv; sourceTree = "<group>"; };
-		3AD2E69128891F490086DEFE /* JapaneseA001.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA001.wmv; path = ../../../../../../Japanese/JapaneseA001.wmv; sourceTree = "<group>"; };
-		3AD2E69228891F490086DEFE /* JapaneseA17.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA17.wmv; path = ../../../../../../Japanese/JapaneseA17.wmv; sourceTree = "<group>"; };
-		3AD2E69328891F490086DEFE /* JapaneseA03.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA03.wmv; path = ../../../../../../Japanese/JapaneseA03.wmv; sourceTree = "<group>"; };
-		3AD2E69428891F490086DEFE /* JapaneseA36.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA36.wmv; path = ../../../../../../Japanese/JapaneseA36.wmv; sourceTree = "<group>"; };
-		3AD2E69528891F490086DEFE /* JapaneseA04.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA04.wmv; path = ../../../../../../Japanese/JapaneseA04.wmv; sourceTree = "<group>"; };
-		3AD2E69628891F490086DEFE /* JapaneseA14.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA14.wmv; path = ../../../../../../Japanese/JapaneseA14.wmv; sourceTree = "<group>"; };
-		3AD2E69728891F490086DEFE /* JapaneseA18.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA18.wmv; path = ../../../../../../Japanese/JapaneseA18.wmv; sourceTree = "<group>"; };
-		3AD2E69828891F490086DEFE /* JapaneseA002.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA002.wmv; path = ../../../../../../Japanese/JapaneseA002.wmv; sourceTree = "<group>"; };
-		3AD2E69928891F490086DEFE /* JapaneseA20.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA20.wmv; path = ../../../../../../Japanese/JapaneseA20.wmv; sourceTree = "<group>"; };
-		3AD2E69A28891F490086DEFE /* JapaneseA01.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA01.wmv; path = ../../../../../../Japanese/JapaneseA01.wmv; sourceTree = "<group>"; };
-		3AD2E69B28891F490086DEFE /* JapaneseA16.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA16.wmv; path = ../../../../../../Japanese/JapaneseA16.wmv; sourceTree = "<group>"; };
-		3AD2E69C28891F4A0086DEFE /* JapaneseA24.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA24.wmv; path = ../../../../../../Japanese/JapaneseA24.wmv; sourceTree = "<group>"; };
-		3AD2E69D28891F4A0086DEFE /* JapaneseA21.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA21.wmv; path = ../../../../../../Japanese/JapaneseA21.wmv; sourceTree = "<group>"; };
-		3AD2E69E28891F4A0086DEFE /* JapaneseA19.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA19.wmv; path = ../../../../../../Japanese/JapaneseA19.wmv; sourceTree = "<group>"; };
-		3AD2E69F28891F4A0086DEFE /* JapaneseA41.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA41.wmv; path = ../../../../../../Japanese/JapaneseA41.wmv; sourceTree = "<group>"; };
-		3AD2E6A028891F4A0086DEFE /* JapaneseA29.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA29.wmv; path = ../../../../../../Japanese/JapaneseA29.wmv; sourceTree = "<group>"; };
-		3AD2E6A128891F4A0086DEFE /* JapaneseA35.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA35.wmv; path = ../../../../../../Japanese/JapaneseA35.wmv; sourceTree = "<group>"; };
-		3AD2E6A228891F4A0086DEFE /* JapaneseA07.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA07.wmv; path = ../../../../../../Japanese/JapaneseA07.wmv; sourceTree = "<group>"; };
-		3AD2E6A328891F4A0086DEFE /* JapaneseA48.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA48.wmv; path = ../../../../../../Japanese/JapaneseA48.wmv; sourceTree = "<group>"; };
-		3AD2E6A428891F4A0086DEFE /* JapaneseA22.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA22.wmv; path = ../../../../../../Japanese/JapaneseA22.wmv; sourceTree = "<group>"; };
-		3AD2E6A528891F4A0086DEFE /* JapaneseA06.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA06.wmv; path = ../../../../../../Japanese/JapaneseA06.wmv; sourceTree = "<group>"; };
-		3AD2E6A628891F4A0086DEFE /* JapaneseA40.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA40.wmv; path = ../../../../../../Japanese/JapaneseA40.wmv; sourceTree = "<group>"; };
-		3AD2E6A728891F4A0086DEFE /* JapaneseA13.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA13.wmv; path = ../../../../../../Japanese/JapaneseA13.wmv; sourceTree = "<group>"; };
-		3AD2E6A828891F4A0086DEFE /* JapaneseA05.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA05.wmv; path = ../../../../../../Japanese/JapaneseA05.wmv; sourceTree = "<group>"; };
-		3AD2E6A928891F4A0086DEFE /* JapaneseA45.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA45.wmv; path = ../../../../../../Japanese/JapaneseA45.wmv; sourceTree = "<group>"; };
-		3AD2E6AA28891F4A0086DEFE /* JapaneseA47.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA47.wmv; path = ../../../../../../Japanese/JapaneseA47.wmv; sourceTree = "<group>"; };
-		3AD2E6AB28891F4A0086DEFE /* JapaneseA12.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA12.wmv; path = ../../../../../../Japanese/JapaneseA12.wmv; sourceTree = "<group>"; };
-		3AD2E6AC28891F4A0086DEFE /* JapaneseA38.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA38.wmv; path = ../../../../../../Japanese/JapaneseA38.wmv; sourceTree = "<group>"; };
-		3AD2E6AD28891F4A0086DEFE /* JapaneseA44.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA44.wmv; path = ../../../../../../Japanese/JapaneseA44.wmv; sourceTree = "<group>"; };
-		3AD2E6AE28891F4A0086DEFE /* JapaneseA09.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA09.wmv; path = ../../../../../../Japanese/JapaneseA09.wmv; sourceTree = "<group>"; };
-		3AD2E6AF28891F4A0086DEFE /* JapaneseA27.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA27.wmv; path = ../../../../../../Japanese/JapaneseA27.wmv; sourceTree = "<group>"; };
-		3AD2E6B028891F4B0086DEFE /* JapaneseA31.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA31.wmv; path = ../../../../../../Japanese/JapaneseA31.wmv; sourceTree = "<group>"; };
-		3AD2E6B128891F4B0086DEFE /* JapaneseA37.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA37.wmv; path = ../../../../../../Japanese/JapaneseA37.wmv; sourceTree = "<group>"; };
-		3AD2E6B228891F4B0086DEFE /* JapaneseA46.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA46.wmv; path = ../../../../../../Japanese/JapaneseA46.wmv; sourceTree = "<group>"; };
-		3AD2E6B328891F4B0086DEFE /* JapaneseA43.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA43.wmv; path = ../../../../../../Japanese/JapaneseA43.wmv; sourceTree = "<group>"; };
-		3AD2E6B428891F4B0086DEFE /* JapaneseA26.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA26.wmv; path = ../../../../../../Japanese/JapaneseA26.wmv; sourceTree = "<group>"; };
-		3AD2E6B528891F4B0086DEFE /* JapaneseA42.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA42.wmv; path = ../../../../../../Japanese/JapaneseA42.wmv; sourceTree = "<group>"; };
-		3AD2E6B628891F4B0086DEFE /* JapaneseA15.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA15.wmv; path = ../../../../../../Japanese/JapaneseA15.wmv; sourceTree = "<group>"; };
-		3AD2E6B728891F4B0086DEFE /* JapaneseA11.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA11.wmv; path = ../../../../../../Japanese/JapaneseA11.wmv; sourceTree = "<group>"; };
-		3AD2E6B828891F4B0086DEFE /* JapaneseA08.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA08.wmv; path = ../../../../../../Japanese/JapaneseA08.wmv; sourceTree = "<group>"; };
-		3AD2E6B928891F4B0086DEFE /* JapaneseA34.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA34.wmv; path = ../../../../../../Japanese/JapaneseA34.wmv; sourceTree = "<group>"; };
-		3AD2E6BA28891F4B0086DEFE /* JapaneseA39.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA39.wmv; path = ../../../../../../Japanese/JapaneseA39.wmv; sourceTree = "<group>"; };
-		3AD2E6BB28891F4B0086DEFE /* JapaneseA10.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA10.wmv; path = ../../../../../../Japanese/JapaneseA10.wmv; sourceTree = "<group>"; };
-		3AD2E6BC28891F4B0086DEFE /* JapaneseA28.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA28.wmv; path = ../../../../../../Japanese/JapaneseA28.wmv; sourceTree = "<group>"; };
-		3AD2E6BD28891F4B0086DEFE /* JapaneseA30.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA30.wmv; path = ../../../../../../Japanese/JapaneseA30.wmv; sourceTree = "<group>"; };
-		3AD2E6BE28891F4B0086DEFE /* JapaneseA33.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA33.wmv; path = ../../../../../../Japanese/JapaneseA33.wmv; sourceTree = "<group>"; };
-		3AD2E6BF28891F4B0086DEFE /* JapaneseA25.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA25.wmv; path = ../../../../../../Japanese/JapaneseA25.wmv; sourceTree = "<group>"; };
-		3AD2E6C028891F4B0086DEFE /* JapaneseA23.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA23.wmv; path = ../../../../../../Japanese/JapaneseA23.wmv; sourceTree = "<group>"; };
 		3AD2E6F628891F620086DEFE /* JapaneseA002.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA002.wmv; path = ../../../../../../Japanese/JapaneseA002.wmv; sourceTree = "<group>"; };
 		3AD2E6F728891F620086DEFE /* JapaneseA35.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA35.wmv; path = ../../../../../../Japanese/JapaneseA35.wmv; sourceTree = "<group>"; };
 		3AD2E6F828891F620086DEFE /* JapaneseA29.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; name = JapaneseA29.wmv; path = ../../../../../../Japanese/JapaneseA29.wmv; sourceTree = "<group>"; };
@@ -916,56 +816,6 @@
 		11F640EC288901D20050B936 /* FileSource */ = {
 			isa = PBXGroup;
 			children = (
-				3AD2E69A28891F490086DEFE /* JapaneseA01.wmv */,
-				3AD2E69128891F490086DEFE /* JapaneseA001.wmv */,
-				3AD2E69028891F490086DEFE /* JapaneseA02.wmv */,
-				3AD2E69828891F490086DEFE /* JapaneseA002.wmv */,
-				3AD2E69328891F490086DEFE /* JapaneseA03.wmv */,
-				3AD2E69528891F490086DEFE /* JapaneseA04.wmv */,
-				3AD2E6A828891F4A0086DEFE /* JapaneseA05.wmv */,
-				3AD2E6A528891F4A0086DEFE /* JapaneseA06.wmv */,
-				3AD2E6A228891F4A0086DEFE /* JapaneseA07.wmv */,
-				3AD2E6B828891F4B0086DEFE /* JapaneseA08.wmv */,
-				3AD2E6AE28891F4A0086DEFE /* JapaneseA09.wmv */,
-				3AD2E6BB28891F4B0086DEFE /* JapaneseA10.wmv */,
-				3AD2E6B728891F4B0086DEFE /* JapaneseA11.wmv */,
-				3AD2E6AB28891F4A0086DEFE /* JapaneseA12.wmv */,
-				3AD2E6A728891F4A0086DEFE /* JapaneseA13.wmv */,
-				3AD2E69628891F490086DEFE /* JapaneseA14.wmv */,
-				3AD2E6B628891F4B0086DEFE /* JapaneseA15.wmv */,
-				3AD2E69B28891F490086DEFE /* JapaneseA16.wmv */,
-				3AD2E69228891F490086DEFE /* JapaneseA17.wmv */,
-				3AD2E69728891F490086DEFE /* JapaneseA18.wmv */,
-				3AD2E69E28891F4A0086DEFE /* JapaneseA19.wmv */,
-				3AD2E69928891F490086DEFE /* JapaneseA20.wmv */,
-				3AD2E69D28891F4A0086DEFE /* JapaneseA21.wmv */,
-				3AD2E6A428891F4A0086DEFE /* JapaneseA22.wmv */,
-				3AD2E6C028891F4B0086DEFE /* JapaneseA23.wmv */,
-				3AD2E69C28891F4A0086DEFE /* JapaneseA24.wmv */,
-				3AD2E6BF28891F4B0086DEFE /* JapaneseA25.wmv */,
-				3AD2E6B428891F4B0086DEFE /* JapaneseA26.wmv */,
-				3AD2E6AF28891F4A0086DEFE /* JapaneseA27.wmv */,
-				3AD2E6BC28891F4B0086DEFE /* JapaneseA28.wmv */,
-				3AD2E6A028891F4A0086DEFE /* JapaneseA29.wmv */,
-				3AD2E6BD28891F4B0086DEFE /* JapaneseA30.wmv */,
-				3AD2E6B028891F4B0086DEFE /* JapaneseA31.wmv */,
-				3AD2E68F28891F490086DEFE /* JapaneseA32.wmv */,
-				3AD2E6BE28891F4B0086DEFE /* JapaneseA33.wmv */,
-				3AD2E6B928891F4B0086DEFE /* JapaneseA34.wmv */,
-				3AD2E6A128891F4A0086DEFE /* JapaneseA35.wmv */,
-				3AD2E69428891F490086DEFE /* JapaneseA36.wmv */,
-				3AD2E6B128891F4B0086DEFE /* JapaneseA37.wmv */,
-				3AD2E6AC28891F4A0086DEFE /* JapaneseA38.wmv */,
-				3AD2E6BA28891F4B0086DEFE /* JapaneseA39.wmv */,
-				3AD2E6A628891F4A0086DEFE /* JapaneseA40.wmv */,
-				3AD2E69F28891F4A0086DEFE /* JapaneseA41.wmv */,
-				3AD2E6B528891F4B0086DEFE /* JapaneseA42.wmv */,
-				3AD2E6B328891F4B0086DEFE /* JapaneseA43.wmv */,
-				3AD2E6AD28891F4A0086DEFE /* JapaneseA44.wmv */,
-				3AD2E6A928891F4A0086DEFE /* JapaneseA45.wmv */,
-				3AD2E6B228891F4B0086DEFE /* JapaneseA46.wmv */,
-				3AD2E6AA28891F4A0086DEFE /* JapaneseA47.wmv */,
-				3AD2E6A328891F4A0086DEFE /* JapaneseA48.wmv */,
 				3AD2E66D28891ED70086DEFE /* Unit0_Lesson0 */,
 				3AD2E66E28891ED70086DEFE /* Unit1_Lesson1 */,
 				3AD2E66228891ED60086DEFE /* Unit1_Lesson2 */,
@@ -1634,115 +1484,65 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AD2E6C428891F4B0086DEFE /* JapaneseA17.wmv in Resources */,
-				3AD2E6E928891F4B0086DEFE /* JapaneseA11.wmv in Resources */,
-				3AD2E6E328891F4B0086DEFE /* JapaneseA37.wmv in Resources */,
 				3AD2E73A28891F650086DEFE /* JapaneseA20.wmv in Resources */,
 				3AAE5CBF26354939009D0534 /* Images.xcassets in Resources */,
 				3AD2E74728891F650086DEFE /* JapaneseA09.wmv in Resources */,
-				3AD2E6C528891F4B0086DEFE /* JapaneseA03.wmv in Resources */,
 				3AD2E73D28891F650086DEFE /* JapaneseA36.wmv in Resources */,
-				3AD2E6D528891F4B0086DEFE /* JapaneseA48.wmv in Resources */,
 				3AD2E73228891F640086DEFE /* JapaneseA45.wmv in Resources */,
-				3AD2E6DC28891F4B0086DEFE /* JapaneseA47.wmv in Resources */,
-				3AD2E6D028891F4B0086DEFE /* JapaneseA19.wmv in Resources */,
-				3AD2E6D728891F4B0086DEFE /* JapaneseA06.wmv in Resources */,
 				3AD2E73028891F640086DEFE /* JapaneseA42.wmv in Resources */,
 				3AD2E75028891F650086DEFE /* JapaneseA47.wmv in Resources */,
-				3AD2E6DF28891F4B0086DEFE /* JapaneseA44.wmv in Resources */,
-				3AD2E6E828891F4B0086DEFE /* JapaneseA15.wmv in Resources */,
 				3AD2E74628891F650086DEFE /* JapaneseA46.wmv in Resources */,
-				3AD2E6C728891F4B0086DEFE /* JapaneseA04.wmv in Resources */,
-				3AD2E6EE28891F4B0086DEFE /* JapaneseA28.wmv in Resources */,
-				3AD2E6EA28891F4B0086DEFE /* JapaneseA08.wmv in Resources */,
-				3AD2E6CE28891F4B0086DEFE /* JapaneseA24.wmv in Resources */,
-				3AD2E6C328891F4B0086DEFE /* JapaneseA001.wmv in Resources */,
-				3AD2E6D328891F4B0086DEFE /* JapaneseA35.wmv in Resources */,
 				3AD2E72928891F640086DEFE /* JapaneseA35.wmv in Resources */,
 				3AD2E75728891F650086DEFE /* JapaneseA41.wmv in Resources */,
 				3AD2E74928891F650086DEFE /* JapaneseA11.wmv in Resources */,
-				3AD2E6CB28891F4B0086DEFE /* JapaneseA20.wmv in Resources */,
-				3AD2E6F028891F4B0086DEFE /* JapaneseA33.wmv in Resources */,
 				3AD2E74328891F650086DEFE /* JapaneseA16.wmv in Resources */,
 				3AD2E75328891F650086DEFE /* JapaneseA44.wmv in Resources */,
-				3AD2E6C228891F4B0086DEFE /* JapaneseA02.wmv in Resources */,
-				3AD2E6EC28891F4B0086DEFE /* JapaneseA39.wmv in Resources */,
 				3AD2E73428891F650086DEFE /* JapaneseA27.wmv in Resources */,
 				3AD2E72A28891F640086DEFE /* JapaneseA29.wmv in Resources */,
-				3AD2E6E428891F4B0086DEFE /* JapaneseA46.wmv in Resources */,
 				3AD2E74228891F650086DEFE /* JapaneseA08.wmv in Resources */,
-				3AD2E6E528891F4B0086DEFE /* JapaneseA43.wmv in Resources */,
 				3AD2E75428891F650086DEFE /* JapaneseA15.wmv in Resources */,
-				3AD2E6D828891F4B0086DEFE /* JapaneseA40.wmv in Resources */,
 				3AD2E74D28891F650086DEFE /* JapaneseA21.wmv in Resources */,
 				3AD2E74C28891F650086DEFE /* JapaneseA23.wmv in Resources */,
 				3AD2E75128891F650086DEFE /* JapaneseA33.wmv in Resources */,
-				3AD2E6DD28891F4B0086DEFE /* JapaneseA12.wmv in Resources */,
 				3AD2E74428891F650086DEFE /* JapaneseA12.wmv in Resources */,
-				3AD2E6CA28891F4B0086DEFE /* JapaneseA002.wmv in Resources */,
 				3AD2E72F28891F640086DEFE /* JapaneseA37.wmv in Resources */,
-				3AD2E6C928891F4B0086DEFE /* JapaneseA18.wmv in Resources */,
-				3AD2E6E728891F4B0086DEFE /* JapaneseA42.wmv in Resources */,
 				3AD2E74E28891F650086DEFE /* JapaneseA32.wmv in Resources */,
 				3AD2E74B28891F650086DEFE /* JapaneseA07.wmv in Resources */,
-				3AD2E6F128891F4B0086DEFE /* JapaneseA25.wmv in Resources */,
 				3AAE5D0226356867009D0534 /* LaunchScreen.storyboard in Resources */,
 				3AAE5CBE26354939009D0534 /* InfoPlist.strings in Resources */,
 				3AD2E72B28891F640086DEFE /* JapaneseA14.wmv in Resources */,
-				3AD2E6E628891F4B0086DEFE /* JapaneseA26.wmv in Resources */,
 				3AAE5CBD26354939009D0534 /* Localizable.strings in Resources */,
-				3AD2E6CD28891F4B0086DEFE /* JapaneseA16.wmv in Resources */,
 				3AD2E73328891F640086DEFE /* JapaneseA22.wmv in Resources */,
-				3AD2E6EB28891F4B0086DEFE /* JapaneseA34.wmv in Resources */,
-				3AD2E6DE28891F4B0086DEFE /* JapaneseA38.wmv in Resources */,
 				3AAE5D0326356867009D0534 /* LaunchScreen.xcassets in Resources */,
 				3AD2E73F28891F650086DEFE /* JapaneseA40.wmv in Resources */,
 				3A79E58A2637C6F600B83609 /* Default.bundle in Resources */,
 				3AD2E75528891F650086DEFE /* JapaneseA06.wmv in Resources */,
 				3AD2E74028891F650086DEFE /* JapaneseA001.wmv in Resources */,
 				3AD2E72C28891F640086DEFE /* JapaneseA28.wmv in Resources */,
-				3AD2E6C128891F4B0086DEFE /* JapaneseA32.wmv in Resources */,
 				3AD2E73128891F640086DEFE /* JapaneseA17.wmv in Resources */,
 				3AD2E75928891F650086DEFE /* JapaneseA43.wmv in Resources */,
-				3AD2E6F228891F4B0086DEFE /* JapaneseA23.wmv in Resources */,
 				3AD2E75228891F650086DEFE /* JapaneseA30.wmv in Resources */,
-				3AD2E6CC28891F4B0086DEFE /* JapaneseA01.wmv in Resources */,
 				3AD2E75628891F650086DEFE /* JapaneseA39.wmv in Resources */,
 				3AD2E72E28891F640086DEFE /* JapaneseA26.wmv in Resources */,
 				3AD2E73B28891F650086DEFE /* JapaneseA01.wmv in Resources */,
-				3AD2E6D628891F4B0086DEFE /* JapaneseA22.wmv in Resources */,
 				3AD2E72D28891F640086DEFE /* JapaneseA24.wmv in Resources */,
-				3AD2E6DB28891F4B0086DEFE /* JapaneseA45.wmv in Resources */,
 				3AD2E73E28891F650086DEFE /* JapaneseA25.wmv in Resources */,
-				3AD2E6DA28891F4B0086DEFE /* JapaneseA05.wmv in Resources */,
-				3AD2E6E128891F4B0086DEFE /* JapaneseA27.wmv in Resources */,
-				3AD2E6D428891F4B0086DEFE /* JapaneseA07.wmv in Resources */,
 				3AD2E74A28891F650086DEFE /* JapaneseA03.wmv in Resources */,
 				3AD2E73828891F650086DEFE /* JapaneseA34.wmv in Resources */,
 				3AD2E72828891F640086DEFE /* JapaneseA002.wmv in Resources */,
-				3AD2E6ED28891F4B0086DEFE /* JapaneseA10.wmv in Resources */,
 				3AD2E74F28891F650086DEFE /* JapaneseA38.wmv in Resources */,
-				3AD2E6D928891F4B0086DEFE /* JapaneseA13.wmv in Resources */,
-				3AD2E6CF28891F4B0086DEFE /* JapaneseA21.wmv in Resources */,
 				3A79E3162637A9D300B83609 /* KKVideoPlay_Resource.bundle in Resources */,
-				3AD2E6C628891F4B0086DEFE /* JapaneseA36.wmv in Resources */,
 				3AD2E73C28891F650086DEFE /* JapaneseA31.wmv in Resources */,
 				3AD2E74128891F650086DEFE /* JapaneseA02.wmv in Resources */,
 				3AD2E74528891F650086DEFE /* JapaneseA18.wmv in Resources */,
 				3AD2E74828891F650086DEFE /* JapaneseA04.wmv in Resources */,
-				3AD2E6E028891F4B0086DEFE /* JapaneseA09.wmv in Resources */,
 				3AD2E75828891F650086DEFE /* JapaneseA10.wmv in Resources */,
 				11F640C52888FFA70050B936 /* KKLibraryLocalization.plist in Resources */,
 				3AD2E73928891F650086DEFE /* JapaneseA48.wmv in Resources */,
-				3AD2E6EF28891F4B0086DEFE /* JapaneseA30.wmv in Resources */,
 				3AD2E73528891F650086DEFE /* JapaneseA19.wmv in Resources */,
-				3AD2E6C828891F4B0086DEFE /* JapaneseA14.wmv in Resources */,
 				3AD2E73728891F650086DEFE /* JapaneseA05.wmv in Resources */,
 				3AD2E73628891F650086DEFE /* JapaneseA13.wmv in Resources */,
-				3AD2E6D228891F4B0086DEFE /* JapaneseA29.wmv in Resources */,
-				3AD2E6D128891F4B0086DEFE /* JapaneseA41.wmv in Resources */,
 				11F641192889043F0050B936 /* KKWaitingView.bundle in Resources */,
-				3AD2E6E228891F4B0086DEFE /* JapaneseA31.wmv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
