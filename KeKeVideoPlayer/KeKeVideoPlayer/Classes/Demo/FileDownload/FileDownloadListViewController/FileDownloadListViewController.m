@@ -180,13 +180,18 @@
         if (!cell) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.backgroundColor = [UIColor clearColor];
+            cell.contentView.backgroundColor = [UIColor clearColor];
+            cell.backgroundView.backgroundColor = [UIColor clearColor];
             
             CGSize sizeM = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:16]];
             
             UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-sizeM.height)/2.0, KKApplicationWidth-30, sizeM.height)];
             mainLabel.tag = 1101;
+            mainLabel.textColor = [UIColor blackColor];
             mainLabel.font = [UIFont systemFontOfSize:16];
             mainLabel.numberOfLines = 0;
+            mainLabel.backgroundColor = [UIColor clearColor];
             [cell addSubview:mainLabel];
         }
         
@@ -212,21 +217,28 @@
         if (!cell) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifierD];
             cell.accessoryType=UITableViewCellAccessoryNone;
-            
+            cell.backgroundColor = [UIColor clearColor];
+            cell.contentView.backgroundColor = [UIColor clearColor];
+            cell.backgroundView.backgroundColor = [UIColor clearColor];
+
             CGSize sizeM = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:16]];
             
             UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, KKApplicationWidth-30, sizeM.height)];
             mainLabel.tag = 2201;
+            mainLabel.textColor = [UIColor blackColor];
             mainLabel.font = [UIFont systemFontOfSize:16];
             mainLabel.numberOfLines = 1;
+            mainLabel.backgroundColor = [UIColor clearColor];
             [cell addSubview:mainLabel];
             
             CGSize sizeS = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:12]];
             
             UILabel *subLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, mainLabel.kk_bottom+5, KKApplicationWidth-30, sizeS.height)];
             subLabel.tag = 2202;
+            subLabel.textColor = [UIColor blackColor];
             subLabel.font = [UIFont systemFontOfSize:12];
             subLabel.numberOfLines = 1;
+            subLabel.backgroundColor = [UIColor clearColor];
             [cell addSubview:subLabel];
         }
         
