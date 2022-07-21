@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+
+inhibit_all_warnings!
+
+use_frameworks!
+
+def install_pods
+  pod 'KeKeLibrary'
+end
+
+#install! 'cocoapods', :warn_for_multiple_pod_sources => false, :warn_for_unused_master_specs_repo => false
+
+target 'English' do
+  install_pods
+end
+
+target 'Japanese' do
+  install_pods
+end
+
+target 'Demo' do
+  install_pods
+end
+
+

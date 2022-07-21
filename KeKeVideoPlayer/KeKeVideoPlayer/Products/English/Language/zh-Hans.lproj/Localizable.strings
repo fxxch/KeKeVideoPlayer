@@ -1,0 +1,19 @@
+/*
+ Localization.strings
+ ProjectK
+ 
+ Created by 刘 波 on 13-9-13.
+ Copyright (c) 2013年 Beartech. All rights reserved.
+ */
+
+/**
+ 简体中文
+ */
+
+
+//★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+//★★ 网络ErrorCode提示语
+//★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+"required" = "不能为空";
+
+
