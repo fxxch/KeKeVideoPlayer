@@ -1,38 +1,32 @@
 //
-//  BaseViewController.m
-//  StreetDancing
+//  MusicBaseViewController.m
+//  Music
 //
-//  Created by beartech on 15/4/14.
-//  Copyright (c) 2015年 KeKeStudio. All rights reserved.
+//  Created by edward lannister on 2022/08/05.
+//  Copyright © 2022 KeKeStudio. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import "KKThemeManager.h"
+#import "MusicBaseViewController.h"
 
-@implementation BaseViewController
+@interface MusicBaseViewController ()
+
+@end
+
+@implementation MusicBaseViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor kk_colorWithHexString:@"#F9F9F9"];
 }
 
 /* 子类可重写该方法，不重写的话默认是白色 */
 - (UIColor*)kk_DefaultNavigationBarBackgroundColor{
-    return [UIColor blackColor];
+    return [UIColor whiteColor];
 }
-
-- (KKButton*)showNavigationDefaultBackButton_ForNavPopBack{
-    UIImage *image = KKThemeImage(@"btn_NavBackDefault");
-    UIImage *nImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    KKButton *leftButton = [self setNavLeftButtonImage:nImage highlightImage:nil selector:@selector(navigationControllerPopBack)];
-    leftButton.imageView.tintColor = [UIColor whiteColor];
-    return leftButton;
-}
-
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setStatusBarHidden:NO statusBarStyle:UIStatusBarStyleLightContent withAnimation:UIStatusBarAnimationNone];
+    [self setStatusBarHidden:NO statusBarStyle:UIStatusBarStyleDefault withAnimation:UIStatusBarAnimationNone];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -71,5 +65,3 @@
 }
 
 @end
-
-

@@ -141,7 +141,9 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.player pausePlay];
+    if (self.canPlayInBackground==NO) {
+        [self.player pausePlay];
+    }
 }
 
 - (void)navigationControllerPopBack{

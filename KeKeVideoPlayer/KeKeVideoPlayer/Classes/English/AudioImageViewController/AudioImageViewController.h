@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy)NSString *documentRemoteURL;
 @property (nonatomic,copy)NSString *documentRemoteName;
+@property (nonatomic,assign)BOOL canPlayInBackground;
 
 /**
  * 1、aFilePath 文档的URL,（file:///xxxxx的路径e格式,或者http://格式）

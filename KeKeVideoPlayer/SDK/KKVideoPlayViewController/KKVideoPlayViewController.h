@@ -18,6 +18,7 @@
 @property (nonatomic,copy)NSString *documentRemoteName;
 @property (nonatomic , weak) id<KKVideoPlayViewControllerDelegate> delegate;
 @property (nonatomic , strong) NSArray<KKWindowActionViewItem*>* moreActionItems;
+@property (nonatomic,assign)BOOL canPlayInBackground;
 
 /**
 * 1、aFilePath 文档的URL,（file:///xxxxx的路径e格式,或者http://格式）

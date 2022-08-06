@@ -230,6 +230,10 @@
 	<string>Base/btn_EditCommend.png</string>
 	<key>MapAnnotationImage</key>
 	<string>Base/MapAnnotationImage.png</string>
+	<key>btn_NavPlus</key>
+	<string>Base/btn_NavPlus.png</string>
+	<key>btn_NavCloud</key>
+	<string>Base/btn_NavCloud.png</string>
 	<key>★★★★★----------Common-----------★★★★★</key>
 	<string>★★★★★----------Common-----------★★★★★</string>
 	<key>ScanLoginWarning</key>
@@ -240,6 +244,20 @@
 	<string>Common/ScanLoginFinderframe.png</string>
 	<key>WebPopView_Copy</key>
 	<string>Common/WebPopView_Copy.png</string>
+	<key>【Home】★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</key>
+	<string>★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</string>
+	<key>Home_BottomBtn_0H</key>
+	<string>Home/Home_BottomBtn_0H.png</string>
+	<key>Home_BottomBtn_0N</key>
+	<string>Home/Home_BottomBtn_0N.png</string>
+	<key>Home_BottomBtn_1H</key>
+	<string>Home/Home_BottomBtn_1H.png</string>
+	<key>Home_BottomBtn_1N</key>
+	<string>Home/Home_BottomBtn_1N.png</string>
+	<key>Home_BottomBtn_2H</key>
+	<string>Home/Home_BottomBtn_2H.png</string>
+	<key>Home_BottomBtn_2N</key>
+	<string>Home/Home_BottomBtn_2N.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>
