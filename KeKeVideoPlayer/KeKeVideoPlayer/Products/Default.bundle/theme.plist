@@ -230,10 +230,6 @@
 	<string>Base/btn_EditCommend.png</string>
 	<key>MapAnnotationImage</key>
 	<string>Base/MapAnnotationImage.png</string>
-	<key>btn_NavPlus</key>
-	<string>Base/btn_NavPlus.png</string>
-	<key>btn_NavCloud</key>
-	<string>Base/btn_NavCloud.png</string>
 	<key>★★★★★----------Common-----------★★★★★</key>
 	<string>★★★★★----------Common-----------★★★★★</string>
 	<key>ScanLoginWarning</key>
@@ -244,20 +240,40 @@
 	<string>Common/ScanLoginFinderframe.png</string>
 	<key>WebPopView_Copy</key>
 	<string>Common/WebPopView_Copy.png</string>
-	<key>【Home】★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</key>
+	<key>【Music】★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</key>
 	<string>★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</string>
-	<key>Home_BottomBtn_0H</key>
-	<string>Home/Home_BottomBtn_0H.png</string>
-	<key>Home_BottomBtn_0N</key>
-	<string>Home/Home_BottomBtn_0N.png</string>
-	<key>Home_BottomBtn_1H</key>
-	<string>Home/Home_BottomBtn_1H.png</string>
-	<key>Home_BottomBtn_1N</key>
-	<string>Home/Home_BottomBtn_1N.png</string>
-	<key>Home_BottomBtn_2H</key>
-	<string>Home/Home_BottomBtn_2H.png</string>
-	<key>Home_BottomBtn_2N</key>
-	<string>Home/Home_BottomBtn_2N.png</string>
+	<key>Music_Home_BottomBtn_0H</key>
+	<string>Music/Music_Home_BottomBtn_0H.png</string>
+	<key>Music_Home_BottomBtn_0N</key>
+	<string>Music/Music_Home_BottomBtn_0N.png</string>
+	<key>Music_Home_BottomBtn_1H</key>
+	<string>Music/Music_Home_BottomBtn_1H.png</string>
+	<key>Music_Home_BottomBtn_1N</key>
+	<string>Music/Music_Home_BottomBtn_1N.png</string>
+	<key>Music_Home_BottomBtn_2H</key>
+	<string>Music/Music_Home_BottomBtn_2H.png</string>
+	<key>Music_Home_BottomBtn_2N</key>
+	<string>Music/Music_Home_BottomBtn_2N.png</string>
+	<key>Music_btn_NavCloud</key>
+	<string>Music/Music_btn_NavCloud.png</string>
+	<key>Music_btn_NavPlus</key>
+	<string>Music/Music_btn_NavPlus.png</string>
+	<key>Music_btn_NavList</key>
+	<string>Music/Music_btn_NavList.png</string>
+	<key>Music_next</key>
+	<string>Music/Music_next.png</string>
+	<key>Music_order</key>
+	<string>Music/Music_order.png</string>
+	<key>Music_orderRandom</key>
+	<string>Music/Music_orderRandom.png</string>
+	<key>Music_orderReplay</key>
+	<string>Music/Music_orderReplay.png</string>
+	<key>Music_play</key>
+	<string>Music/Music_play.png</string>
+	<key>Music_prev</key>
+	<string>Music/Music_prev.png</string>
+	<key>Music_pause</key>
+	<string>Music/Music_pause.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>

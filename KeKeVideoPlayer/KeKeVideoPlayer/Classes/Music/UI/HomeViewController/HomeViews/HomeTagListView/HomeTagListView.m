@@ -33,7 +33,7 @@
     
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
     [self addSubview:self.navBarView];
-    [self.navBarView setNavRightButtonImage:KKThemeImage(@"btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
 
     self.table = [UITableView kk_initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, self.kk_height-self.navBarView.kk_height) style:UITableViewStyleGrouped delegate:self datasource:self];
     self.table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -208,6 +208,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_All];
+            [self kk_postNotification:KKNotificationName_StartPlayDataSouce object:array];
+        }
+    }
+    else{
+//        NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];
+//    //    NSString *tag_name = [info kk_validStringForKey:Table_Tag_tag_name];
+//        NSString *tag_id = [info kk_validStringForKey:Table_Tag_tag_id];
+//        
+//        NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_WithTagId:tag_id];
+//        [self kk_postNotification:KKNotificationName_StartPlayDataSouce object:array];
+    }
+    
+    
 //    NSString *fileName = [self.dataSource objectAtIndex:indexPath.row];
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
 //    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
@@ -273,6 +289,7 @@
     UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[editRowAction,deleteRowAction]];
     return config;
 }
+
 
 
 @end

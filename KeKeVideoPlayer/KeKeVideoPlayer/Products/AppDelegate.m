@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 
     [self reloadRootViewController];
-    
+        
     return YES;
 }
 
@@ -37,6 +37,12 @@
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskAll;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    if (event.type==UIEventTypeRemoteControl) {
+        [self kk_postNotification:KKNotificationName_UIEventSubtypeRemoteControl object:[NSNumber numberWithInteger:event.subtype]];
+    }
 }
 
 @end

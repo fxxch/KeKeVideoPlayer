@@ -86,24 +86,24 @@
         itemButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [self setButtonStyle:itemButton
                    withTitle:@"标签"
-                 normalImage:KKThemeImage(@"Home_BottomBtn_0N")
-            highlightedImage:KKThemeImage(@"Home_BottomBtn_0H")
+                 normalImage:KKThemeImage(@"Music_Home_BottomBtn_0N")
+            highlightedImage:KKThemeImage(@"Music_Home_BottomBtn_0H")
                    imageSize:CGSizeMake(22, 22)];
     }
     else if (aIndex==1){
         itemButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [self setButtonStyle:itemButton
                    withTitle:nil
-                 normalImage:KKThemeImage(@"Home_BottomBtn_1N")
-            highlightedImage:KKThemeImage(@"Home_BottomBtn_1H")
+                 normalImage:KKThemeImage(@"Music_Home_BottomBtn_1N")
+            highlightedImage:KKThemeImage(@"Music_Home_BottomBtn_1H")
                    imageSize:CGSizeMake(40, 40)];
     }
     else{
         itemButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [self setButtonStyle:itemButton
                    withTitle:@"云音库"
-                 normalImage:KKThemeImage(@"Home_BottomBtn_2N")
-            highlightedImage:KKThemeImage(@"Home_BottomBtn_2H")
+                 normalImage:KKThemeImage(@"Music_Home_BottomBtn_2N")
+            highlightedImage:KKThemeImage(@"Music_Home_BottomBtn_2H")
                    imageSize:CGSizeMake(22, 22)];
     }
     

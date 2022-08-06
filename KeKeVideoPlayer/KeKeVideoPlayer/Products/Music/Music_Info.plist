@@ -89,7 +89,11 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>《Music》想要访问您的手机系统相册，以便使用聊天里面的发送照片等功能。</string>
 	<key>UIBackgroundModes</key>
-	<array/>
+	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIPrerenderedIcon</key>

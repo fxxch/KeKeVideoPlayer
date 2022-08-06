@@ -14,6 +14,7 @@
 #import "KKVideoPlayViewController.h"
 #import "KKFileDownloadManager.h"
 #import "MusicNavigationBarView.h"
+#import "HomeMusicPlayerView.h"
 
 //============================================================
 //==  配置

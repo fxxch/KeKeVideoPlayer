@@ -36,7 +36,7 @@
 - (void)initUI{
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
     [self addSubview:self.navBarView];
-    [self.navBarView setNavRightButtonImage:KKThemeImage(@"btn_NavCloud") selector:@selector(navCloudButtonClicked) target:self];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavCloud") selector:@selector(navCloudButtonClicked) target:self];
 
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, 105)];
     headerView.backgroundColor = [UIColor whiteColor];
