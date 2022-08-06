@@ -13,6 +13,8 @@
 
 @interface HomeDataSynchronousView ()<KKTextFieldDelegate,KKSegmentViewDelegate>
 
+@property (nonatomic , strong) MusicNavigationBarView *navBarView;
+
 @property (nonatomic , strong) KKTextField *inputTextField;
 @property (nonatomic , strong) KKSegmentView *segmentView;
 @property (nonatomic , strong) DataListNotDownloadView *notDownloadView;
@@ -32,7 +34,11 @@
 }
 
 - (void)initUI{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKApplicationWidth, 105)];
+    self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
+    [self addSubview:self.navBarView];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"btn_NavCloud") selector:@selector(navCloudButtonClicked) target:self];
+
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, 105)];
     headerView.backgroundColor = [UIColor whiteColor];
     [self addSubview:headerView];
 
@@ -72,7 +78,7 @@
     line.backgroundColor = Theme_Color_999999;
     [headerView addSubview:line];
 
-    CGFloat offsetY = headerView.kk_height;
+    CGFloat offsetY = headerView.kk_bottom;
     self.cloudAllView = [[DataListCloudAllView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
     [self addSubview:self.cloudAllView];
     self.cloudAllView.url = self.inputTextField.text;
@@ -111,6 +117,13 @@
         
     }];
     [task resume];
+}
+
+#pragma mark ==================================================
+#pragma mark == Event
+#pragma mark ==================================================
+- (void)navCloudButtonClicked{
+    [self synchronousAuto];
 }
 
 #pragma mark ==================================================

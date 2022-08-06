@@ -12,8 +12,9 @@
 
 @interface HomeTagListView ()<UITableViewDataSource,UITableViewDelegate>
 
-@property(nonatomic,strong)UITableView *table;
-@property(nonatomic,strong)NSMutableArray *dataSource;
+@property (nonatomic , strong) MusicNavigationBarView *navBarView;
+@property (nonatomic , strong) UITableView *table;
+@property (nonatomic , strong) NSMutableArray *dataSource;
 
 @end
 
@@ -30,7 +31,11 @@
 - (void)initUI{
     self.dataSource = [[NSMutableArray alloc] init];
     
-    self.table = [UITableView kk_initWithFrame:CGRectMake(0, 0, KKApplicationWidth, KKScreenHeight-KKStatusBarAndNavBarHeight) style:UITableViewStyleGrouped delegate:self datasource:self];
+    self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
+    [self addSubview:self.navBarView];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
+
+    self.table = [UITableView kk_initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, self.kk_height-self.navBarView.kk_height) style:UITableViewStyleGrouped delegate:self datasource:self];
     self.table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.table.separatorColor = [UIColor colorWithRed:0.86f green:0.87f blue:0.87f alpha:1.00f];
     [self addSubview:self.table];
@@ -53,7 +58,7 @@
 #pragma mark ==================================================
 #pragma mark == Event
 #pragma mark ==================================================
-- (void)addTagButtonClicked{
+- (void)navAddTagButtonClicked{
     KKWeakSelf(self);
     KKAlertButtonConfig *leftConfig = [KKAlertButtonConfig cancelConfig];
     KKAlertButtonConfig *rightConfig = [KKAlertButtonConfig okConfig];

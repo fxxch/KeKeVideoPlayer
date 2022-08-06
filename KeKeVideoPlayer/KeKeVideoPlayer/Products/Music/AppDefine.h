@@ -13,6 +13,7 @@
 #import "MusicDBManager.h"
 #import "KKVideoPlayViewController.h"
 #import "KKFileDownloadManager.h"
+#import "MusicNavigationBarView.h"
 
 //============================================================
 //==  配置

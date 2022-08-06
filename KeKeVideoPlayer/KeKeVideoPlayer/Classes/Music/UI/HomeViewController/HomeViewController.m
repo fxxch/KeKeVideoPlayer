@@ -32,8 +32,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 #pragma mark -
@@ -42,7 +41,7 @@
 #pragma mark ==================================================
 - (void)initUI {
 
-    CGRect frame = CGRectMake(0, 0, KKScreenWidth, KKScreenHeight-KKStatusBarAndNavBarHeight-55-KKSafeAreaBottomHeight);
+    CGRect frame = CGRectMake(0, 0, KKScreenWidth, KKScreenHeight-55-KKSafeAreaBottomHeight);
     //TagList
     self.home_tagListView = [[HomeTagListView alloc] initWithFrame:frame];
     [self.view addSubview:self.home_tagListView];
@@ -57,7 +56,7 @@
     [self.view addSubview:self.home_dataSynchronousView];
     self.home_dataSynchronousView.hidden = YES;
 
-    self.segmentView = [[KKSegmentView alloc] initWithFrame:CGRectMake(0, KKScreenHeight-KKStatusBarAndNavBarHeight-55-KKSafeAreaBottomHeight, KKApplicationWidth, 55)];
+    self.segmentView = [[KKSegmentView alloc] initWithFrame:CGRectMake(0, KKScreenHeight-55-KKSafeAreaBottomHeight, KKApplicationWidth, 55)];
     self.segmentView.delegate = self;
     self.segmentView.backgroundImageView.backgroundColor = [UIColor whiteColor];
     self.segmentView.headLineView.backgroundColor = [UIColor kk_colorWithHexString:@"#EEEEEE"];
@@ -156,7 +155,6 @@
         self.home_tagListView.hidden = NO;
         [self.home_tagListView reloadDatasource];
         self.title = @"标签";
-        [self setNavRightButtonImage:KKThemeImage(@"btn_NavPlus") highlightImage:nil selector:@selector(navAddTagButtonClicked)];
     }
     else if (aNewIndex==1){
         self.home_musicPlayerView.hidden = NO;
@@ -165,9 +163,7 @@
     else{
         self.home_dataSynchronousView.hidden = NO;
         self.title = @"云音库";
-        [self setNavRightButtonImage:KKThemeImage(@"btn_NavCloud") highlightImage:nil selector:@selector(navCloudButtonClicked)];
     }
-    
 }
 
 - (void)showButtonAnimation:(NSInteger)index{
@@ -191,14 +187,6 @@
     animation.values = values;
     
     [button.imageView.layer addAnimation:animation forKey:nil];
-}
-
-- (void)navAddTagButtonClicked{
-    [self.home_tagListView addTagButtonClicked];
-}
-
-- (void)navCloudButtonClicked{
-    [self.home_dataSynchronousView synchronousAuto];
 }
 
 @end

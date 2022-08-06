@@ -12,6 +12,4 @@
 
 - (void)reloadDatasource;
 
-- (void)addTagButtonClicked;
-
 @end

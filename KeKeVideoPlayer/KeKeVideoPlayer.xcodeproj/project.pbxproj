@@ -186,6 +186,7 @@
 		11483035289E0EF200389434 /* KKRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11483013289E0EF200389434 /* KKRefreshHeaderView.m */; };
 		11483036289E0EF200389434 /* KKRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11483013289E0EF200389434 /* KKRefreshHeaderView.m */; };
 		11483037289E0EF200389434 /* KKRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11483013289E0EF200389434 /* KKRefreshHeaderView.m */; };
+		11483040289E1CD800389434 /* MusicNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148303C289E1CD800389434 /* MusicNavigationBarView.m */; };
 		11F640E1288901CA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640C7288901CA0050B936 /* HomeViewController.m */; };
 		11F640E2288901CA0050B936 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CC288901CA0050B936 /* WebBrowserViewController.m */; };
 		11F640E3288901CA0050B936 /* InputURLAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CD288901CA0050B936 /* InputURLAddressViewController.m */; };
@@ -511,6 +512,8 @@
 		11483012289E0EF200389434 /* KKRefreshHeaderStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKRefreshHeaderStateView.m; sourceTree = "<group>"; };
 		11483013289E0EF200389434 /* KKRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKRefreshHeaderView.m; sourceTree = "<group>"; };
 		11483038289E128200389434 /* Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		1148303B289E1CD800389434 /* MusicNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicNavigationBarView.h; sourceTree = "<group>"; };
+		1148303C289E1CD800389434 /* MusicNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicNavigationBarView.m; sourceTree = "<group>"; };
 		11F640C7288901CA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640C9288901CA0050B936 /* InputURLAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputURLAddressViewController.h; sourceTree = "<group>"; };
 		11F640CB288901CA0050B936 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
@@ -1000,6 +1003,7 @@
 		11482F54289D3A0800389434 /* HomeTagListView */ = {
 			isa = PBXGroup;
 			children = (
+				11483039289E1CA700389434 /* HomeTagListView */,
 				11482F55289D3A2400389434 /* HomeTagListView.h */,
 				11482F56289D3A2400389434 /* HomeTagListView.m */,
 			);
@@ -1207,6 +1211,7 @@
 		11482FF4289E049100389434 /* MusicBase */ = {
 			isa = PBXGroup;
 			children = (
+				1148303A289E1CAE00389434 /* MusicNavigationBarView */,
 				11482F62289D450D00389434 /* MusicBaseNavigationController.h */,
 				11482F63289D450D00389434 /* MusicBaseNavigationController.m */,
 				11482F5F289D44B900389434 /* MusicBaseViewController.h */,
@@ -1345,6 +1350,22 @@
 				11483012289E0EF200389434 /* KKRefreshHeaderStateView.m */,
 			);
 			path = KKRefreshHeaderStateView;
+			sourceTree = "<group>";
+		};
+		11483039289E1CA700389434 /* HomeTagListView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeTagListView;
+			sourceTree = "<group>";
+		};
+		1148303A289E1CAE00389434 /* MusicNavigationBarView */ = {
+			isa = PBXGroup;
+			children = (
+				1148303B289E1CD800389434 /* MusicNavigationBarView.h */,
+				1148303C289E1CD800389434 /* MusicNavigationBarView.m */,
+			);
+			path = MusicNavigationBarView;
 			sourceTree = "<group>";
 		};
 		11F640C6288901CA0050B936 /* Demo */ = {
@@ -2358,6 +2379,7 @@
 				11482FDF289E045600389434 /* KKAlertInputController.m in Sources */,
 				11483027289E0EF200389434 /* KKRefreshFooterAutoView.m in Sources */,
 				111C1FF028976A1000F0336D /* KKVideoPlayerVolumeView.m in Sources */,
+				11483040289E1CD800389434 /* MusicNavigationBarView.m in Sources */,
 				11482FAB289E045600389434 /* KKIPAddress.m in Sources */,
 				111C1FF128976A1000F0336D /* KKVideoPlayerNavigationView.m in Sources */,
 				11482FB7289E045600389434 /* KKWindowActionView.m in Sources */,
