@@ -7,6 +7,7 @@
 //
 
 #import "MusicCell.h"
+#import "MusicTagView.h"
 
 @implementation MusicCell
 
@@ -146,7 +147,7 @@
 
 
 - (void)tagButtonClicked{
-    
+    [MusicTagView showWithMediaInformation:self.cellInformation inView:[UIWindow kk_currentKeyWindow]];
 }
 
 @end

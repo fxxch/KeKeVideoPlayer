@@ -190,6 +190,7 @@
 		11483047289E276E00389434 /* MusicControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11483043289E276E00389434 /* MusicControlView.m */; };
 		1148304B28A0AD7D00389434 /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148304A28A0AD7D00389434 /* MusicCell.m */; };
 		1148304F28A1055C00389434 /* MusicDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148304E28A1055B00389434 /* MusicDataListViewController.m */; };
+		1148305328A1161800389434 /* MusicTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148305228A1161800389434 /* MusicTagView.m */; };
 		11F640E1288901CA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640C7288901CA0050B936 /* HomeViewController.m */; };
 		11F640E2288901CA0050B936 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CC288901CA0050B936 /* WebBrowserViewController.m */; };
 		11F640E3288901CA0050B936 /* InputURLAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CD288901CA0050B936 /* InputURLAddressViewController.m */; };
@@ -523,6 +524,8 @@
 		1148304A28A0AD7D00389434 /* MusicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
 		1148304D28A1055B00389434 /* MusicDataListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDataListViewController.h; sourceTree = "<group>"; };
 		1148304E28A1055B00389434 /* MusicDataListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDataListViewController.m; sourceTree = "<group>"; };
+		1148305128A1161800389434 /* MusicTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicTagView.h; sourceTree = "<group>"; };
+		1148305228A1161800389434 /* MusicTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicTagView.m; sourceTree = "<group>"; };
 		11F640C7288901CA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640C9288901CA0050B936 /* InputURLAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputURLAddressViewController.h; sourceTree = "<group>"; };
 		11F640CB288901CA0050B936 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
@@ -1221,6 +1224,7 @@
 		11482FF4289E049100389434 /* MusicBase */ = {
 			isa = PBXGroup;
 			children = (
+				1148305028A115E600389434 /* MusicTagView */,
 				1148304828A0AD4E00389434 /* MusicCell */,
 				1148303A289E1CAE00389434 /* MusicNavigationBarView */,
 				11482F62289D450D00389434 /* MusicBaseNavigationController.h */,
@@ -1405,6 +1409,15 @@
 				1148304E28A1055B00389434 /* MusicDataListViewController.m */,
 			);
 			path = MusicDataListViewController;
+			sourceTree = "<group>";
+		};
+		1148305028A115E600389434 /* MusicTagView */ = {
+			isa = PBXGroup;
+			children = (
+				1148305128A1161800389434 /* MusicTagView.h */,
+				1148305228A1161800389434 /* MusicTagView.m */,
+			);
+			path = MusicTagView;
 			sourceTree = "<group>";
 		};
 		11F640C6288901CA0050B936 /* Demo */ = {
@@ -2449,6 +2462,7 @@
 				111C200528976A1000F0336D /* main.m in Sources */,
 				11482FE7289E045600389434 /* KKSegmentView.m in Sources */,
 				11482F5E289D3B9000389434 /* HomeDataSynchronousView.m in Sources */,
+				1148305328A1161800389434 /* MusicTagView.m in Sources */,
 				11483037289E0EF200389434 /* KKRefreshHeaderView.m in Sources */,
 				1148301F289E0EF200389434 /* KKRefreshFooterTouchView.m in Sources */,
 				11483023289E0EF200389434 /* KKRefreshFooterAutoStateView.m in Sources */,

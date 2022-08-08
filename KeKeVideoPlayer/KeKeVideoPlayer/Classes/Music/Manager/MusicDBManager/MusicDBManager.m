@@ -111,7 +111,7 @@
     __block NSInteger count = 0;
 
     [m_db inDatabase:^(FMDatabase *db){
-        count = [db intForQuery: selectSql,aValue];
+        count = [db executeUpdate: selectSql,aValue];
     }];
 
     if (count>0) {
@@ -283,7 +283,7 @@
     __block NSInteger count = 0;
 
     [m_db inDatabase:^(FMDatabase *db){
-        count = [db intForQuery: selectSql,aIdentifier];
+        count = [db executeUpdate: selectSql,aIdentifier];
     }];
 
     if (count>0) {
@@ -397,7 +397,7 @@
     __block NSInteger count = 0;
 
     [m_db inDatabase:^(FMDatabase *db){
-        count = [db intForQuery: selectSql,aName];
+        count = [db executeUpdate: selectSql,aName];
     }];
 
     if (count>0) {
@@ -490,7 +490,7 @@
 
     NSMutableDictionary *aInformation = [NSMutableDictionary dictionary];
     [aInformation setObject:aIdentifier forKey:Table_MediaTag_media_identifier];
-    [aInformation setObject:aTagId forKey:Table_MediaTag_media_tag_id];
+    [aInformation setObject:aTagId forKey:Table_MediaTag_tag_Id];
     
     BOOL result =  [self insertInformation:aInformation toTable:TableName_MediaTag];
 
@@ -509,7 +509,7 @@
     __block NSInteger count = 0;
 
     [m_db inDatabase:^(FMDatabase *db){
-        count = [db intForQuery: selectSql,aIdentifier,aTagId];
+        count = [db executeUpdate: selectSql,aIdentifier,aTagId];
     }];
 
     if (count>0) {
@@ -529,7 +529,7 @@
     __block NSInteger count = 0;
 
     [m_db inDatabase:^(FMDatabase *db){
-        count = [db intForQuery: selectSql,aIdentifier];
+        count = [db executeUpdate: selectSql,aIdentifier];
     }];
 
     if (count>0) {
@@ -549,7 +549,7 @@
     __block NSInteger count = 0;
 
     [m_db inDatabase:^(FMDatabase *db){
-        count = [db intForQuery: selectSql,aTagId];
+        count = [db executeUpdate: selectSql,aTagId];
     }];
 
     if (count>0) {

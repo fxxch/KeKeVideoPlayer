@@ -202,18 +202,26 @@
         
         CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
         
-        UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30, size.height)];
+        UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30-30-10, size.height)];
         mainLabel.tag = 1101;
         mainLabel.textColor = [UIColor blackColor];
         mainLabel.font = [UIFont systemFontOfSize:14];
         mainLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-        [cell addSubview:mainLabel];
+        [cell.contentView addSubview:mainLabel];
+        
+        UIButton *download_Button = [[UIButton alloc] initWithFrame:CGRectMake(KKScreenWidth-15-30, 15, 30, 30)];
+        [download_Button setBackgroundImage:KKThemeImage(@"Music_download") forState:UIControlStateNormal];
+        [download_Button addTarget:self action:@selector(downloadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        download_Button.tag = 1102;
+        [cell.contentView addSubview:download_Button];
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
-    UILabel *mainLabel = (UILabel*)[cell viewWithTag:1101];
+    UILabel *mainLabel = (UILabel*)[cell.contentView viewWithTag:1101];
     mainLabel.text = [info kk_validStringForKey:@"fileName"];
     
+    UIButton *download_Button = (UIButton*)[cell.contentView viewWithTag:1102];
+    download_Button.kk_tagInfo = [NSString kk_stringWithInteger:indexPath.row];
     return cell;
 }
 
@@ -224,6 +232,13 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return NO;
+}
+
+- (void)downloadButtonClicked:(UIButton*)aButton{
+    NSInteger index = [aButton.kk_tagInfo integerValue];
+    NSDictionary *info = [self.dataSource objectAtIndex:index];
+    NSString *url = [info kk_validStringForKey:@"url"];
+    [KKFileDownloadManager.defaultManager downloadFileWithURL:url];
 }
 
 @end

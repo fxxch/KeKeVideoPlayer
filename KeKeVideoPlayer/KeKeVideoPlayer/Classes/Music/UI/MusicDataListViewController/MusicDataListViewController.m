@@ -35,6 +35,7 @@
     self = [super init];
     if (self) {
         self.dataSource = [[NSMutableArray alloc] init];
+        self.tagInformation = aTagInformation;
         self.type = MusicDataListType_Tag;
     }
     return self;

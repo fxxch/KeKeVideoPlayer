@@ -280,6 +280,8 @@
 	<string>Music/Music_btn_cell_tag_gray.png</string>
 	<key>Music_placeholder</key>
 	<string>Music/Music_placeholder.png</string>
+	<key>Music_download</key>
+	<string>Music/Music_download.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>
