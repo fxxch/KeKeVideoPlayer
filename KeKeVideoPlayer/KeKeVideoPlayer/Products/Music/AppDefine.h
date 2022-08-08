@@ -17,6 +17,13 @@
 #import "HomeMusicPlayerView.h"
 
 //============================================================
+//==  通知
+//============================================================
+#define NotificationName_HomeSelectPlayerView @"NotificationName_HomeSelectPlayerView"
+#define NotificationName_MusicDeleteFinished @"NotificationName_MusicDeleteFinished"
+
+
+//============================================================
 //==  配置
 //============================================================
 #define URL_CarMusic @"http://192.168.2.3/car"

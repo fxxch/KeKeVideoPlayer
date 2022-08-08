@@ -274,6 +274,12 @@
 	<string>Music/Music_prev.png</string>
 	<key>Music_pause</key>
 	<string>Music/Music_pause.png</string>
+	<key>Music_btn_cell_tag</key>
+	<string>Music/Music_btn_cell_tag.png</string>
+	<key>Music_btn_cell_tag_gray</key>
+	<string>Music/Music_btn_cell_tag_gray.png</string>
+	<key>Music_placeholder</key>
+	<string>Music/Music_placeholder.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>

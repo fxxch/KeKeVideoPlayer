@@ -15,10 +15,13 @@
 @property (nonatomic , strong) UILabel *titleLabel;
 @property (nonatomic , strong) UIImageView *footerLineView;
 
+- (void)addShadow;
+
 #pragma mark ==================================================
 #pragma mark == NavigationBar Title
 #pragma mark ==================================================
 - (void)setTitle:(NSString *)title;
+- (void)setTitle:(NSString *)title autoResize:(BOOL)autoResize;
 
 #pragma mark ==================================================
 #pragma mark == NavigationBar Button

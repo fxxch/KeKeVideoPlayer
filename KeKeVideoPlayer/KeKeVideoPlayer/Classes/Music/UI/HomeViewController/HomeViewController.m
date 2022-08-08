@@ -26,13 +26,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"标签";
-
+    [self kk_observeNotification:NotificationName_HomeSelectPlayerView selector:@selector(Notification_HomeSelectPlayerView:)];
+    
     [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.home_tagListView reloadDatasource];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)Notification_HomeSelectPlayerView:(NSNotification*)notice{
+    [self.segmentView selectedIndex:1 needRespondsDelegate:YES];
 }
 
 #pragma mark -

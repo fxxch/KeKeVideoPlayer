@@ -9,6 +9,7 @@
 #import "HomeMusicPlayerView.h"
 #import "KKVideoPlayer.h"
 #import "MusicControlView.h"
+#import "MusicCell.h"
 
 @interface HomeMusicPlayerView ()<KKVideoPlayerDelegate,MusicControlViewDelegate,UITableViewDataSource,UITableViewDelegate,KKRefreshHeaderViewDelegate>
 
@@ -22,6 +23,11 @@
 @property (nonatomic , assign) NSInteger currentPlayIndex;
 @property (nonatomic , assign) NSInteger playType;
 @property (nonatomic , copy) NSString *playerIdentifer;
+@property (nonatomic , assign) CGFloat tableViewOffset;
+
+@property (nonatomic , copy) NSString *sys_artist_name;//歌手
+@property (nonatomic , copy) NSString *sys_artist_album;//专辑名
+@property (nonatomic , copy) UIImage *sys_artist_image;//图片
 
 @end
 
@@ -32,7 +38,12 @@
     if (self) {
         [self kk_observeNotification:KKNotificationName_UIEventSubtypeRemoteControl selector:@selector(KKNotificationName_UIEventSubtypeRemoteControl:)];
         [self kk_observeNotification:KKNotificationName_StartPlayDataSouce selector:@selector(KKNotification_StartPlayDataSouce:)];
+        [self kk_observeNotification:NotificationName_MusicDeleteFinished selector:@selector(Notification_MusicDeleteFinished:)];
         self.dataSource = [[NSMutableArray alloc] init];
+        NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_All];
+        [self.dataSource addObjectsFromArray:array];
+        self.playType = 1;
+        
         self.currentPlayIndex = -1;
         [self initUI];
         
@@ -44,22 +55,26 @@
 - (void)initUI{
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
     [self addSubview:self.navBarView];
-    [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_order") selector:@selector(navPlayTypeButtonClicked) target:self];
-
+    [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_orderRandom") selector:@selector(navPlayTypeButtonClicked) target:self];
+    [self.navBarView addShadow];
+    
     //控制
     self.controlView = [[MusicControlView alloc] initWithFrame:CGRectMake(0, self.kk_height-160, self.kk_width, 160)];
     self.controlView.delegate = self;
+    self.controlView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.controlView];
     
-    
-    self.table = [UITableView kk_initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKScreenWidth, self.kk_height-self.navBarView.kk_height-self.controlView.kk_height) style:UITableViewStylePlain delegate:self datasource:self];
+    self.table = [UITableView kk_initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKScreenWidth, self.kk_height-self.navBarView.kk_height) style:UITableViewStylePlain delegate:self datasource:self];
     self.table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.table.separatorColor = [UIColor colorWithRed:0.86f green:0.87f blue:0.87f alpha:1.00f];
     [self addSubview:self.table];
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 0.5)];
     [self.table setTableFooterView:header];
-    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 0.5)];
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, self.controlView.kk_height)];
     [self.table setTableFooterView:footer];
+    
+    [self bringSubviewToFront:self.controlView];
+    [self bringSubviewToFront:self.navBarView];
 }
 
 - (void)navPlayTypeButtonClicked{
@@ -121,37 +136,74 @@
 }
 
 - (void)startPlayer{
-    if (self.player) {
-        self.playerIdentifer = nil;
-        [self.player stopPlay];
-        [self.player removeFromSuperview];
-        self.player = nil;
-    }
-
+    [self clearPlayer];
+    
     NSDictionary *info = [self.dataSource objectAtIndex:self.currentPlayIndex];
     NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
     NSString *local_name = [info kk_validStringForKey:Table_Media_local_name];
-    [self.navBarView setTitle:local_name];
+    [self.navBarView setTitle:local_name autoResize:YES];
     NSString *filePath = [KKFileCacheManager cacheDataPath:identifier];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+    long long fileSize = [NSFileManager kk_fileSizeAtPath:filePath];
+    if (fileSize>(1024*2)) {
         NSURL *fileURL = [NSURL fileURLWithPath:filePath];
         self.player = [[KKVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, 1, 1) URLString:[fileURL absoluteString]];
         self.player.delegate = self;
         [self addSubview:self.player];
         self.player.hidden = YES;
-        [self.player startPlay];
         [self.player.player  setPauseInBackground:NO];
         self.playerIdentifer = [NSString kk_randomString:10];
-        self.player.kk_tagInfo = [NSString kk_randomString:10];
+        self.player.kk_tagInfo = self.playerIdentifer;
+        [self.player startPlay];
 
+        AVURLAsset *avURLAsset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
+        for (NSString *format in [avURLAsset availableMetadataFormats]) {
+            for (AVMetadataItem *metadata in [avURLAsset metadataForFormat:format]) {
+//                //歌名
+//                if([metadata.commonKey isEqualToString:@"title"]){
+//                    NSString *title = (NSString*)metadata.value;
+//                }
+                //歌手
+                if([metadata.commonKey isEqualToString:@"artist"]){
+                    NSString *title = (NSString*)metadata.value;
+                    self.sys_artist_name = title;
+                }
+                //专辑名
+                if([metadata.commonKey isEqualToString:@"albumName"]){
+                    NSString *title = (NSString*)metadata.value;
+                    self.sys_artist_album = title;
+                }
+                
+                //图片
+                if([metadata.commonKey isEqualToString:@"artwork"]){
+                    if (metadata.value && [metadata.value isKindOfClass:[NSData class]]) {
+                        self.sys_artist_image = [UIImage imageWithData:(NSData*)metadata.value];
+                    }
+                }
+            }
+        }
+
+        
         [self.table reloadData];
-        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        self.controlView.hidden = NO;
     }
     else{
+        [self.dataSource removeObject:info];
         [self playNext];
     }
 }
 
+- (void)clearPlayer{
+    if (self.player) {
+        self.sys_artist_name = nil;
+        self.sys_artist_album = nil;
+        self.sys_artist_image = nil;
+        self.playerIdentifer = nil;
+        [self.player stopPlay];
+        [self.player removeFromSuperview];
+        self.player = nil;
+    }
+}
 
 #pragma mark ==================================================
 #pragma mark == 通知
@@ -162,10 +214,7 @@
     [self.dataSource addObjectsFromArray:array];
     [self.table reloadData];
     
-    self.playerIdentifer = nil;
-    [self.player stopPlay];
-    [self.player removeFromSuperview];
-    self.player = nil;
+    [self clearPlayer];
     self.currentPlayIndex = -1;
     [self playNext];
 }
@@ -196,12 +245,7 @@
             break;
         }
         case UIEventSubtypeRemoteControlStop:{//点击停止按钮
-            if (self.player) {
-                self.playerIdentifer = nil;
-                [self.player stopPlay];
-                [self.player removeFromSuperview];
-                self.player = nil;
-            }
+            [self clearPlayer];
             break;
         }
         case UIEventSubtypeRemoteControlTogglePlayPause:{//点击播放与暂停开关按钮(iphone抽屉中使用这个)
@@ -229,6 +273,29 @@
         }
         default:
             break;
+    }
+}
+
+- (void)Notification_MusicDeleteFinished:(NSNotification*)notice{
+    NSString *delIdentifier = notice.object;
+    
+    for (NSInteger i=0; i<[self.dataSource count]; i++) {
+        NSDictionary *info = [self.dataSource objectAtIndex:i];
+        NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
+        if ([identifier isEqualToString:delIdentifier]) {
+            if (i==self.currentPlayIndex) {
+                [self clearPlayer];
+                [self.dataSource removeObject:info];
+                [self.table reloadData];
+                [self playNext];
+                break;;
+            }
+            else{
+                [self.dataSource removeObject:info];
+                [self.table reloadData];
+                break;;
+            }
+        }
     }
 }
 
@@ -324,12 +391,22 @@
    //设置歌曲题目
    [dict setObject:local_name forKey:MPMediaItemPropertyTitle];
    //设置歌手名
-   [dict setObject:@"歌手" forKey:MPMediaItemPropertyArtist];
+    [dict setObject:self.sys_artist_name?self.sys_artist_name:@"" forKey:MPMediaItemPropertyArtist];
    //设置专辑名
-   [dict setObject:@"专辑" forKey:MPMediaItemPropertyAlbumTitle];
-//   //设置显示的图片
-//   UIImage *newImage = [UIImage imageNamed:@"43.png"];
-//   [dict setObject:[[MPMediaItemArtwork alloc] initWithImage:newImage] forKey:MPMediaItemPropertyArtwork];
+   [dict setObject:self.sys_artist_album?self.sys_artist_album:@"" forKey:MPMediaItemPropertyAlbumTitle];
+   //设置显示的图片
+    if (self.sys_artist_image) {
+        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(KKScreenWidth, KKScreenWidth) requestHandler:^UIImage * _Nonnull(CGSize size) {
+            return self.sys_artist_image;
+        }];
+        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+    }
+    else{
+        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(KKScreenWidth, KKScreenWidth) requestHandler:^UIImage * _Nonnull(CGSize size) {
+            return KKThemeImage(@"Music_placeholder");
+        }];
+        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+    }
    //设置歌曲时长
    [dict setObject:[NSNumber numberWithDouble:durationtime] forKey:MPMediaItemPropertyPlaybackDuration];
    //设置已经播放时长
@@ -374,36 +451,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return [MusicCell cellHeightWithInformation:[self.dataSource objectAtIndex:indexPath.row]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *cellIdentifier1=@"cellIdentifier1";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier1];
+    MusicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier1];
     if (!cell) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier1];
+        cell=[[MusicCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier1];
         cell.accessoryType=UITableViewCellAccessoryNone;
-        
-        CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
-        
-        UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30, size.height)];
-        mainLabel.tag = 1101;
-        mainLabel.textColor = [UIColor blackColor];
-        mainLabel.font = [UIFont systemFontOfSize:14];
-        mainLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-        [cell addSubview:mainLabel];
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
-    UILabel *mainLabel = (UILabel*)[cell viewWithTag:1101];
-    mainLabel.text = [info kk_validStringForKey:Table_Media_local_name];
-    
+    [cell reloadWithInformation:info];
     if (indexPath.row==self.currentPlayIndex) {
-        mainLabel.textColor = Theme_Color_D31925;
+        cell.name_Label.textColor = Theme_Color_D31925;
     }
     else{
-        mainLabel.textColor = [UIColor blackColor];
+        cell.name_Label.textColor = [UIColor blackColor];
     }
     
     return cell;
@@ -412,6 +478,78 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    self.currentPlayIndex = indexPath.row;
+    [self startPlayer];
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if (scrollView.contentOffset.y>self.tableViewOffset+25) {
+        self.tableViewOffset = scrollView.contentOffset.y;
+        self.controlView.hidden = YES;
+    }
+    else if (self.tableViewOffset > scrollView.contentOffset.y+25)
+    {
+        self.tableViewOffset = scrollView.contentOffset.y;
+        self.controlView.hidden = NO;
+    }
+    
+//    if (scrollView.contentOffset.y>self.tableViewOffset+5) {
+//        self.controlView.hidden = YES;
+//    }
+//    else{
+//        self.controlView.hidden = NO;
+//    }
+}
+
+// called on start of dragging (may require some time and or distance to move)
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    self.tableViewOffset = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if (decelerate==NO) {
+        self.controlView.hidden = NO;
+    }
+}
+
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+//    self.controlView.hidden = NO;
+//}
+//
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    self.controlView.hidden = NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    KKWeakSelf(self);
+    //删除
+    UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"删除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        NSDictionary *info = [weakself.dataSource objectAtIndex:indexPath.row];
+        NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
+        
+        //删除缓存数据
+        [KKFileCacheManager deleteCacheData:identifier];
+        //删除音乐-Tag关系表
+        [MusicDBManager.defaultManager DBDelete_MediaTag_WithMediaIdentifer:identifier];
+        //删除音乐表
+        [MusicDBManager.defaultManager DBDelete_Media_WithIdentifer:identifier];
+        
+        completionHandler (YES);
+        
+        [weakself.dataSource removeObject:info];
+        [weakself.table reloadData];
+    }];
+    deleteRowAction.backgroundColor = [UIColor kk_colorWithHexString:@"#FF4646"];
+
+    UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction]];
+    return config;
+}
+
 
 @end

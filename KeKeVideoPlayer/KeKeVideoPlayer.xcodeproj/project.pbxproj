@@ -188,6 +188,8 @@
 		11483037289E0EF200389434 /* KKRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11483013289E0EF200389434 /* KKRefreshHeaderView.m */; };
 		11483040289E1CD800389434 /* MusicNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148303C289E1CD800389434 /* MusicNavigationBarView.m */; };
 		11483047289E276E00389434 /* MusicControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11483043289E276E00389434 /* MusicControlView.m */; };
+		1148304B28A0AD7D00389434 /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148304A28A0AD7D00389434 /* MusicCell.m */; };
+		1148304F28A1055C00389434 /* MusicDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148304E28A1055B00389434 /* MusicDataListViewController.m */; };
 		11F640E1288901CA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640C7288901CA0050B936 /* HomeViewController.m */; };
 		11F640E2288901CA0050B936 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CC288901CA0050B936 /* WebBrowserViewController.m */; };
 		11F640E3288901CA0050B936 /* InputURLAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CD288901CA0050B936 /* InputURLAddressViewController.m */; };
@@ -517,6 +519,10 @@
 		1148303C289E1CD800389434 /* MusicNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicNavigationBarView.m; sourceTree = "<group>"; };
 		11483042289E276E00389434 /* MusicControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicControlView.h; sourceTree = "<group>"; };
 		11483043289E276E00389434 /* MusicControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicControlView.m; sourceTree = "<group>"; };
+		1148304928A0AD7D00389434 /* MusicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicCell.h; sourceTree = "<group>"; };
+		1148304A28A0AD7D00389434 /* MusicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
+		1148304D28A1055B00389434 /* MusicDataListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDataListViewController.h; sourceTree = "<group>"; };
+		1148304E28A1055B00389434 /* MusicDataListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDataListViewController.m; sourceTree = "<group>"; };
 		11F640C7288901CA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640C9288901CA0050B936 /* InputURLAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputURLAddressViewController.h; sourceTree = "<group>"; };
 		11F640CB288901CA0050B936 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
@@ -1215,6 +1221,7 @@
 		11482FF4289E049100389434 /* MusicBase */ = {
 			isa = PBXGroup;
 			children = (
+				1148304828A0AD4E00389434 /* MusicCell */,
 				1148303A289E1CAE00389434 /* MusicNavigationBarView */,
 				11482F62289D450D00389434 /* MusicBaseNavigationController.h */,
 				11482F63289D450D00389434 /* MusicBaseNavigationController.m */,
@@ -1247,6 +1254,7 @@
 			isa = PBXGroup;
 			children = (
 				11482FF4289E049100389434 /* MusicBase */,
+				1148304C28A1053400389434 /* MusicDataListViewController */,
 				11482FF5289E04A800389434 /* HomeViewController */,
 			);
 			path = UI;
@@ -1379,6 +1387,24 @@
 				11483043289E276E00389434 /* MusicControlView.m */,
 			);
 			path = MusicControlView;
+			sourceTree = "<group>";
+		};
+		1148304828A0AD4E00389434 /* MusicCell */ = {
+			isa = PBXGroup;
+			children = (
+				1148304928A0AD7D00389434 /* MusicCell.h */,
+				1148304A28A0AD7D00389434 /* MusicCell.m */,
+			);
+			path = MusicCell;
+			sourceTree = "<group>";
+		};
+		1148304C28A1053400389434 /* MusicDataListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1148304D28A1055B00389434 /* MusicDataListViewController.h */,
+				1148304E28A1055B00389434 /* MusicDataListViewController.m */,
+			);
+			path = MusicDataListViewController;
 			sourceTree = "<group>";
 		};
 		11F640C6288901CA0050B936 /* Demo */ = {
@@ -2409,9 +2435,11 @@
 				11482FA3289E045600389434 /* KKToastView.m in Sources */,
 				11482F61289D44B900389434 /* MusicBaseViewController.m in Sources */,
 				11482FBF289E045600389434 /* HTMLParser.m in Sources */,
+				1148304B28A0AD7D00389434 /* MusicCell.m in Sources */,
 				11482FE3289E045600389434 /* KKAlertButtonConfig.m in Sources */,
 				111C1FFD28976A1000F0336D /* KKVideoPlayViewController.m in Sources */,
 				11483033289E0EF200389434 /* KKRefreshHeaderStateView.m in Sources */,
+				1148304F28A1055C00389434 /* MusicDataListViewController.m in Sources */,
 				11482FCF289E045600389434 /* KKAlertView.m in Sources */,
 				11482FB3289E045600389434 /* KKThemeManager.m in Sources */,
 				111C205E28976C5F00F0336D /* KKFileDownloader.m in Sources */,

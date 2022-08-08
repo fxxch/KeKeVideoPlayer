@@ -7,6 +7,7 @@
 //
 
 #import "HomeTagListView.h"
+#import "MusicDataListViewController.h"
 
 #define TagCellHeight (60.0f)
 
@@ -15,6 +16,8 @@
 @property (nonatomic , strong) MusicNavigationBarView *navBarView;
 @property (nonatomic , strong) UITableView *table;
 @property (nonatomic , strong) NSMutableArray *dataSource;
+@property (nonatomic , strong) NSMutableArray *noTagArray;
+@property (nonatomic , strong) NSMutableArray *errorDataArray;
 
 @end
 
@@ -30,7 +33,9 @@
 
 - (void)initUI{
     self.dataSource = [[NSMutableArray alloc] init];
-    
+    self.noTagArray = [[NSMutableArray alloc] init];
+    self.errorDataArray = [[NSMutableArray alloc] init];
+
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
     [self addSubview:self.navBarView];
     [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
@@ -46,12 +51,29 @@
     [self.table setTableFooterView:footer];
     
     [self reloadDatasource];
+    
+    [self bringSubviewToFront:self.navBarView];
 }
 
 - (void)reloadDatasource{
     [self.dataSource removeAllObjects];
     NSArray *array = [MusicDBManager.defaultManager DBQuery_Tag_All];
     [self.dataSource addObjectsFromArray:array];
+    
+    [self.noTagArray removeAllObjects];
+    [self.noTagArray addObjectsFromArray:[MusicDBManager.defaultManager DBQuery_Media_NotTag]];
+    
+    [self.errorDataArray removeAllObjects];
+    NSArray *arrayM = [MusicDBManager.defaultManager DBQuery_Media_All];
+    for (NSDictionary *info in arrayM) {
+        NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
+        NSString *filePath = [KKFileCacheManager cacheDataPath:identifier];
+        long long fileSize = [NSFileManager kk_fileSizeAtPath:filePath];
+        if (fileSize<(1024*2)) {
+            [self.errorDataArray addObject:info];
+        }
+    }
+    
     [self.table reloadData];
 }
 
@@ -85,12 +107,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {
-        if ([MusicDBManager.defaultManager DBQuery_Media_NotTag].count>0) {
-            return 2;
+        NSInteger count = 1;
+        if (self.noTagArray.count>0) {
+            count = count + 1;
         }
-        else{
-            return 1;
+        if (self.errorDataArray.count>0) {
+            count = count + 1;
         }
+        return count;
     }
     else{
         return [self.dataSource count];
@@ -165,9 +189,23 @@
             mainLabel.text = maintext;
             [mainLabel kk_setTextColor:[UIColor kk_colorWithHexString:@"#E5E5E5"] contentString:count];
         }
-        else{
-            NSString *count = [NSString stringWithFormat:@"(%ld)",[MusicDBManager.defaultManager DBQuery_Media_NotTag].count];
-            NSString *maintext = [NSString stringWithFormat:@"未分类歌曲 %@",count];
+        else if (indexPath.row==1){
+            if (self.noTagArray.count>0) {
+                NSString *count = [NSString stringWithFormat:@"(%ld)",self.noTagArray.count];
+                NSString *maintext = [NSString stringWithFormat:@"未分类歌曲 %@",count];
+                mainLabel.text = maintext;
+                [mainLabel kk_setTextColor:[UIColor kk_colorWithHexString:@"#E5E5E5"] contentString:count];
+            }
+            else{
+                NSString *count = [NSString stringWithFormat:@"(%ld)",self.errorDataArray.count];
+                NSString *maintext = [NSString stringWithFormat:@"异常歌曲 %@",count];
+                mainLabel.text = maintext;
+                [mainLabel kk_setTextColor:[UIColor kk_colorWithHexString:@"#E5E5E5"] contentString:count];
+            }
+        }
+        else {
+            NSString *count = [NSString stringWithFormat:@"(%ld)",self.errorDataArray.count];
+            NSString *maintext = [NSString stringWithFormat:@"异常歌曲 %@",count];
             mainLabel.text = maintext;
             [mainLabel kk_setTextColor:[UIColor kk_colorWithHexString:@"#E5E5E5"] contentString:count];
         }
@@ -211,27 +249,31 @@
     if (indexPath.section==0) {
         if (indexPath.row==0) {
             NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_All];
-            [self kk_postNotification:KKNotificationName_StartPlayDataSouce object:array];
+            MusicDataListViewController *viewController = [[MusicDataListViewController alloc] initMusicDataListType:MusicDataListType_All dataArray:array];
+            [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
+        }
+        else if (indexPath.row==1){
+            //未分类歌曲
+            if (self.noTagArray.count>0) {
+                MusicDataListViewController *viewController = [[MusicDataListViewController alloc] initMusicDataListType:MusicDataListType_NoTag dataArray:self.noTagArray];
+                [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
+            }
+            // 异常歌曲
+            else{
+                MusicDataListViewController *viewController = [[MusicDataListViewController alloc] initMusicDataListType:MusicDataListType_Error dataArray:self.errorDataArray];
+                [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
+            }
+        }
+        // 异常歌曲
+        else {
+            MusicDataListViewController *viewController = [[MusicDataListViewController alloc] initMusicDataListType:MusicDataListType_Error dataArray:self.errorDataArray];
+            [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
         }
     }
     else{
-//        NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];
-//    //    NSString *tag_name = [info kk_validStringForKey:Table_Tag_tag_name];
-//        NSString *tag_id = [info kk_validStringForKey:Table_Tag_tag_id];
-//        
-//        NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_WithTagId:tag_id];
-//        [self kk_postNotification:KKNotificationName_StartPlayDataSouce object:array];
+        MusicDataListViewController *viewController = [[MusicDataListViewController alloc] initWithTagInfo:[self.dataSource objectAtIndex:indexPath.row]];
+        [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
     }
-    
-    
-//    NSString *fileName = [self.dataSource objectAtIndex:indexPath.row];
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-//    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-//        NSURL *url = [NSURL fileURLWithPath:filePath];
-//
-//        KKVideoPlayViewController *viewController = [[KKVideoPlayViewController alloc] initWitFilePath:[url absoluteString] fileName:[filePath lastPathComponent]];
-//        [self.navigationController pushViewController:viewController animated:YES];
-//    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -252,7 +294,9 @@
         NSString *tag_name = [info kk_validStringForKey:Table_Tag_tag_name];
         NSString *tag_id = [info kk_validStringForKey:Table_Tag_tag_id];
 
+        //删除Tag表
         [MusicDBManager.defaultManager DBDelete_Tag_WithName:tag_name];
+        //删除音乐-Tag关系表
         [MusicDBManager.defaultManager DBDelete_MediaTag_WithTagId:tag_id];
         
         completionHandler (YES);

@@ -24,6 +24,15 @@
     return [UIColor whiteColor];
 }
 
+- (KKButton*)showNavigationDefaultBackButton_ForNavPopBack{
+    UIImage *image = KKThemeImage(@"btn_NavBackDefault");
+    UIImage *nImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    KKButton *leftButton = [self setNavLeftButtonImage:nImage highlightImage:nil selector:@selector(navigationControllerPopBack)];
+    leftButton.imageView.tintColor = Theme_Color_666666;
+    return leftButton;
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setStatusBarHidden:NO statusBarStyle:UIStatusBarStyleDefault withAnimation:UIStatusBarAnimationNone];

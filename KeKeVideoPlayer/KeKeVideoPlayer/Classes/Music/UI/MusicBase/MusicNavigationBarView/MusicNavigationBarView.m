@@ -34,16 +34,51 @@
     self.titleLabel.textColor = [UIColor blackColor];
     self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:self.titleLabel];
+    [self addSubview:self.titleLabel];    
 }
+
+- (void)addShadow{
+    self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 5); // 设置偏移量为 0 ，四周都有阴影
+    self.layer.shadowRadius = 25.0; //阴影半径,默认 3
+    self.layer.shadowOpacity = 1.0; //阴影透明度 ，默认 0
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.layer.cornerRadius].CGPath;
+}
+
 
 #pragma mark ==================================================
 #pragma mark == NavigationBar Title
 #pragma mark ==================================================
 - (void)setTitle:(NSString *)title{
-    CGSize size = [title kk_sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(self.kk_width-120, 44)];
-    self.titleLabel.frame = CGRectMake(60, self.kk_height-44+(44-size.height)/2.0, self.kk_width-120, size.height);
-    self.titleLabel.text = title;
+    [self setTitle:title autoResize:NO];
+}
+
+- (void)setTitle:(NSString *)title autoResize:(BOOL)autoResize{
+    if (autoResize) {
+        CGSize size = [title kk_sizeWithFont:[UIFont boldSystemFontOfSize:17] maxSize:CGSizeMake(self.kk_width-120, 44)];
+        CGFloat height = [UIFont kk_heightForFont:[UIFont boldSystemFontOfSize:17]];
+        if (size.height>height) {
+            self.titleLabel.numberOfLines = 2;
+            CGSize size13 = [title kk_sizeWithFont:[UIFont boldSystemFontOfSize:13] maxSize:CGSizeMake(self.kk_width-120, 44)];
+            self.titleLabel.font = [UIFont systemFontOfSize:13];
+            self.titleLabel.frame = CGRectMake(60, self.kk_height-44+(44-size13.height)/2.0, self.kk_width-120, size13.height);
+            self.titleLabel.text = title;
+            self.titleLabel.textColor = Theme_Color_D31925;
+        }
+        else{
+            self.titleLabel.frame = CGRectMake(60, self.kk_height-44+(44-size.height)/2.0, self.kk_width-120, size.height);
+            self.titleLabel.text = title;
+            self.titleLabel.textColor = Theme_Color_D31925;
+            self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        }
+    }
+    else{
+        CGSize size = [title kk_sizeWithFont:[UIFont boldSystemFontOfSize:17] maxSize:CGSizeMake(self.kk_width-120, 44)];
+        self.titleLabel.frame = CGRectMake(60, self.kk_height-44+(44-size.height)/2.0, self.kk_width-120, size.height);
+        self.titleLabel.text = title;
+        self.titleLabel.textColor = [UIColor blackColor];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    }
 }
 
 #pragma mark ==================================================

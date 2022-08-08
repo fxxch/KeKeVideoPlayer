@@ -31,7 +31,7 @@
         [self addSubview:self.backgroundImageView];
         
         //滑动条
-        self.mySlider = [[MusicPlayerSlider alloc] initWithFrame:CGRectMake(15, 15, self.frame.size.width-30, 5)];
+        self.mySlider = [[MusicPlayerSlider alloc] initWithFrame:CGRectMake(15, 25, self.frame.size.width-30, 5)];
         self.mySlider.minimumTrackTintColor = Theme_Color_FF7C03;
         self.mySlider.maximumTrackTintColor = Theme_Color_DEDEDE;
         [self.mySlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -47,7 +47,7 @@
         self.mySlider.maximumValue = 1.0;
 
         //当前时间
-        self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, self.frame.size.width-30, 20)];
+        self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
         [self.currentTimeLabel kk_clearBackgroundColor];
         self.currentTimeLabel.text = KKLocalization(@"00:00:00");
         self.currentTimeLabel.textAlignment = NSTextAlignmentLeft;
@@ -56,7 +56,7 @@
         [self addSubview:self.currentTimeLabel];
 
         //总时长
-        self.durationtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, self.frame.size.width-30, 20)];
+        self.durationtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
         [self.durationtimeLabel kk_clearBackgroundColor];
         self.durationtimeLabel.text = KKLocalization(@"--:--:--");
         self.durationtimeLabel.textAlignment = NSTextAlignmentRight;
@@ -65,28 +65,38 @@
         [self addSubview:self.durationtimeLabel];
 
         //prev
-        self.prevButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 75, 50, 50)];
+        self.prevButton = [[UIButton alloc] initWithFrame:CGRectMake(30, self.durationtimeLabel.kk_bottom+20, 50, 50)];
         [self.prevButton setImage:KKThemeImage(@"Music_prev") forState:UIControlStateNormal];
         [self.prevButton addTarget:self action:@selector(prevButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.prevButton];
         
         //next
-        self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width-15-15-50, 75, 50, 50)];
+        self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width-15-15-50, self.durationtimeLabel.kk_bottom+20, 50, 50)];
         [self.nextButton setImage:KKThemeImage(@"Music_next") forState:UIControlStateNormal];
         [self.nextButton addTarget:self action:@selector(nextButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.nextButton];
 
         //播放与暂停
         CGFloat height = 44;
-        self.stopPlayButton = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width-height)/2.0, 75, 50, 50)];
+        self.stopPlayButton = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width-height)/2.0, self.durationtimeLabel.kk_bottom+20, 50, 50)];
         self.stopPlayButton.exclusiveTouch = YES;
         [self.stopPlayButton setImage:KKThemeImage(@"Music_play") forState:UIControlStateNormal];
         self.stopPlayButton.tag = 1110;
         [self.stopPlayButton kk_clearBackgroundColor];
         [self.stopPlayButton addTarget:self action:@selector(playButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.stopPlayButton];
+        
+        [self addShadow];
     }
     return self;
+}
+
+- (void)addShadow{
+    self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.layer.shadowOffset = CGSizeZero; // 设置偏移量为 0 ，四周都有阴影
+    self.layer.shadowRadius = 50.0; //阴影半径,默认 3
+    self.layer.shadowOpacity = 1.0; //阴影透明度 ，默认 0
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.layer.cornerRadius].CGPath;
 }
 
 #pragma mark ==================================================
