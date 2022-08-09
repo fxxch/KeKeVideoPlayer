@@ -106,6 +106,9 @@
                         NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
                         href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
 //                        NSLog(@"href: %@",href);
+                        if ([href hasPrefix:@"."]) {
+                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+                        }
 
                         NSString *nodeType = alt;
                         if ([nodeType isEqualToString:@"[DIR]"]) {

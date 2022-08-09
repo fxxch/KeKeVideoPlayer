@@ -28,11 +28,6 @@
 #define NotificationName_UIEventSubtypeRemoteControl   @"NotificationName_UIEventSubtypeRemoteControl"
 #define NotificationName_MusicPlayerStartPlayMusicItem @"NotificationName_MusicPlayerStartPlayMusicItem"
 
-//============================================================
-//==  配置
-//============================================================
-#define URL_CarMusic @"http://192.168.43.250/car"
-
 #pragma mark - ==================================================
 #pragma mark == 颜色
 #pragma mark ====================================================

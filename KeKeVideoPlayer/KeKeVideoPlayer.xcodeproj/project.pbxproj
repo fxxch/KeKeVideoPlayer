@@ -57,7 +57,6 @@
 		111C205728976B7200F0336D /* KKFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 111C205328976B7200F0336D /* KKFileDownloadManager.m */; };
 		111C205E28976C5F00F0336D /* KKFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 111C205A28976C5F00F0336D /* KKFileDownloader.m */; };
 		111C206228976F7600F0336D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111C206128976F7600F0336D /* HomeViewController.m */; };
-		11482F40289CC1B700389434 /* CloudMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11482F3F289CC1B700389434 /* CloudMusicListViewController.m */; };
 		11482F46289D028500389434 /* DataListDownloadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11482F45289D028500389434 /* DataListDownloadingView.m */; };
 		11482F49289D029800389434 /* DataListCloudAllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11482F48289D029800389434 /* DataListCloudAllView.m */; };
 		11482F4C289D02A500389434 /* DataListNotDownloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11482F4B289D02A500389434 /* DataListNotDownloadView.m */; };
@@ -440,8 +439,6 @@
 		111C205A28976C5F00F0336D /* KKFileDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKFileDownloader.m; sourceTree = "<group>"; };
 		111C206028976F7600F0336D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		111C206128976F7600F0336D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		11482F3E289CC1B700389434 /* CloudMusicListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudMusicListViewController.h; sourceTree = "<group>"; };
-		11482F3F289CC1B700389434 /* CloudMusicListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudMusicListViewController.m; sourceTree = "<group>"; };
 		11482F44289D028500389434 /* DataListDownloadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataListDownloadingView.h; sourceTree = "<group>"; };
 		11482F45289D028500389434 /* DataListDownloadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataListDownloadingView.m; sourceTree = "<group>"; };
 		11482F47289D029800389434 /* DataListCloudAllView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataListCloudAllView.h; sourceTree = "<group>"; };
@@ -955,18 +952,8 @@
 			children = (
 				11482FF6289E04B700389434 /* Manager */,
 				11482FF7289E04CB00389434 /* UI */,
-				11482F3D289CC19C00389434 /* CloudMusicListViewController */,
 			);
 			path = Music;
-			sourceTree = "<group>";
-		};
-		11482F3D289CC19C00389434 /* CloudMusicListViewController */ = {
-			isa = PBXGroup;
-			children = (
-				11482F3E289CC1B700389434 /* CloudMusicListViewController.h */,
-				11482F3F289CC1B700389434 /* CloudMusicListViewController.m */,
-			);
-			path = CloudMusicListViewController;
 			sourceTree = "<group>";
 		};
 		11482F41289D021100389434 /* DataListNotDownloadView */ = {
@@ -2436,7 +2423,6 @@
 				11482FBB289E045600389434 /* KKWindowActionViewItem.m in Sources */,
 				11F755BA2898FEE400390931 /* MusicDBManager.m in Sources */,
 				11482FF3289E045600389434 /* BaseNavigationController.m in Sources */,
-				11482F40289CC1B700389434 /* CloudMusicListViewController.m in Sources */,
 				11482F46289D028500389434 /* DataListDownloadingView.m in Sources */,
 				11482FD3289E045600389434 /* KKLibraryLocalization.m in Sources */,
 				11482F64289D450D00389434 /* MusicBaseNavigationController.m in Sources */,

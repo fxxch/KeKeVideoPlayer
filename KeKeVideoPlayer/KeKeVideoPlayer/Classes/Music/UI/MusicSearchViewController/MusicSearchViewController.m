@@ -50,6 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navBarView.inputTextField becomeFirstResponder];
 }
 
 - (void)navCancelButtonClicked{

@@ -20,7 +20,7 @@
 @property (nonatomic , strong) MusicControlView *controlView;
 
 @property (nonatomic , strong) NSMutableArray *dataSource;
-@property (nonatomic , assign) NSInteger currentPlayIndex;
+@property (nonatomic , strong) NSDictionary *currentPlayInformation;
 @property (nonatomic , assign) NSInteger playType;
 @property (nonatomic , copy) NSString *playerIdentifer;
 @property (nonatomic , assign) CGFloat tableViewOffset;
@@ -47,7 +47,6 @@
         [self.dataSource addObjectsFromArray:array];
         self.playType = 1;
         
-        self.currentPlayIndex = -1;
         [self initUI];
         
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
@@ -97,51 +96,85 @@
 
 
 - (void)playPrev{
+    NSInteger currentPlayIndex = NSNotFound;
+    if (self.currentPlayInformation) {
+        currentPlayIndex = [self.dataSource indexOfObject:self.currentPlayInformation];
+    }
+    if (currentPlayIndex==NSNotFound) {
+        currentPlayIndex = -1;
+    }
+    if ([self.dataSource count]==0) {
+        return;
+    }
+    
     //顺序播放
     if (self.playType==0) {
-        self.currentPlayIndex = self.currentPlayIndex - 1;
-        if (self.currentPlayIndex<0) {
-            self.currentPlayIndex = self.dataSource.count-1;
+        currentPlayIndex = currentPlayIndex - 1;
+        if (currentPlayIndex<0) {
+            currentPlayIndex = self.dataSource.count-1;
         }
     }
     //随机播放
     else if (self.playType==1){
-        self.currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
+        currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
     }
     //单曲循环
     else{
-        if (self.currentPlayIndex<0 || self.currentPlayIndex>=self.dataSource.count) {
-            self.currentPlayIndex = 0;
+        if (currentPlayIndex<0 || currentPlayIndex>=self.dataSource.count) {
+            currentPlayIndex = 0;
         }
     }
-    [self startPlayer];
+    
+    self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:currentPlayIndex];
+    if (self.currentPlayInformation) {
+        [self startPlayer];
+    }
 }
 
 - (void)playNext{
+    NSInteger currentPlayIndex = NSNotFound;
+    if (self.currentPlayInformation) {
+        currentPlayIndex = [self.dataSource indexOfObject:self.currentPlayInformation];
+    }
+    if (currentPlayIndex==NSNotFound) {
+        currentPlayIndex = -1;
+    }
+    if ([self.dataSource count]==0) {
+        return;
+    }
+
     //顺序播放
     if (self.playType==0) {
-        self.currentPlayIndex = self.currentPlayIndex + 1;
-        if (self.currentPlayIndex>=self.dataSource.count) {
-            self.currentPlayIndex = 0;
+        currentPlayIndex = currentPlayIndex + 1;
+        if (currentPlayIndex>=self.dataSource.count) {
+            currentPlayIndex = 0;
         }
     }
     //随机播放
     else if (self.playType==1){
-        self.currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
+        currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
     }
     //单曲循环
     else{
-        if (self.currentPlayIndex<0 || self.currentPlayIndex>=self.dataSource.count) {
-            self.currentPlayIndex = 0;
+        if (currentPlayIndex<0 || currentPlayIndex>=self.dataSource.count) {
+            currentPlayIndex = 0;
         }
     }
-    [self startPlayer];
+    
+    self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:currentPlayIndex];
+    if (self.currentPlayInformation) {
+        [self startPlayer];
+    }
 }
 
 - (void)startPlayer{
     [self clearPlayer];
     
-    NSDictionary *info = [self.dataSource objectAtIndex:self.currentPlayIndex];
+    if (self.currentPlayInformation==nil) {
+        return;
+    }
+    
+    NSDictionary *info = self.currentPlayInformation;
     NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
     NSString *local_name = [info kk_validStringForKey:Table_Media_local_name];
     [self.navBarView setTitle:local_name autoResize:YES];
@@ -185,9 +218,9 @@
             }
         }
 
-        
+        NSInteger currentPlayIndex = [self.dataSource indexOfObject:self.currentPlayInformation];
         [self.table reloadData];
-        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
         self.controlView.hidden = NO;
     }
     else{
@@ -218,7 +251,7 @@
     [self.table reloadData];
     
     [self clearPlayer];
-    self.currentPlayIndex = -1;
+    self.currentPlayInformation = nil;
     [self playNext];
 }
 
@@ -286,7 +319,7 @@
         NSDictionary *info = [self.dataSource objectAtIndex:i];
         NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
         if ([identifier isEqualToString:delIdentifier]) {
-            if (i==self.currentPlayIndex) {
+            if (info==self.currentPlayInformation) {
                 [self clearPlayer];
                 [self.dataSource removeObject:info];
                 [self.table reloadData];
@@ -317,13 +350,13 @@
     }
     
     if (index>=0) {
-        self.currentPlayIndex = index;
+        self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:index];
         [self startPlayer];
     }
     else{
         [self.dataSource addObject:notiDic];
         [self.table reloadData];
-        self.currentPlayIndex = self.dataSource.count-1;
+        self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:self.dataSource.count-1];
         [self startPlayer];
     }
     [self kk_postNotification:NotificationName_HomeSelectPlayerView];
@@ -416,7 +449,7 @@
 //播放时间改变
 - (void)KKVideoPlayer:(KKVideoPlayer*)player playBackTimeChanged:(NSTimeInterval)currentTime durationtime:(NSTimeInterval)durationtime{
     
-    NSDictionary *info = [self.dataSource objectAtIndex:self.currentPlayIndex];
+    NSDictionary *info = self.currentPlayInformation;
     NSString *local_name = [info kk_validStringForKey:Table_Media_local_name];
 
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
@@ -497,7 +530,7 @@
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
     [cell reloadWithInformation:info];
-    if (indexPath.row==self.currentPlayIndex) {
+    if (info==self.currentPlayInformation) {
         cell.name_Label.textColor = Theme_Color_D31925;
     }
     else{
@@ -510,7 +543,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    self.currentPlayIndex = indexPath.row;
+    self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:indexPath.row];
     [self startPlayer];
 }
 

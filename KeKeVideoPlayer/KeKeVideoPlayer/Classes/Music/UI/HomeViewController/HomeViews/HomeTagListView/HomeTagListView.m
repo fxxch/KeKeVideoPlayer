@@ -103,7 +103,7 @@
 
 - (void)navSearchButtonClicked{
     MusicSearchViewController *viewController = [[MusicSearchViewController alloc] init];
-    viewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    viewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.kk_viewController.navigationController presentViewController:viewController animated:YES completion:^{
         
     }];

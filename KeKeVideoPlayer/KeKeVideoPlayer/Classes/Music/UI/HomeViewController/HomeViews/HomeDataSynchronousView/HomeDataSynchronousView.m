@@ -12,6 +12,8 @@
 #import "DataListDownloadingView.h"
 #import "KKGetIPAddress.h"
 
+#define MusicPath @"music_liubo"
+
 @interface HomeDataSynchronousView ()<MusicNavigationBarViewDelegate,KKSegmentViewDelegate>
 
 @property (nonatomic , strong) MusicNavigationBarView *navBarView;
@@ -173,7 +175,7 @@
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
                 [KKWaitingView hideForView:weakself];
                 NSString *wifiIP = [request.URL absoluteString];
-                weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:@"car"];
+                weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
                 weakself.notDownloadView.url = weakself.navBarView.inputTextField.text;
                 weakself.cloudAllView.url = weakself.navBarView.inputTextField.text;
             });
@@ -224,6 +226,9 @@
                         NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
                         href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
 //                        NSLog(@"href: %@",href);
+                        if ([href hasPrefix:@"."]) {
+                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+                        }
 
                         NSString *nodeType = alt;
                         if ([nodeType isEqualToString:@"[DIR]"]) {

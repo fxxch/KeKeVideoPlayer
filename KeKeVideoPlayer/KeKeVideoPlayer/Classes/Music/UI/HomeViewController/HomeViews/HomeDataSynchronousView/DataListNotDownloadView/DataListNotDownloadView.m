@@ -105,7 +105,10 @@
                         //NSString *name = [a_node contents]; 中文有乱码，暂时无法解决
                         NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
                         href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
-//                        NSLog(@"href: %@",href);
+                        NSLog(@"href: %@",href);
+                        if ([href hasPrefix:@"."]) {
+                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+                        }
 
                         NSString *nodeType = alt;
                         if ([nodeType isEqualToString:@"[DIR]"]) {
