@@ -282,6 +282,8 @@
 	<string>Music/Music_placeholder.png</string>
 	<key>Music_download</key>
 	<string>Music/Music_download.png</string>
+	<key>Music_btn_search</key>
+	<string>Music/Music_btn_search.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>

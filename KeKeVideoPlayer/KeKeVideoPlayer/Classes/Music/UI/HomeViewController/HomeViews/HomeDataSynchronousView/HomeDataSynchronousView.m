@@ -10,16 +10,19 @@
 #import "DataListNotDownloadView.h"
 #import "DataListCloudAllView.h"
 #import "DataListDownloadingView.h"
+#import "KKGetIPAddress.h"
 
-@interface HomeDataSynchronousView ()<KKTextFieldDelegate,KKSegmentViewDelegate>
+@interface HomeDataSynchronousView ()<MusicNavigationBarViewDelegate,KKSegmentViewDelegate>
 
 @property (nonatomic , strong) MusicNavigationBarView *navBarView;
 
-@property (nonatomic , strong) KKTextField *inputTextField;
 @property (nonatomic , strong) KKSegmentView *segmentView;
 @property (nonatomic , strong) DataListNotDownloadView *notDownloadView;
 @property (nonatomic , strong) DataListCloudAllView *cloudAllView;
 @property (nonatomic , strong) DataListDownloadingView *downloadingView;
+
+@property (nonatomic , strong) NSMutableArray *auto_ipArray;
+@property (nonatomic , assign) NSInteger auto_ipIndex;
 
 @end
 
@@ -35,70 +38,50 @@
 
 - (void)initUI{
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
+    self.navBarView.delegate = self;
     [self addSubview:self.navBarView];
+    [self.navBarView showTextField];
+    self.navBarView.footerLineView.hidden = YES;
     [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavCloud") selector:@selector(navCloudButtonClicked) target:self];
-
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, 105)];
-    headerView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:headerView];
-
-    KKTextField *textField = [[KKTextField alloc] initWithFrame:CGRectMake(15, 10, KKApplicationWidth-30, 45)];
-    textField.padding = UIEdgeInsetsMake(0, 10, 0, 10);
-    textField.returnKeyType = UIReturnKeyDone;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    textField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    textField.textAlignment = NSTextAlignmentLeft;
-    [textField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [textField setAutocorrectionType:UITextAutocorrectionTypeNo];
-    textField.font = [UIFont boldSystemFontOfSize:14];
-    textField.textColor = [UIColor blackColor];
-    textField.secureTextEntry = NO;
-    [textField kk_setCornerRadius:2.0];
-    [textField kk_setBorderColor:Theme_Color_999999 width:0.5];
-    textField.delegate = self;
-    textField.backgroundColor = [UIColor clearColor];
-    [headerView addSubview:textField];
-    self.inputTextField = textField;
-    self.inputTextField.text = URL_CarMusic;
         
     //KKSegmentView
-    self.segmentView = [[KKSegmentView alloc] initWithFrame:CGRectMake(0, 65, KKApplicationWidth, 40)];
+    self.segmentView = [[KKSegmentView alloc] initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, 40)];
     self.segmentView.delegate = self;
-    self.segmentView.backgroundColor = [UIColor clearColor];
+    self.segmentView.backgroundColor = [UIColor whiteColor];
     self.segmentView.sliderView.hidden = NO;
     self.segmentView.sliderSize = CGSizeMake(60, 3.0);
     self.segmentView.sliderView.backgroundColor = Theme_Color_D31925;
-    [headerView addSubview:self.segmentView];
+    [self addSubview:self.segmentView];
     [self.segmentView selectedIndex:0 needRespondsDelegate:NO];
     [self.segmentView kk_setCornerRadius:2.0];
-//    [self.segmentView kk_setBorderColor:Theme_Color_999999 width:0.5];
 
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 65, headerView.kk_width, 0.25)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.segmentView.kk_bottom-0.25, self.kk_width, 0.25)];
     line.backgroundColor = Theme_Color_999999;
-    [headerView addSubview:line];
+    [self addSubview:line];
 
-    CGFloat offsetY = headerView.kk_bottom;
+    CGFloat offsetY = self.segmentView.kk_bottom;
     self.cloudAllView = [[DataListCloudAllView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
     [self addSubview:self.cloudAllView];
-    self.cloudAllView.url = self.inputTextField.text;
+    self.cloudAllView.url = self.navBarView.inputTextField.text;
 
     self.notDownloadView = [[DataListNotDownloadView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
     [self addSubview:self.notDownloadView];
-    self.notDownloadView.url = self.inputTextField.text;
+    self.notDownloadView.url = self.navBarView.inputTextField.text;
     self.notDownloadView.hidden = YES;
 
     self.downloadingView = [[DataListDownloadingView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
     [self addSubview:self.downloadingView];
     [self.downloadingView reloadDatasource];
     self.downloadingView.hidden = YES;
+    
+    [self autoCheckWifiIP];
 }
 
 - (void)synchronousAuto{
     [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:YES text:@"自动同步中……"];
     
     KKWeakSelf(self);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.inputTextField.text]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.navBarView.inputTextField.text]];
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,6 +101,87 @@
     }];
     [task resume];
 }
+
+#pragma mark ==================================================
+#pragma mark == 自动检索IP地址
+#pragma mark ==================================================
+- (void)autoCheckWifiIP{
+    if (self.auto_ipArray==nil) {
+        self.auto_ipArray = [[NSMutableArray alloc] init];
+    }
+    [self.auto_ipArray removeAllObjects];
+    self.auto_ipIndex = 0;
+    
+    NSString *wifiIPAddress = [KKGetIPAddress getCurrentWifiIP];
+    if ([NSString kk_isStringNotEmpty:wifiIPAddress]) {
+        NSArray *array = [wifiIPAddress componentsSeparatedByString:@"."];
+        if ([array count]>=4) {
+            NSString *str01 = [array objectAtIndex:0];
+            NSString *str02 = [array objectAtIndex:1];
+            NSString *str03 = [array objectAtIndex:2];
+          //NSString *str04 = [array objectAtIndex:3];
+            for (NSInteger index=2; index<=150; index++) {
+                NSString *fullString = [NSString stringWithFormat:@"%@.%@.%@.%ld",str01,str02,str03,(long)(index)];
+                [self.auto_ipArray addObject:fullString];
+            }
+            
+            [self autoSearchIP_Start];
+        }
+    }
+    else{
+        [KKToastView showInView:self text:@"请连接wifi" image:nil alignment:KKToastViewAlignment_Center];
+    }
+
+}
+
+- (void)autoSearchIP_Start{
+    [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:YES text:@"🔍自动搜索中"];
+    self.auto_ipIndex = 0;
+    for (NSInteger i=0; i<[self.auto_ipArray count]; i++) {
+        NSString *ipString = [self.auto_ipArray objectAtIndex:i];
+        [self autoSearchIP_Process:ipString];
+    }
+}
+
+- (void)autoSearchIP_Process:(NSString*)aIp{
+    NSString *ipAddress = aIp;
+    if (ipAddress==nil) {
+        return;
+    }
+    
+    if ([NSString kk_isStringNotEmpty:self.navBarView.inputTextField.text]) {
+        return;
+    }
+    
+    NSString *ulr = [NSString stringWithFormat:@"http://%@",ipAddress];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:ulr]];
+    [request setHTTPMethod:@"HEAD"];
+    request.timeoutInterval = 2.0;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    KKWeakSelf(self);
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                weakself.auto_ipIndex = weakself.auto_ipIndex+1;
+                if (weakself.auto_ipIndex==[weakself.auto_ipArray count]) {
+                    [KKWaitingView hideForView:weakself];
+                }
+            });
+        }else{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                weakself.auto_ipIndex = weakself.auto_ipIndex+1;
+                [KKWaitingView hideForView:weakself];
+                NSString *wifiIP = [request.URL absoluteString];
+                weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:@"car"];
+                weakself.notDownloadView.url = weakself.navBarView.inputTextField.text;
+                weakself.cloudAllView.url = weakself.navBarView.inputTextField.text;
+            });
+        }
+    }];
+    [task resume];
+}
+
 
 #pragma mark ==================================================
 #pragma mark == Event
@@ -173,7 +237,7 @@
                         }
                         else if ([nodeType isEqualToString:@"[SND]"]){
                             KKLogDebugFormat(@"找到音乐文件：%@",href);
-                            NSString *urlString = [self.inputTextField.text stringByAppendingPathComponent:href];
+                            NSString *urlString = [self.navBarView.inputTextField.text stringByAppendingPathComponent:href];
                             if ([MusicDBManager.defaultManager DBQuery_Table:TableName_Media isExistValue:href forKey:Table_Media_local_name]) {
 
                             }
@@ -208,21 +272,14 @@
     
 }
 
-
 #pragma mark ==================================================
-#pragma mark == UITextFieldDelegate
+#pragma mark == MusicNavigationBarViewDelegate
 #pragma mark ==================================================
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if ([string isEqualToString:@"\n"]) {
-        [textField resignFirstResponder];
-        self.notDownloadView.url = self.inputTextField.text;
-        self.cloudAllView.url = self.inputTextField.text;
-        return NO;
-    }
-    else{
-        return YES;
-    }
+- (void)MusicNavigationBarView:(MusicNavigationBarView*)aBarView textDidEndEditing:(KKTextField*)aTextField{
+    self.notDownloadView.url = self.navBarView.inputTextField.text;
+    self.cloudAllView.url = self.navBarView.inputTextField.text;
 }
+
 
 #pragma mark ==================================================
 #pragma mark == KKSegmentViewDelegate

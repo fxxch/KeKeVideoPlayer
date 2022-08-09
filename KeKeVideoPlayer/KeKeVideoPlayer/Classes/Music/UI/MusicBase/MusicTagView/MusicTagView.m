@@ -68,7 +68,7 @@
         [self.contentView addSubview:self.mainScrollView];
         
         
-        CGFloat offsetX = 15;
+        CGFloat offsetX = 10;
         CGFloat offsetY = 15;
         CGFloat buttonHeight = 40;
         NSArray *tags = [MusicDBManager.defaultManager DBQuery_Tag_All];
@@ -77,17 +77,17 @@
         for (NSInteger i=0; i<[self.tagsArray count]; i++) {
             NSDictionary *tagInfo = [self.tagsArray objectAtIndex:i];
             NSString *tagName = [tagInfo kk_validStringForKey:Table_Tag_tag_name];
-            CGSize size = [tagName kk_sizeWithFont:[UIFont systemFontOfSize:12]  maxWidth:self.kk_width-30];
-            CGFloat buttonWidth = size.width + 20;
-            if (offsetX+buttonWidth>(self.contentView.kk_width-15)) {
-                offsetY = offsetY + buttonHeight + 15;
-                offsetX = 15;
+            CGSize size = [tagName kk_sizeWithFont:[UIFont systemFontOfSize:12]  maxWidth:self.kk_width-20];
+            CGFloat buttonWidth = size.width + 15;
+            if (offsetX+buttonWidth>(self.contentView.kk_width-10)) {
+                offsetY = offsetY + buttonHeight + 10;
+                offsetX = 10;
             }
             
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(offsetX, offsetY, MIN(buttonWidth, self.contentView.kk_width-30), buttonHeight)];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(offsetX, offsetY, MIN(buttonWidth, self.contentView.kk_width-20), buttonHeight)];
             [button addTarget:self action:@selector(tagButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self.mainScrollView addSubview:button];
-            offsetX = offsetX + button.kk_width + 15;
+            offsetX = offsetX + button.kk_width + 10;
             button.tag = 1111+i;
             button.kk_tagInfo = tagInfo;
             [button setTitle:tagName forState:UIControlStateNormal];
@@ -108,7 +108,7 @@
             }
             
             if (i==[tags count]-1) {
-                offsetY = offsetY + buttonHeight + 15;
+                offsetY = offsetY + buttonHeight + 10;
             }
         }
         

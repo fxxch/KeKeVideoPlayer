@@ -36,9 +36,12 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self kk_observeNotification:KKNotificationName_UIEventSubtypeRemoteControl selector:@selector(KKNotificationName_UIEventSubtypeRemoteControl:)];
-        [self kk_observeNotification:KKNotificationName_StartPlayDataSouce selector:@selector(KKNotification_StartPlayDataSouce:)];
+        [self kk_observeNotification:NotificationName_UIEventSubtypeRemoteControl selector:@selector(Notification_UIEventSubtypeRemoteControl:)];
+        [self kk_observeNotification:NotificationName_MusicPlayerStartPlayDataSouce selector:@selector(Notification_MusicPlayerStartPlayDataSouce:)];
         [self kk_observeNotification:NotificationName_MusicDeleteFinished selector:@selector(Notification_MusicDeleteFinished:)];
+        [self kk_observeNotification:NotificationName_MusicPlayerStartPlayMusicItem selector:@selector(Notification_MusicPlayerStartPlayMusicItem:)];
+
+        
         self.dataSource = [[NSMutableArray alloc] init];
         NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_All];
         [self.dataSource addObjectsFromArray:array];
@@ -208,7 +211,7 @@
 #pragma mark ==================================================
 #pragma mark == 通知
 #pragma mark ==================================================
-- (void)KKNotification_StartPlayDataSouce:(NSNotification*)notice{
+- (void)Notification_MusicPlayerStartPlayDataSouce:(NSNotification*)notice{
     NSArray *array = notice.object;
     [self.dataSource removeAllObjects];
     [self.dataSource addObjectsFromArray:array];
@@ -219,7 +222,7 @@
     [self playNext];
 }
 
-- (void)KKNotificationName_UIEventSubtypeRemoteControl:(NSNotification*)notice{
+- (void)Notification_UIEventSubtypeRemoteControl:(NSNotification*)notice{
     
     UIEventSubtype subType = [notice.object integerValue];
     switch (subType) {
@@ -298,6 +301,35 @@
         }
     }
 }
+
+- (void)Notification_MusicPlayerStartPlayMusicItem:(NSNotification*)notice{
+    NSDictionary *notiDic = notice.object;
+    NSString *notiIdentifier = [notiDic kk_validStringForKey:Table_Media_identifier];
+    NSInteger index = -1;
+    
+    for (NSInteger i=0; i<[self.dataSource count]; i++) {
+        NSDictionary *info = [self.dataSource objectAtIndex:i];
+        NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
+        if ([identifier isEqualToString:notiIdentifier]) {
+            index = i;
+            break;
+        }
+    }
+    
+    if (index>=0) {
+        self.currentPlayIndex = index;
+        [self startPlayer];
+    }
+    else{
+        [self.dataSource addObject:notiDic];
+        [self.table reloadData];
+        self.currentPlayIndex = self.dataSource.count-1;
+        [self startPlayer];
+    }
+    [self kk_postNotification:NotificationName_HomeSelectPlayerView];
+}
+
+
 
 #pragma mark ==================================================
 #pragma mark == MusicControlViewDelegate

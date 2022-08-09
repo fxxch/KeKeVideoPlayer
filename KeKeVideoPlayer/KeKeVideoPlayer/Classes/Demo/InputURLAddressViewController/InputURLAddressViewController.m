@@ -97,26 +97,25 @@
     [self.view addSubview:button04];
 
     if (self.initAuto) {
-        NSArray *allIPAddress = [KKGetIPAddress allIPAdress];
-        for (NSInteger i=0; i<[allIPAddress count]; i++) {
-            NSString *ipAddress = [allIPAddress objectAtIndex:i];
-            if ([ipAddress isEqualToString:@"127.0.0.1"] ) {
-                continue;
-            }
-            NSArray *array = [ipAddress componentsSeparatedByString:@"."];
+        NSString *wifiIPAddress = [KKGetIPAddress getCurrentWifiIP];
+        if ([NSString kk_isStringNotEmpty:wifiIPAddress]) {
+            NSArray *array = [wifiIPAddress componentsSeparatedByString:@"."];
             if ([array count]>=4) {
                 NSString *str01 = [array objectAtIndex:0];
                 NSString *str02 = [array objectAtIndex:1];
                 NSString *str03 = [array objectAtIndex:2];
-                //                NSString *str04 = [array objectAtIndex:3];
+              //NSString *str04 = [array objectAtIndex:3];
                 for (NSInteger index=2; index<=150; index++) {
                     NSString *fullString = [NSString stringWithFormat:@"%@.%@.%@.%ld",str01,str02,str03,(long)(index)];
                     [self.ipArray addObject:fullString];
                 }
+                
+                [self autoSearchIP_Start];
             }
         }
-        
-        [self autoSearchIP_Start];
+        else{
+            [KKToastView showInView:self.view text:@"请连接wifi" image:nil alignment:KKToastViewAlignment_Center];
+        }
     }
     else{
         self.myTextView.text = @"http://192.168.43.250";

@@ -96,7 +96,7 @@
 }
 
 - (void)navPlayAllButtonClicked{
-    [self kk_postNotification:KKNotificationName_StartPlayDataSouce object:self.dataSource];
+    [self kk_postNotification:NotificationName_MusicPlayerStartPlayDataSouce object:self.dataSource];
     [self kk_postNotification:NotificationName_HomeSelectPlayerView];
 }
 
@@ -111,7 +111,7 @@
         //删除音乐表
         [MusicDBManager.defaultManager DBDelete_Media_WithIdentifer:identifier];
         
-        
+        [self kk_postNotification:NotificationName_MusicDeleteFinished object:identifier];
     }
     
     [self.dataSource removeAllObjects];;
@@ -176,6 +176,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];
+    [self kk_postNotification:NotificationName_MusicPlayerStartPlayMusicItem object:info];
 
 }
 

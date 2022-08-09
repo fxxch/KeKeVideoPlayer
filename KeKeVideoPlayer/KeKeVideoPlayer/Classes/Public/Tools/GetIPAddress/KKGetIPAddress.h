@@ -13,8 +13,19 @@
 
 @interface KKGetIPAddress : NSObject
 
-+ (NSString *)deviceIPAdress;
++ (NSString *_Nonnull)deviceIPAdress;
 
-+ (NSArray *)allIPAdress;
++ (NSArray *_Nonnull)allIPAdress;
+
++ (nullable NSString*)getCurrentWifiIP;
+
+/* 包含信息：
+ {
+ BSSID = "ac:29:3a:99:33:45";
+ SSID = "三千";
+ SSIDDATA = <e4b889e5 8d83>;
+ }
+ */
++ (nullable NSDictionary *)getCurreWiFiInformation;
 
 @end

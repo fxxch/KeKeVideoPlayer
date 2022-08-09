@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"标签";
     [self kk_observeNotification:NotificationName_HomeSelectPlayerView selector:@selector(Notification_HomeSelectPlayerView:)];
     
     [self initUI];

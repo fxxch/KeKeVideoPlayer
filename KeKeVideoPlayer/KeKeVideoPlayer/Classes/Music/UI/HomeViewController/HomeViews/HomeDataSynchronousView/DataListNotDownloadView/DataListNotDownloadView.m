@@ -163,20 +163,31 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    if (self.dataSource.count>0) {
+        return 30;
+    }
+    else{
+        return 0.1;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 30)];
-    view.backgroundColor = Theme_Color_FFF9E5;
+    if (self.dataSource.count>0) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 30)];
+        view.backgroundColor = Theme_Color_FFF9E5;
 
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 8, KKScreenWidth-30, 14)];
-    label.font = [UIFont systemFontOfSize:12];
-    label.text = [NSString stringWithFormat:@"总共 %ld条 数据",self.dataSource.count];
-    
-    [view addSubview:label];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 8, KKScreenWidth-30, 14)];
+        label.font = [UIFont systemFontOfSize:12];
+        label.text = [NSString stringWithFormat:@"总共 %ld条 数据",self.dataSource.count];
+        
+        [view addSubview:label];
 
-    return view;
+        return view;
+    }
+    else{
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 0.1)];
+        return view;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

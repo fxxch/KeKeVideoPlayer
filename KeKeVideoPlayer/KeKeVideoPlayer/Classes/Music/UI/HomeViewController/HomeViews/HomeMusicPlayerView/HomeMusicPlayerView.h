@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *KKNotificationName_StartPlayDataSouce = @"KKNotificationName_StartPlayDataSouce";
-static NSString *KKNotificationName_UIEventSubtypeRemoteControl = @"KKNotificationName_UIEventSubtypeRemoteControl";
-
 @interface HomeMusicPlayerView : UIView
 
 @end

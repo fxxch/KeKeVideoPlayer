@@ -7,24 +7,36 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KKTextField.h"
 
-@interface MusicNavigationBarView : UIView
+@protocol MusicNavigationBarViewDelegate;
 
+@interface MusicNavigationBarView : UIView<KKTextFieldDelegate>
+
+@property (nonatomic , strong) UIView *barView;
 @property (nonatomic , strong) KKButton *leftButton;
 @property (nonatomic , strong) KKButton *rightButton;
 @property (nonatomic , strong) UILabel *titleLabel;
 @property (nonatomic , strong) UIImageView *footerLineView;
+@property (nonatomic , strong) KKTextField *inputTextField;
+
+@property (nonatomic , weak) id<MusicNavigationBarViewDelegate> delegate;
 
 - (void)addShadow;
 
 #pragma mark ==================================================
-#pragma mark == NavigationBar Title
+#pragma mark == Title
 #pragma mark ==================================================
 - (void)setTitle:(NSString *)title;
 - (void)setTitle:(NSString *)title autoResize:(BOOL)autoResize;
 
 #pragma mark ==================================================
-#pragma mark == NavigationBar Button
+#pragma mark == TextField
+#pragma mark ==================================================
+- (void)showTextField;
+
+#pragma mark ==================================================
+#pragma mark == Button
 #pragma mark ==================================================
 - (KKButton*)setNavLeftButtonImage:(UIImage *)image selector:(SEL)selecter target:(id)target;
 
@@ -35,3 +47,27 @@
 - (KKButton*)setNavRightButtonTitle:(NSString *)title titleColor:(UIColor *)tColor selector:(SEL)selecter target:(id)target;
 
 @end
+
+
+#pragma mark ==================================================
+#pragma mark == MusicNavigationBarViewDelegate
+#pragma mark ==================================================
+@protocol MusicNavigationBarViewDelegate <NSObject>
+@optional
+
+/// 输入View开始输入（键盘弹起）
+/// @param aTextFieldView 当前输入View
+- (void)MusicNavigationBarView:(MusicNavigationBarView*)aBarView textFieldDidBeginEditing:(KKTextField*)aTextField;
+
+
+/// 输入View输入内容发生变化
+/// @param aTextFieldView 当前输入View
+- (BOOL)MusicNavigationBarView:(MusicNavigationBarView*)aBarView textField:(KKTextField*)aTextField textCanChangedToString:(NSString*)aText;
+
+
+/// 输入View结束输入（键盘收起）
+/// @param aTextFieldView 当前输入View
+- (void)MusicNavigationBarView:(MusicNavigationBarView*)aBarView textDidEndEditing:(KKTextField*)aTextField;
+
+@end
+

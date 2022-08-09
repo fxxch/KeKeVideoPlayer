@@ -11,7 +11,7 @@
 
 @interface FMDatabase (MusicDBManager)
 
-- (NSArray*)kkMusic_getTableColumnNames:(NSString*)tableName;
+- (NSArray*_Nullable)kkMusic_getTableColumnNames:(NSString*_Nullable)tableName;
 
 @end
 
@@ -65,9 +65,9 @@
     FMDatabaseQueue *m_db;
 }
 
-@property (nonatomic,strong) FMDatabaseQueue *db;
+@property (nonatomic,strong) FMDatabaseQueue * _Nonnull db;
 
-+ (MusicDBManager *)defaultManager;
++ (MusicDBManager *_Nonnull)defaultManager;
 
 - (void)openDB;
 
@@ -76,7 +76,7 @@
 #pragma mark ==================================================
 #pragma mark == 公共方法
 #pragma mark ==================================================
-- (BOOL)DBQuery_Table:(NSString*)tableName isExistValue:(NSString*)aValue forKey:(NSString*)aKey;
+- (BOOL)DBQuery_Table:(NSString*_Nullable)tableName isExistValue:(NSString*_Nullable)aValue forKey:(NSString*_Nullable)aKey;
 
 #pragma mark ==================================================
 #pragma mark == Media
@@ -93,6 +93,7 @@
 
 - (NSArray*_Nullable)DBQuery_Media_WithTagId:(NSString*_Nullable)aTagId;
 
+- (NSArray*_Nullable)DBQuery_Media_WithKeywords:(NSString*_Nullable)aKeywords;
 
 #pragma mark ==================================================
 #pragma mark == Tag

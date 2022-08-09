@@ -80,7 +80,6 @@
 
     self.inputTextField = textField;
     self.inputTextField.delegate = self;
-    self.inputTextField.text = URL_CarMusic;
     if (self.in_URL) {
         self.inputTextField.text = self.in_URL;
     }

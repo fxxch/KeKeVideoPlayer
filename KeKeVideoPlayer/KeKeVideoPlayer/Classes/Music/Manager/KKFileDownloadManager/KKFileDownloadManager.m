@@ -75,8 +75,9 @@ NSAttributedStringKey const KKMusicFile_CachePath  = @"KKMusicFile";
         [KKFileCacheManager deleteCacheData:aURLString];
         [self startDownloadProgress];
         [KKToastView showInView:[UIWindow kk_currentKeyWindow] text:@"删除成功" image:nil alignment:KKToastViewAlignment_Center];
-        [MusicDBManager.defaultManager DBDelete_Media_WithIdentifer:aURLString];
         [MusicDBManager.defaultManager DBDelete_MediaTag_WithMediaIdentifer:aURLString];
+        [MusicDBManager.defaultManager DBDelete_Media_WithIdentifer:aURLString];
+        [self kk_postNotification:NotificationName_MusicDeleteFinished object:aURLString];
         [self kk_postNotification:KKNotificationName_KKFileDownloadManager_Update object:aURLString];
         return;
     }

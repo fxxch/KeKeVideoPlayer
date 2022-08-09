@@ -16,17 +16,22 @@
 #import "MusicNavigationBarView.h"
 #import "HomeMusicPlayerView.h"
 
+//默认主题包
+#define DefaultThemeBundleName    @"Default"
+
 //============================================================
 //==  通知
 //============================================================
-#define NotificationName_HomeSelectPlayerView @"NotificationName_HomeSelectPlayerView"
-#define NotificationName_MusicDeleteFinished @"NotificationName_MusicDeleteFinished"
-
+#define NotificationName_HomeSelectPlayerView          @"NotificationName_HomeSelectPlayerView"
+#define NotificationName_MusicDeleteFinished           @"NotificationName_MusicDeleteFinished"
+#define NotificationName_MusicPlayerStartPlayDataSouce @"NotificationName_MusicPlayerStartPlayDataSouce"
+#define NotificationName_UIEventSubtypeRemoteControl   @"NotificationName_UIEventSubtypeRemoteControl"
+#define NotificationName_MusicPlayerStartPlayMusicItem @"NotificationName_MusicPlayerStartPlayMusicItem"
 
 //============================================================
 //==  配置
 //============================================================
-#define URL_CarMusic @"http://192.168.2.3/car"
+#define URL_CarMusic @"http://192.168.43.250/car"
 
 #pragma mark - ==================================================
 #pragma mark == 颜色

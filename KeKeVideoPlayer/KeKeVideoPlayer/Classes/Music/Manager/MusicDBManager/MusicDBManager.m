@@ -366,6 +366,23 @@
     return array;
 }
 
+- (NSArray*_Nullable)DBQuery_Media_WithKeywords:(NSString*_Nullable)aKeywords{
+    NSString *selectSql = [NSString stringWithFormat:@" SELECT * FROM %@ where %@ like \'%%%@%%\' ",TableName_Media,Table_Media_local_name,aKeywords];
+
+    __block NSMutableArray *array = [[NSMutableArray alloc] init];
+
+    [m_db inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery: selectSql];
+        while ([rs next]) {
+            NSDictionary *dictionary = [MusicDBManager.defaultManager dictionaryFromFMResultSet:rs];
+            [array addObject:dictionary];
+        }
+        [rs close];
+    }];
+
+    return array;
+}
+
 #pragma mark ==================================================
 #pragma mark == Tag
 #pragma mark ==================================================

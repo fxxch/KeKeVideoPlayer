@@ -8,6 +8,7 @@
 
 #import "HomeTagListView.h"
 #import "MusicDataListViewController.h"
+#import "MusicSearchViewController.h"
 
 #define TagCellHeight (60.0f)
 
@@ -38,7 +39,9 @@
 
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
     [self addSubview:self.navBarView];
-    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
+    [self.navBarView setTitle:@"标签"];
+    [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_search") selector:@selector(navSearchButtonClicked) target:self];
 
     self.table = [UITableView kk_initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, self.kk_height-self.navBarView.kk_height) style:UITableViewStyleGrouped delegate:self datasource:self];
     self.table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -96,6 +99,14 @@
     };
 
     [KKAlertInputController showWithTitle:@"新建标签" subTitle:nil inputPlaceholder:nil initText:nil leftConfig:leftConfig rightConfig:rightConfig];
+}
+
+- (void)navSearchButtonClicked{
+    MusicSearchViewController *viewController = [[MusicSearchViewController alloc] init];
+    viewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.kk_viewController.navigationController presentViewController:viewController animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark ========================================

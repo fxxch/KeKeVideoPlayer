@@ -41,7 +41,7 @@
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event{
     if (event.type==UIEventTypeRemoteControl) {
-        [self kk_postNotification:KKNotificationName_UIEventSubtypeRemoteControl object:[NSNumber numberWithInteger:event.subtype]];
+        [self kk_postNotification:NotificationName_UIEventSubtypeRemoteControl object:[NSNumber numberWithInteger:event.subtype]];
     }
 }
 
