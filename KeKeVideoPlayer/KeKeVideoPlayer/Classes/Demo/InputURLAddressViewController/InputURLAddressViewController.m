@@ -154,7 +154,7 @@
 - (void)addressPlus{
     NSString *originString = self.myTextView.text;
     NSString *string01 = [originString stringByReplacingOccurrencesOfString:@"http://" withString:@""];
-    NSString *string02 = [string01 stringByReplacingOccurrencesOfString:@"/media0" withString:@""];
+    NSString *string02 = [string01 stringByReplacingOccurrencesOfString:@"/test" withString:@""];
     NSArray *array = [string02 componentsSeparatedByString:@"."];
     if ([array count]>=4) {
         NSString *str01 = [array objectAtIndex:0];
@@ -169,7 +169,7 @@
 - (void)addressReduce{
     NSString *originString = self.myTextView.text;
     NSString *string01 = [originString stringByReplacingOccurrencesOfString:@"http://" withString:@""];
-    NSString *string02 = [string01 stringByReplacingOccurrencesOfString:@"/media0" withString:@""];
+    NSString *string02 = [string01 stringByReplacingOccurrencesOfString:@"/test" withString:@""];
     NSArray *array = [string02 componentsSeparatedByString:@"."];
     if ([array count]>=4) {
         NSString *str01 = [array objectAtIndex:0];
@@ -202,7 +202,7 @@
         return;
     }
     
-    NSString *ulr = [NSString stringWithFormat:@"http://%@",ipAddress];
+    NSString *ulr = [NSString stringWithFormat:@"http://%@/music",ipAddress];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:ulr]];
     [request setHTTPMethod:@"HEAD"];
     request.timeoutInterval = 2.0;
@@ -226,7 +226,7 @@
                 [KKWaitingView hideForView:weakself.view];
                 NSString *wifiIP = [request.URL absoluteString];
                 NSLog(@"%@: 可用",wifiIP);
-                weakself.myTextView.text = wifiIP;
+                weakself.myTextView.text = [wifiIP stringByDeletingLastPathComponent];
             });
         }
     }];
