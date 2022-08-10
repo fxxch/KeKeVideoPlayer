@@ -57,7 +57,7 @@ NSAttributedStringKey const KKMusicFile_CachePath  = @"KKMusicFile";
 
     KKFileDownloadInfo *info = [[KKFileDownloadInfo alloc] init];
     info.url = aURLString;
-    info.progress = @"0%%";
+    info.progress = @"0%";
     info.byteString = @"等待下载中";
     info.status = KKFileDownloadStatus_WaitDownload;
     info.toTagsArray = tagsArray;

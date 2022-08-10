@@ -72,7 +72,7 @@ NSNotificationName const KKNotificationName_FileDownloadManager_Progress = @"KKN
 
     FileInfo *info = [[FileInfo alloc] init];
     info.url = aURLString;
-    info.progress = @"0%%";
+    info.progress = @"0%";
     info.byteString = @"等待下载中";
     info.isFinished = NO;
     [self.willDownloadFileArray addObject:info];
