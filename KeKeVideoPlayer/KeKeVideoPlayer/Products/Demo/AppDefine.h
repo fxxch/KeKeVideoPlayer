@@ -9,9 +9,11 @@
 #ifndef CEDongLi_AppDefine_h
 #define CEDongLi_AppDefine_h
 
-#import "Tool.h""
+#import "Tool.h"
 
 //默认主题包
 #define DefaultThemeBundleName    @"Default"
+
+#define NotificationName_UIEventSubtypeRemoteControl   @"NotificationName_UIEventSubtypeRemoteControl"
 
 #endif
