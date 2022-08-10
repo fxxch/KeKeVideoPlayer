@@ -156,11 +156,7 @@
         return;
     }
     
-    if ([NSString kk_isStringNotEmpty:self.navBarView.inputTextField.text]) {
-        return;
-    }
-    
-    NSString *ulr = [NSString stringWithFormat:@"http://%@",ipAddress];
+    NSString *ulr = [NSString stringWithFormat:@"http://%@/%@",ipAddress,MusicPath];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:ulr]];
     [request setHTTPMethod:@"HEAD"];
     request.timeoutInterval = 2.0;
@@ -172,19 +168,18 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
                 if (weakself.auto_ipIndex==[weakself.auto_ipArray count]) {
-//                    [KKWaitingView hideForView:weakself];
                 }
             });
         }else{
             dispatch_sync(dispatch_get_main_queue(), ^{
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
-//                [KKWaitingView hideForView:weakself];
                 NSString *wifiIP = [request.URL absoluteString];
                 if ([wifiIP isEqualToString:self.hostRoot]==NO) {
-                    weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
+                    weakself.navBarView.inputTextField.text = wifiIP;
                     [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
                     [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
-                    weakself.hostRoot = weakself.navBarView.inputTextField.text;
+
+                    weakself.hostRoot = [wifiIP stringByDeletingLastPathComponent];
                 }
             });
         }
