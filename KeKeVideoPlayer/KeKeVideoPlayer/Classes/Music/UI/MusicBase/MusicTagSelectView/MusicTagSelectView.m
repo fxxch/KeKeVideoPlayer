@@ -1,41 +1,42 @@
 //
-//  MusicTagView.m
+//  MusicTagSelectView.m
 //  Music
 //
-//  Created by edward lannister on 2022/08/08.
+//  Created by edward lannister on 2022/08/10.
 //  Copyright © 2022 KeKeStudio. All rights reserved.
 //
 
-#import "MusicTagView.h"
+#import "MusicTagSelectView.h"
 
-@interface MusicTagView ()
+@interface MusicTagSelectView ()
 
 @property (nonatomic,strong) UIButton *backButton;
 @property (nonatomic,strong) UIView *contentView;
 @property (nonatomic,strong) UIView *headerView;
 @property (nonatomic,strong) UIScrollView *mainScrollView;
 
-@property (nonatomic , strong) NSDictionary *mediaInformation;
+@property (nonatomic , copy) MusicTagSelectFinishedBlock completeBlock;
 @property (nonatomic , strong) NSMutableArray *tagsArray;
+@property (nonatomic , strong) NSMutableDictionary *tagsArraySelect;
 
 @end
 
 
-@implementation MusicTagView
+@implementation MusicTagSelectView
 
-#define kMusicTagViewTag (2022071888)
+#define kMusicTagSelectViewTag (2022081088)
 
 #pragma mark ==================================================
 #pragma mark == 接口
 #pragma mark ==================================================
 
-+ (MusicTagView*_Nullable)showWithMediaInformation:(NSDictionary *_Nullable)aMediaInformation inView:(UIView*_Nullable)aView {
-    if ([aView viewWithTag:kMusicTagViewTag]) {
++ (MusicTagSelectView*_Nullable)showInView:(UIView*_Nullable)aView finishedBlock:(MusicTagSelectFinishedBlock)finishedBlock{
+    if ([aView viewWithTag:kMusicTagSelectViewTag]) {
         return nil;
     }
     
-    MusicTagView *pickerView = [[MusicTagView alloc] initWithFrame:aView.bounds information:aMediaInformation];
-    pickerView.tag = kMusicTagViewTag;
+    MusicTagSelectView *pickerView = [[MusicTagSelectView alloc] initWithFrame:aView.bounds finishedBlock:finishedBlock];
+    pickerView.tag = kMusicTagSelectViewTag;
     [aView addSubview:pickerView];
     [aView bringSubviewToFront:pickerView];
 
@@ -46,12 +47,12 @@
 #pragma mark ==================================================
 #pragma mark == 初始化
 #pragma mark ==================================================
-- (id)initWithFrame:(CGRect)frame information:(NSDictionary*)aInformation{
+- (id)initWithFrame:(CGRect)frame finishedBlock:(MusicTagSelectFinishedBlock)finishedBlock{
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.mediaInformation = [NSMutableDictionary dictionary];
-        self.mediaInformation = aInformation;
+        self.tagsArraySelect = [NSMutableDictionary dictionary];
+        self.completeBlock = finishedBlock;
         
         self.backButton = [[UIButton alloc] initWithFrame:self.bounds];
         self.backButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
@@ -64,7 +65,7 @@
         [self.contentView kk_setCornerRadius:10];
         [self addShadow];
         
-        self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 49, self.contentView.kk_width, self.contentView.kk_height-20-49)];
+        self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 49, self.contentView.kk_width, self.contentView.kk_height-20-49-50)];
         self.mainScrollView.showsVerticalScrollIndicator = NO;
         [self.contentView addSubview:self.mainScrollView];
         
@@ -72,7 +73,7 @@
         self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.kk_width, 49)];
         self.headerView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:self.headerView];
-        UILabel *titleLabel = [UILabel kk_initWithTextColor:Theme_Color_333333 font:[UIFont boldSystemFontOfSize:16] text:@"设置标签" maxWidth:self.contentView.kk_width];
+        UILabel *titleLabel = [UILabel kk_initWithTextColor:Theme_Color_333333 font:[UIFont boldSystemFontOfSize:16] text:@"你想同步到哪些标签？" maxWidth:self.contentView.kk_width];
         titleLabel.frame = CGRectMake(15, (self.headerView.kk_height-titleLabel.kk_height)/2.0, self.contentView.kk_width-30, titleLabel.kk_height);
         titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.headerView addSubview:titleLabel];
@@ -89,7 +90,11 @@
         headerLine.backgroundColor = Theme_Color_F0F0F0;
         [self.headerView addSubview:headerLine];
 
-        
+        UIButton *okButton = [UIButton kk_initWithFrame:CGRectMake(15, self.contentView.kk_height-20-KKSafeAreaBottomHeight-5-40, self.contentView.kk_width-30, 40) title:@"确定" titleFont:[UIFont boldSystemFontOfSize:16] titleColor:[UIColor whiteColor] backgroundColor:Theme_Color_D31925];
+        [okButton addTarget:self action:@selector(okButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [okButton kk_setCornerRadius:okButton.kk_height/2.0];
+        [self.contentView addSubview:okButton];
+
         CGFloat offsetX = 10;
         CGFloat offsetY = 15;
         CGFloat buttonHeight = 40;
@@ -117,22 +122,10 @@
             button.titleLabel.font = [UIFont systemFontOfSize:12];
             [button kk_setCornerRadius:button.kk_height/2.0];
             
-            NSString *identifier = [self.mediaInformation kk_validStringForKey:Table_Media_identifier];
-            NSString *tagId = [tagInfo kk_validStringForKey:Table_Tag_tag_id];
-            NSDictionary *dbData = [MusicDBManager.defaultManager DBQuery_MediaTag_WithMediaIdentifer:identifier tagId:tagId];
-            if ([NSDictionary kk_isDictionaryNotEmpty:dbData]) {
-                button.backgroundColor = Theme_Color_D31925;
-                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            }
-            else{
-                button.backgroundColor = Theme_Color_F8F8F8;
-                [button setTitleColor:Theme_Color_666666 forState:UIControlStateNormal];
-                [button kk_setBorderColor:Theme_Color_DEDEDE width:0.5];
-            }
-            
-            if (i==[tags count]-1) {
-                offsetY = offsetY + buttonHeight + 10;
-            }
+            button.backgroundColor = Theme_Color_F8F8F8;
+            [button setTitleColor:Theme_Color_666666 forState:UIControlStateNormal];
+            [button kk_setBorderColor:Theme_Color_DEDEDE width:0.5];
+
         }
         
         self.mainScrollView.contentSize = CGSizeMake(KKScreenWidth, offsetY);
@@ -171,34 +164,32 @@
     [self hide];
 }
 
+- (void)okButtonClicked{
+    if (self.completeBlock) {
+        self.completeBlock([self.tagsArraySelect allValues]);
+    }
+    [self hide];
+}
+
 #pragma mark ==================================================
 #pragma mark == Network: Request Result
 #pragma mark ==================================================
 - (void)tagButtonClicked:(UIButton*)button{
     NSDictionary *tagInfo = button.kk_tagInfo;
-    NSString *identifier = [self.mediaInformation kk_validStringForKey:Table_Media_identifier];
     NSString *tagId = [tagInfo kk_validStringForKey:Table_Tag_tag_id];
-    NSDictionary *dbData = [MusicDBManager.defaultManager DBQuery_MediaTag_WithMediaIdentifer:identifier tagId:tagId];
-    if ([NSDictionary kk_isDictionaryNotEmpty:dbData]) {
-        if ([MusicDBManager.defaultManager DBDelete_MediaTag_WithMediaIdentifer:identifier tagId:tagId]) {
-            button.backgroundColor = Theme_Color_F8F8F8;
-            [button setTitleColor:Theme_Color_666666 forState:UIControlStateNormal];
-            [button kk_setBorderColor:Theme_Color_DEDEDE width:0.5];
-        }
-        else{
-            [KKToastView showInView:self text:@"操作失败" image:nil alignment:KKToastViewAlignment_Center];
-        }
+    if ([self.tagsArraySelect objectForKey:tagId]) {
+        button.backgroundColor = Theme_Color_F8F8F8;
+        [button setTitleColor:Theme_Color_666666 forState:UIControlStateNormal];
+        [button kk_setBorderColor:Theme_Color_DEDEDE width:0.5];
+        [self.tagsArraySelect removeObjectForKey:tagId];
     }
     else{
-        if ([MusicDBManager.defaultManager DBInsert_MediaTag_WithMediaIdentifer:identifier tagId:tagId]) {
-            button.backgroundColor = Theme_Color_D31925;
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
-        else{
-            [KKToastView showInView:self text:@"操作失败" image:nil alignment:KKToastViewAlignment_Center];
-        }
+        button.backgroundColor = Theme_Color_D31925;
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.tagsArraySelect setObject:tagInfo forKey:tagId];
     }
 }
 
 
 @end
+

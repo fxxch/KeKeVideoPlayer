@@ -191,6 +191,8 @@
 		1148304F28A1055C00389434 /* MusicDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148304E28A1055B00389434 /* MusicDataListViewController.m */; };
 		1148305328A1161800389434 /* MusicTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148305228A1161800389434 /* MusicTagView.m */; };
 		1148305728A2016600389434 /* MusicSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148305628A2016600389434 /* MusicSearchViewController.m */; };
+		11AFBB3228A3880D00B72F7F /* MusicTagSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */; };
+		11AFBB3628A3A17100B72F7F /* MusicServerAddressListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */; };
 		11F640E1288901CA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640C7288901CA0050B936 /* HomeViewController.m */; };
 		11F640E2288901CA0050B936 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CC288901CA0050B936 /* WebBrowserViewController.m */; };
 		11F640E3288901CA0050B936 /* InputURLAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CD288901CA0050B936 /* InputURLAddressViewController.m */; };
@@ -526,6 +528,10 @@
 		1148305228A1161800389434 /* MusicTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicTagView.m; sourceTree = "<group>"; };
 		1148305528A2016600389434 /* MusicSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicSearchViewController.h; sourceTree = "<group>"; };
 		1148305628A2016600389434 /* MusicSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicSearchViewController.m; sourceTree = "<group>"; };
+		11AFBB3028A3880D00B72F7F /* MusicTagSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicTagSelectView.h; sourceTree = "<group>"; };
+		11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicTagSelectView.m; sourceTree = "<group>"; };
+		11AFBB3428A3A17100B72F7F /* MusicServerAddressListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicServerAddressListView.h; sourceTree = "<group>"; };
+		11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicServerAddressListView.m; sourceTree = "<group>"; };
 		11F640C7288901CA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640C9288901CA0050B936 /* InputURLAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputURLAddressViewController.h; sourceTree = "<group>"; };
 		11F640CB288901CA0050B936 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
@@ -1016,6 +1022,7 @@
 		11482F5B289D3B6B00389434 /* HomeDataSynchronousView */ = {
 			isa = PBXGroup;
 			children = (
+				11AFBB3328A3A14900B72F7F /* MusicServerAddressListView */,
 				11482F42289D023200389434 /* DataListCloudAllView */,
 				11482F41289D021100389434 /* DataListNotDownloadView */,
 				11482F43289D026700389434 /* DataListDownloadingView */,
@@ -1214,6 +1221,7 @@
 		11482FF4289E049100389434 /* MusicBase */ = {
 			isa = PBXGroup;
 			children = (
+				11AFBB2F28A387ED00B72F7F /* MusicTagSelectView */,
 				1148305028A115E600389434 /* MusicTagView */,
 				1148304828A0AD4E00389434 /* MusicCell */,
 				1148303A289E1CAE00389434 /* MusicNavigationBarView */,
@@ -1418,6 +1426,24 @@
 				1148305628A2016600389434 /* MusicSearchViewController.m */,
 			);
 			path = MusicSearchViewController;
+			sourceTree = "<group>";
+		};
+		11AFBB2F28A387ED00B72F7F /* MusicTagSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				11AFBB3028A3880D00B72F7F /* MusicTagSelectView.h */,
+				11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */,
+			);
+			path = MusicTagSelectView;
+			sourceTree = "<group>";
+		};
+		11AFBB3328A3A14900B72F7F /* MusicServerAddressListView */ = {
+			isa = PBXGroup;
+			children = (
+				11AFBB3428A3A17100B72F7F /* MusicServerAddressListView.h */,
+				11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */,
+			);
+			path = MusicServerAddressListView;
 			sourceTree = "<group>";
 		};
 		11F640C6288901CA0050B936 /* Demo */ = {
@@ -2421,6 +2447,7 @@
 				11482FEF289E045600389434 /* BaseViewController.m in Sources */,
 				111C1FEE28976A1000F0336D /* KKVideoPlayerBarView.m in Sources */,
 				11482FBB289E045600389434 /* KKWindowActionViewItem.m in Sources */,
+				11AFBB3628A3A17100B72F7F /* MusicServerAddressListView.m in Sources */,
 				11F755BA2898FEE400390931 /* MusicDBManager.m in Sources */,
 				11482FF3289E045600389434 /* BaseNavigationController.m in Sources */,
 				11482F46289D028500389434 /* DataListDownloadingView.m in Sources */,
@@ -2430,6 +2457,7 @@
 				11482FDF289E045600389434 /* KKAlertInputController.m in Sources */,
 				11483027289E0EF200389434 /* KKRefreshFooterAutoView.m in Sources */,
 				111C1FF028976A1000F0336D /* KKVideoPlayerVolumeView.m in Sources */,
+				11AFBB3228A3880D00B72F7F /* MusicTagSelectView.m in Sources */,
 				11483040289E1CD800389434 /* MusicNavigationBarView.m in Sources */,
 				11483047289E276E00389434 /* MusicControlView.m in Sources */,
 				11482FAB289E045600389434 /* KKIPAddress.m in Sources */,

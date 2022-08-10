@@ -34,6 +34,7 @@
 #pragma mark == TextField
 #pragma mark ==================================================
 - (void)showTextField;
+- (UIButton*)showTextFieldRightButtonWithTaget:(id)target selector:(SEL)action image:(UIImage*)aImage;
 
 #pragma mark ==================================================
 #pragma mark == Button

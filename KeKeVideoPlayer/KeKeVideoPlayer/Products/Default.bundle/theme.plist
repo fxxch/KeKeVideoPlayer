@@ -284,6 +284,10 @@
 	<string>Music/Music_download.png</string>
 	<key>Music_btn_search</key>
 	<string>Music/Music_btn_search.png</string>
+	<key>Music_btn_pop_cha</key>
+	<string>Music/Music_btn_pop_cha.png</string>
+	<key>Music_btn_arrow_down</key>
+	<string>Music/Music_btn_arrow_down.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>

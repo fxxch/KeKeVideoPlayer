@@ -167,6 +167,7 @@
     }
     else{
         self.home_dataSynchronousView.hidden = NO;
+        [self.home_dataSynchronousView autoCheckWifiIP];
         self.title = @"云音库";
     }
 }

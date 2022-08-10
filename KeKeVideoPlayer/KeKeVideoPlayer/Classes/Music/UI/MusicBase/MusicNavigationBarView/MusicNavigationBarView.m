@@ -119,6 +119,20 @@
     [self reloadTextFieldFrame];
 }
 
+- (UIButton*)showTextFieldRightButtonWithTaget:(id)target selector:(SEL)action image:(UIImage*)aImage{
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [rightButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    self.inputTextField.rightView = rightButton;
+    self.inputTextField.rightViewMode = UITextFieldViewModeAlways;
+
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, 25, 25)];
+    imageView.image = KKThemeImage(@"Music_btn_arrow_down");
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [rightButton addSubview:imageView];
+
+    return rightButton;
+}
+
 - (void)reloadTextFieldFrame{
     if (self.inputTextField==nil) {
         return;

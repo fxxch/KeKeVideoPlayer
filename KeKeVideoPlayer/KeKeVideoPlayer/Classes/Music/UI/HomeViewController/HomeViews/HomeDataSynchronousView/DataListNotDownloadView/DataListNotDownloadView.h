@@ -10,6 +10,6 @@
 
 @interface DataListNotDownloadView : UIView
 
-@property (nonatomic , copy) NSString *url;
+- (void)reloadURL:(NSString*)aURL;
 
 @end

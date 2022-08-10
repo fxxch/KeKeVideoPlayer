@@ -187,13 +187,13 @@
             CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
             
             UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (TagCellHeight-size.height)/2.0, KKApplicationWidth-30, size.height)];
-            mainLabel.tag = 1101;
+            mainLabel.tag = 199801;
             mainLabel.textColor = [UIColor blackColor];
             mainLabel.font = [UIFont systemFontOfSize:17];
             [cell addSubview:mainLabel];
         }
         
-        UILabel *mainLabel = (UILabel*)[cell viewWithTag:1101];
+        UILabel *mainLabel = (UILabel*)[cell viewWithTag:199801];
         if (indexPath.row==0) {
             NSString *count = [NSString stringWithFormat:@"(%ld)",[MusicDBManager.defaultManager DBQuery_Media_All].count];
             NSString *maintext = [NSString stringWithFormat:@"全部歌曲 %@",count];

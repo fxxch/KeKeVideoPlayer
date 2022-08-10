@@ -139,7 +139,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         
         UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, KKScreenWidth-30, 20)];
-        mainLabel.tag = 1101;
+        mainLabel.tag = 199201;
         [cell.contentView addSubview:mainLabel];
         
 //        UIImageView *previewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 40, 100, 100)];
@@ -148,7 +148,7 @@
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];
-    UILabel *mainLabel = [cell.contentView viewWithTag:1101];
+    UILabel *mainLabel = [cell.contentView viewWithTag:199201];
     mainLabel.text = [info validStringForKey:@"displayName"];
     
 //    UIImageView *previewImageView = [cell.contentView viewWithTag:1102];

@@ -27,5 +27,6 @@ typedef NS_ENUM(NSInteger,KKFileDownloadStatus) {
 @property (nonatomic , assign) KKFileDownloadStatus status;
 @property (nonatomic , copy) NSString *progress;
 @property (nonatomic , copy) NSString *byteString;
+@property (nonatomic , strong) NSArray *toTagsArray;//下载之后，保存到的标签列表
 
 @end

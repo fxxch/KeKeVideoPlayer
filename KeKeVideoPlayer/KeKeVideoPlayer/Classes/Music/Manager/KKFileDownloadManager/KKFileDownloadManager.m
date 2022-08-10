@@ -39,7 +39,11 @@ NSAttributedStringKey const KKMusicFile_CachePath  = @"KKMusicFile";
     return self;
 }
 
-- (void)downloadFileWithURL:(NSString*)aURLString{
+
+/// 下载文件
+/// @param aURLString 下载的文件的URL
+/// @param tagsArray //下载之后，保存到的标签列表
+- (void)downloadFileWithURL:(NSString*)aURLString toTagsArray:(NSArray*)tagsArray{
     
     if ([KKFileCacheManager isExistCacheData:aURLString]) {
         [KKToastView showInView:[UIWindow kk_currentKeyWindow] text:@"文件已经下载了" image:nil alignment:KKToastViewAlignment_Center];
@@ -56,6 +60,7 @@ NSAttributedStringKey const KKMusicFile_CachePath  = @"KKMusicFile";
     info.progress = @"0%%";
     info.byteString = @"等待下载中";
     info.status = KKFileDownloadStatus_WaitDownload;
+    info.toTagsArray = tagsArray;
     [self.willDownloadFiles setObject:info forKey:aURLString];
     [self startDownloadProgress];
 }
@@ -134,12 +139,23 @@ NSAttributedStringKey const KKMusicFile_CachePath  = @"KKMusicFile";
     if ([KKFileCacheManager isExistCacheData:aLoader.urlString]) {
         NSDictionary *info = [KKFileCacheManager cacheDataInformation:aLoader.urlString];
         [MusicDBManager.defaultManager DBInsert_Media_Information:info];
+        
+        KKFileDownloadInfo *downloadInfo = [self.willDownloadFiles objectForKey:aLoader.urlString];
+        if ([NSArray kk_isArrayNotEmpty:downloadInfo.toTagsArray]) {
+            NSString *identifier = aLoader.urlString;
+            for (NSInteger i=0; i<[downloadInfo.toTagsArray count]; i++) {
+                NSDictionary *tagInfo = [downloadInfo.toTagsArray objectAtIndex:i];
+                NSString *tag_id = [tagInfo kk_validStringForKey:Table_Tag_tag_id];
+                [MusicDBManager.defaultManager DBInsert_MediaTag_WithMediaIdentifer:identifier tagId:tag_id];
+            }
+        }
     }
     
     [self.willDownloadFiles removeObjectForKey:aLoader.urlString];
     self.downloader = nil;
     [self kk_postNotification:KKNotificationName_KKFileDownloadManager_Update object:aLoader.urlString];
-
+    [self kk_postNotification:KKNotificationName_KKFileDownloadManager_Finished object:aLoader.urlString];
+    
     [self startDownloadProgress];
 }
 

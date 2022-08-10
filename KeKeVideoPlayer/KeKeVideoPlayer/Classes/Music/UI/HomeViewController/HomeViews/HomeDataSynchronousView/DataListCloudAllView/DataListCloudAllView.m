@@ -12,6 +12,7 @@
 
 @property (nonatomic , strong)UITableView *table;
 @property (nonatomic , strong)NSMutableArray *dataSource;
+@property (nonatomic , copy) NSString *url;
 
 @end
 
@@ -41,6 +42,11 @@
     [self.table setTableFooterView:footer];
 }
 
+- (void)reloadURL:(NSString*)aURL{
+    self.url = aURL;
+    [self.table startRefreshHeader];
+}
+
 - (void)reloadDatasource:(NSString*)aURL{
         
     KKWeakSelf(self);
@@ -59,7 +65,7 @@
             }
             else{
                 NSLog(@"%@",error);
-                [KKToastView showInView:self text:@"刷新失败" image:nil alignment:KKToastViewAlignment_Center];
+//                [KKToastView showInView:self text:@"刷新失败" image:nil alignment:KKToastViewAlignment_Center];
                 [self.table stopRefreshHeader];
             }
 
@@ -211,7 +217,7 @@
         CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
         
         UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30, size.height)];
-        mainLabel.tag = 1101;
+        mainLabel.tag = 199601;
         mainLabel.textColor = [UIColor blackColor];
         mainLabel.font = [UIFont systemFontOfSize:14];
         mainLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
@@ -219,7 +225,7 @@
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
-    UILabel *mainLabel = (UILabel*)[cell viewWithTag:1101];
+    UILabel *mainLabel = (UILabel*)[cell viewWithTag:199601];
     mainLabel.text = [info kk_validStringForKey:@"fileName"];
     
     return cell;

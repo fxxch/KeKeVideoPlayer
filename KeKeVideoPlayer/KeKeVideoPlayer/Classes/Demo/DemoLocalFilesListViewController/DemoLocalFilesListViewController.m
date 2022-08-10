@@ -72,7 +72,7 @@
         CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
         
         UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30, size.height)];
-        mainLabel.tag = 1101;
+        mainLabel.tag = 199401;
         mainLabel.font = [UIFont systemFontOfSize:16];
         mainLabel.numberOfLines = 0;
         [cell addSubview:mainLabel];
@@ -80,7 +80,7 @@
     
     NSString *title = [self.dataSource objectAtIndex:indexPath.row];
     
-    UILabel *mainLabel = (UILabel*)[cell viewWithTag:1101];
+    UILabel *mainLabel = (UILabel*)[cell viewWithTag:199401];
     CGSize size = [title kk_sizeWithFont:[UIFont systemFontOfSize:16] maxWidth:KKApplicationWidth-30];
     mainLabel.text = [self.dataSource objectAtIndex:indexPath.row];
     if (size.height>30) {

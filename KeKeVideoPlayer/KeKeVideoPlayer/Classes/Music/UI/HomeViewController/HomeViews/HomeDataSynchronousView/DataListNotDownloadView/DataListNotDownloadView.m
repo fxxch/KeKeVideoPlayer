@@ -7,11 +7,13 @@
 //
 
 #import "DataListNotDownloadView.h"
+#import "MusicTagSelectView.h"
 
 @interface DataListNotDownloadView ()<UITableViewDataSource,UITableViewDelegate,KKRefreshHeaderViewDelegate>
 
 @property (nonatomic , strong)UITableView *table;
 @property (nonatomic , strong)NSMutableArray *dataSource;
+@property (nonatomic , copy) NSString *url;
 
 @end
 
@@ -27,7 +29,8 @@
 
 - (void)initUI{
     self.dataSource = [[NSMutableArray alloc] init];
-
+    [self kk_observeNotification:KKNotificationName_KKFileDownloadManager_Finished selector:@selector(KKNotification_KKFileDownloadManager_Finished:)];
+    
     self.table = [UITableView kk_initWithFrame:self.bounds style:UITableViewStylePlain delegate:self datasource:self];
     self.table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.table.separatorColor = [UIColor colorWithRed:0.86f green:0.87f blue:0.87f alpha:1.00f];
@@ -39,6 +42,11 @@
 
     UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 0.5)];
     [self.table setTableFooterView:footer];
+}
+
+- (void)reloadURL:(NSString*)aURL{
+    self.url = aURL;
+    [self.table startRefreshHeader];
 }
 
 - (void)reloadDatasource:(NSString*)aURL{
@@ -59,7 +67,7 @@
             }
             else{
                 NSLog(@"%@",error);
-                [KKToastView showInView:self text:@"刷新失败" image:nil alignment:KKToastViewAlignment_Center];
+//                [KKToastView showInView:self text:@"刷新失败" image:nil alignment:KKToastViewAlignment_Center];
                 [self.table stopRefreshHeader];
             }
 
@@ -72,6 +80,24 @@
 //触发刷新加载数据
 - (void)KKRefreshHeaderView_BeginRefresh:(KKRefreshHeaderView*)view{
     [self reloadDatasource:self.url];
+}
+
+#pragma mark ==================================================
+#pragma mark == Notification
+#pragma mark ==================================================
+- (void)KKNotification_KKFileDownloadManager_Finished:(NSNotification*)notice{
+    NSString *identifier = notice.object;
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObjectsFromArray:self.dataSource];
+    for (NSDictionary *info in self.dataSource) {
+        NSString *url = [info kk_validStringForKey:@"url"];
+        if ([url isEqualToString:identifier]) {
+            [array removeObject:info];
+        }
+    }
+    [self.dataSource removeAllObjects];
+    [self.dataSource addObjectsFromArray:array];
+    [self.table reloadData];
 }
 
 #pragma mark ==================================================
@@ -217,7 +243,7 @@
         CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
         
         UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30-30-10, size.height)];
-        mainLabel.tag = 1101;
+        mainLabel.tag = 199901;
         mainLabel.textColor = [UIColor blackColor];
         mainLabel.font = [UIFont systemFontOfSize:14];
         mainLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
@@ -226,15 +252,15 @@
         UIButton *download_Button = [[UIButton alloc] initWithFrame:CGRectMake(KKScreenWidth-15-30, 15, 30, 30)];
         [download_Button setBackgroundImage:KKThemeImage(@"Music_download") forState:UIControlStateNormal];
         [download_Button addTarget:self action:@selector(downloadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        download_Button.tag = 1102;
+        download_Button.tag = 199902;
         [cell.contentView addSubview:download_Button];
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
-    UILabel *mainLabel = (UILabel*)[cell.contentView viewWithTag:1101];
+    UILabel *mainLabel = (UILabel*)[cell.contentView viewWithTag:199901];
     mainLabel.text = [info kk_validStringForKey:@"fileName"];
     
-    UIButton *download_Button = (UIButton*)[cell.contentView viewWithTag:1102];
+    UIButton *download_Button = (UIButton*)[cell.contentView viewWithTag:199902];
     download_Button.kk_tagInfo = [NSString kk_stringWithInteger:indexPath.row];
     return cell;
 }
@@ -249,10 +275,17 @@
 }
 
 - (void)downloadButtonClicked:(UIButton*)aButton{
-    NSInteger index = [aButton.kk_tagInfo integerValue];
-    NSDictionary *info = [self.dataSource objectAtIndex:index];
-    NSString *url = [info kk_validStringForKey:@"url"];
-    [KKFileDownloadManager.defaultManager downloadFileWithURL:url];
+    
+     NSInteger index = [aButton.kk_tagInfo integerValue];
+    KKWeakSelf(self);
+    [MusicTagSelectView showInView:[UIWindow kk_currentKeyWindow] finishedBlock:^(NSArray * _Nullable tagsArray) {
+       
+        NSDictionary *info = [weakself.dataSource objectAtIndex:index];
+        NSString *url = [info kk_validStringForKey:@"url"];
+        [KKFileDownloadManager.defaultManager downloadFileWithURL:url toTagsArray:tagsArray];
+
+    }];
+    
 }
 
 @end

@@ -12,4 +12,6 @@
 
 - (void)synchronousAuto;
 
+- (void)autoCheckWifiIP;
+
 @end

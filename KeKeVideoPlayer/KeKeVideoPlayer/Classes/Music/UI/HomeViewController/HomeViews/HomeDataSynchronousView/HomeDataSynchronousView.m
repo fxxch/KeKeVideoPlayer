@@ -11,8 +11,10 @@
 #import "DataListCloudAllView.h"
 #import "DataListDownloadingView.h"
 #import "KKGetIPAddress.h"
+#import "MusicServerAddressListView.h"
+#import "MusicTagSelectView.h"
 
-#define MusicPath @"music_liubo"
+#define MusicPath @"music"
 
 @interface HomeDataSynchronousView ()<MusicNavigationBarViewDelegate,KKSegmentViewDelegate>
 
@@ -25,6 +27,8 @@
 
 @property (nonatomic , strong) NSMutableArray *auto_ipArray;
 @property (nonatomic , assign) NSInteger auto_ipIndex;
+@property (nonatomic , copy) NSString *hostRoot;
+@property (nonatomic , strong) NSArray *synchronousAutoTagsArray;
 
 @end
 
@@ -43,6 +47,7 @@
     self.navBarView.delegate = self;
     [self addSubview:self.navBarView];
     [self.navBarView showTextField];
+    [self.navBarView showTextFieldRightButtonWithTaget:self selector:@selector(searchHostList) image:KKThemeImage(@"Music_btn_arrow_down")];
     self.navBarView.footerLineView.hidden = YES;
     [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavCloud") selector:@selector(navCloudButtonClicked) target:self];
         
@@ -62,19 +67,19 @@
     [self addSubview:line];
 
     CGFloat offsetY = self.segmentView.kk_bottom;
-    self.cloudAllView = [[DataListCloudAllView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
-    [self addSubview:self.cloudAllView];
-    self.cloudAllView.url = self.navBarView.inputTextField.text;
-
     self.notDownloadView = [[DataListNotDownloadView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
     [self addSubview:self.notDownloadView];
-    self.notDownloadView.url = self.navBarView.inputTextField.text;
-    self.notDownloadView.hidden = YES;
+    [self.notDownloadView reloadURL:self.navBarView.inputTextField.text];
 
     self.downloadingView = [[DataListDownloadingView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
     [self addSubview:self.downloadingView];
     [self.downloadingView reloadDatasource];
     self.downloadingView.hidden = YES;
+
+    self.cloudAllView = [[DataListCloudAllView alloc] initWithFrame:CGRectMake(0, offsetY, KKApplicationWidth, self.kk_height-offsetY)];
+    [self addSubview:self.cloudAllView];
+    [self.cloudAllView reloadURL:self.navBarView.inputTextField.text];
+    self.cloudAllView.hidden = YES;
     
     [self autoCheckWifiIP];
 }
@@ -137,7 +142,7 @@
 }
 
 - (void)autoSearchIP_Start{
-    [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:YES text:@"🔍自动搜索中"];
+//    [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:YES text:@"🔍自动搜索中"];
     self.auto_ipIndex = 0;
     for (NSInteger i=0; i<[self.auto_ipArray count]; i++) {
         NSString *ipString = [self.auto_ipArray objectAtIndex:i];
@@ -167,17 +172,28 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
                 if (weakself.auto_ipIndex==[weakself.auto_ipArray count]) {
-                    [KKWaitingView hideForView:weakself];
+//                    [KKWaitingView hideForView:weakself];
                 }
             });
         }else{
             dispatch_sync(dispatch_get_main_queue(), ^{
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
-                [KKWaitingView hideForView:weakself];
+//                [KKWaitingView hideForView:weakself];
                 NSString *wifiIP = [request.URL absoluteString];
-                weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
-                weakself.notDownloadView.url = weakself.navBarView.inputTextField.text;
-                weakself.cloudAllView.url = weakself.navBarView.inputTextField.text;
+                if ([NSString kk_isStringEmpty:self.navBarView.inputTextField.text]) {
+                    weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
+                    [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
+                    [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
+                    weakself.hostRoot = weakself.navBarView.inputTextField.text;
+                }
+                else{
+                    if ([self.navBarView.inputTextField.text rangeOfString:wifiIP].length==0) {
+                        weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
+                        [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
+                        [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
+                        weakself.hostRoot = weakself.navBarView.inputTextField.text;
+                    }
+                }
             });
         }
     }];
@@ -189,8 +205,41 @@
 #pragma mark == Event
 #pragma mark ==================================================
 - (void)navCloudButtonClicked{
-    [self synchronousAuto];
+    KKWeakSelf(self)
+    [MusicTagSelectView showInView:[UIWindow kk_currentKeyWindow] finishedBlock:^(NSArray * _Nullable tagsArray) {
+        weakself.synchronousAutoTagsArray = tagsArray;
+        [weakself synchronousAuto];
+    }];
 }
+
+- (void)searchHostList{
+    if ([NSString kk_isStringEmpty:self.hostRoot]) {
+        return;
+    }
+    
+    [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:NO text:@""];
+    KKWeakSelf(self);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.navBarView.inputTextField.text]];
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (error==nil && data) {
+                NSError *aError = nil;
+                HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&aError];
+                [weakself parserHostParser:parser];
+            }
+            else{
+                NSLog(@"%@",error);
+                [KKWaitingView hideForView:self];
+            }
+
+        });
+        
+    }];
+    [task resume];
+}
+
 
 #pragma mark ==================================================
 #pragma mark == parserHTMLParser
@@ -248,7 +297,7 @@
                             }
                             else{
                                 haveData = YES;
-                                [KKFileDownloadManager.defaultManager downloadFileWithURL:urlString];
+                                [KKFileDownloadManager.defaultManager downloadFileWithURL:urlString toTagsArray:self.synchronousAutoTagsArray];
                             }
                         }
                         else if ([nodeType isEqualToString:@"[VID]"]){
@@ -269,20 +318,123 @@
     [KKWaitingView hideForView:self];
 
     if (haveData) {
-        [self.segmentView selectedIndex:2 needRespondsDelegate:YES];
+        [self.segmentView selectedIndex:1 needRespondsDelegate:YES];
     }
     else{
         [KKToastView showInView:self text:@"数据已是最新" image:nil alignment:KKToastViewAlignment_Center];
     }
+    self.synchronousAutoTagsArray = nil;
+}
+
+- (void)parserHostParser:(HTMLParser*)parser{
+    
+    NSMutableArray *pathArray = [NSMutableArray array];
+        
+    HTMLNode *body = [parser body];
+    HTMLNode *tableTag = [body findChildTag:@"table"];
+    NSArray *tags = [tableTag findChildTags:@"tr"];
+
+    for (int i=0; i<[tags count]; i++) {
+        HTMLNode *tr_Node = [tags objectAtIndex:i];
+        HTMLNode *top_node = [tr_Node findChildWithAttribute:@"valign" matchingName:@"top" allowPartial:YES];
+        if (top_node==nil) {
+            continue;
+        }
+        else{
+            HTMLNode *imgNode = [top_node findChildTag:@"img"];
+            if (imgNode==nil) {
+                continue;
+            }
+            else{
+                NSString *alt = [imgNode getAttributeNamed:@"alt"];
+                if ([alt isEqualToString:@"[ICO]"]) {
+                    continue;
+                }
+                else{
+                    HTMLNode *a_node = [tr_Node findChildTag:@"a"];
+                    if (a_node) {
+                        //NSString *name = [a_node contents]; 中文有乱码，暂时无法解决
+                        NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
+                        href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
+//                        NSLog(@"href: %@",href);
+                        if ([href hasPrefix:@"."]) {
+                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+                        }
+
+                        NSString *nodeType = alt;
+                        if ([nodeType isEqualToString:@"[DIR]"]) {
+                            KKLogDebugFormat(@"找到目录：%@",href);
+                            NSString *pathTemp = [self.hostRoot stringByAppendingPathComponent:href];
+                            [pathArray addObject:pathTemp];
+                        }
+                        else if ([nodeType isEqualToString:@"[TXT]"]){
+                            KKLogDebugFormat(@"找到文本文件、：%@",href);
+                        }
+                        else if ([nodeType isEqualToString:@"[IMG]"]){
+                            KKLogDebugFormat(@"找到图片文件：%@",href);
+                        }
+                        else if ([nodeType isEqualToString:@"[SND]"]){
+                            KKLogDebugFormat(@"找到音乐文件：%@",href);
+                        }
+                        else if ([nodeType isEqualToString:@"[VID]"]){
+                            KKLogDebugFormat(@"找到视频文件：%@",href);
+                        }
+                        else{
+                            KKLogDebugFormat(@"找到其他文件：%@ - （ %@ ）",href,nodeType);
+                        }
+                    }
+                    else{
+                        KKLogDebugFormat(@"没有找到超链接标签");
+                    }
+                }
+            }
+        }
+    }
+
+    [KKWaitingView hideForView:self];
+
+    //找到了子目录，显示当前目录+子目录
+    if (pathArray.count>0) {
+        NSMutableArray *arrayShow = [NSMutableArray array];
+        [arrayShow addObject:self.navBarView.inputTextField.text];
+        [arrayShow addObjectsFromArray:pathArray];
+        KKWeakSelf(self);
+        [MusicServerAddressListView showInView:[UIWindow kk_currentKeyWindow] dataSource:arrayShow finishedBlock:^(NSString * _Nullable address) {
+            weakself.navBarView.inputTextField.text = address;
+            [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
+            [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
+        }];
+    }
+    //没找到子目录,显示父目录和当前目录
+    else{
+        //如果当前目录已经是根目录了，不显示任何东西
+        NSString *currentPath = self.navBarView.inputTextField.text;
+        if ([currentPath isEqualToString:self.hostRoot]) {
+            
+        }
+        else{
+            NSMutableArray *arrayShow = [NSMutableArray array];
+            NSString *parent = [currentPath stringByDeletingLastPathComponent];
+            [arrayShow addObject:parent];
+            [arrayShow addObject:currentPath];
+            KKWeakSelf(self);
+            [MusicServerAddressListView showInView:[UIWindow kk_currentKeyWindow] dataSource:arrayShow finishedBlock:^(NSString * _Nullable address) {
+                weakself.navBarView.inputTextField.text = address;
+                [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
+                [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
+            }];
+        }
+    }
     
 }
+
 
 #pragma mark ==================================================
 #pragma mark == MusicNavigationBarViewDelegate
 #pragma mark ==================================================
 - (void)MusicNavigationBarView:(MusicNavigationBarView*)aBarView textDidEndEditing:(KKTextField*)aTextField{
-    self.notDownloadView.url = self.navBarView.inputTextField.text;
-    self.cloudAllView.url = self.navBarView.inputTextField.text;
+    [self.notDownloadView reloadURL:self.navBarView.inputTextField.text];
+    [self.cloudAllView reloadURL:self.navBarView.inputTextField.text];
 }
 
 
@@ -300,7 +452,7 @@
     if (aIndex==0) {
         itemButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [self setButtonStyle:itemButton
-                   withTitle:@"全部"
+                   withTitle:@"未下载"
                  normalImage:nil
             highlightedImage:nil
                    imageSize:CGSizeZero];
@@ -308,7 +460,7 @@
     else if (aIndex==1){
         itemButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [self setButtonStyle:itemButton
-                   withTitle:@"未下载"
+                   withTitle:@"下载中"
                  normalImage:nil
             highlightedImage:nil
                    imageSize:CGSizeZero];
@@ -316,7 +468,7 @@
     else{
         itemButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [self setButtonStyle:itemButton
-                   withTitle:@"下载中"
+                   withTitle:@"全部"
                  normalImage:nil
             highlightedImage:nil
                    imageSize:CGSizeZero];
@@ -338,20 +490,20 @@
     [btn1 setTitleColor:Theme_Color_D31925 forState:UIControlStateNormal];
 
     if (aNewIndex==0) {
-        self.cloudAllView.hidden = NO;
-        self.notDownloadView.hidden = YES;
-        self.downloadingView.hidden = YES;
-    }
-    else if (aNewIndex==1) {
-        self.cloudAllView.hidden = YES;
         self.notDownloadView.hidden = NO;
         self.downloadingView.hidden = YES;
+        self.cloudAllView.hidden = YES;
+    }
+    else if (aNewIndex==1) {
+        self.notDownloadView.hidden = YES;
+        self.downloadingView.hidden = NO;
+        [self.downloadingView reloadDatasource];
+        self.cloudAllView.hidden = YES;
     }
     else{
         self.notDownloadView.hidden = YES;
-        self.cloudAllView.hidden = YES;
-        self.downloadingView.hidden = NO;
-        [self.downloadingView reloadDatasource];
+        self.downloadingView.hidden = YES;
+        self.cloudAllView.hidden = NO;
     }
 }
 

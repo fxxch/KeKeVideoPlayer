@@ -16,6 +16,7 @@ UIKIT_EXTERN NSAttributedStringKey const KKMusicFile_CachePath;
 
 static NSString *KKNotificationName_KKFileDownloadManager_Update = @"KKNotificationName_KKFileDownloadManager_Update";
 static NSString *KKNotificationName_KKFileDownloadManager_Progress = @"KKNotificationName_KKFileDownloadManager_Progress";
+static NSString *KKNotificationName_KKFileDownloadManager_Finished = @"KKNotificationName_KKFileDownloadManager_Finished";
 
 @interface KKFileDownloadManager : NSObject
 
@@ -23,7 +24,10 @@ static NSString *KKNotificationName_KKFileDownloadManager_Progress = @"KKNotific
 
 + (KKFileDownloadManager*)defaultManager;
 
-- (void)downloadFileWithURL:(NSString*)aURLString;
+/// 下载文件
+/// @param aURLString 下载的文件的URL
+/// @param tagsArray //下载之后，保存到的标签列表
+- (void)downloadFileWithURL:(NSString*)aURLString toTagsArray:(NSArray*)tagsArray;
 
 - (void)deleteFileWithURL:(NSString*)aURLString;
 

@@ -187,7 +187,7 @@
             CGSize sizeM = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:16]];
             
             UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-sizeM.height)/2.0, KKApplicationWidth-30, sizeM.height)];
-            mainLabel.tag = 1101;
+            mainLabel.tag = 199501;
             mainLabel.font = [UIFont systemFontOfSize:16];
             mainLabel.numberOfLines = 0;
             mainLabel.backgroundColor = [UIColor clearColor];
@@ -198,7 +198,7 @@
         NSString *url = info.url;
         NSString *title = [url lastPathComponent];
         
-        UILabel *mainLabel = (UILabel*)[cell viewWithTag:1101];
+        UILabel *mainLabel = (UILabel*)[cell viewWithTag:199501];
         CGSize size = [title kk_sizeWithFont:[UIFont systemFontOfSize:16] maxWidth:KKApplicationWidth-30];
         mainLabel.text = title;
         if (size.height>30) {

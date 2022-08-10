@@ -175,7 +175,7 @@
         button01.textLabel.font = [UIFont systemFontOfSize:16];
         [button01 addTarget:self action:@selector(cellItemButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         button01.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        button01.tag = 1101;
+        button01.tag = 199301;
         [cell.contentView addSubview:button01];
         [button01 setCornerRadius:8.0];
 
@@ -194,7 +194,7 @@
     NSDictionary *dic = [self.dataSource objectAtIndex:indexPath.section];
     NSArray *items = [dic validArrayForKey:@"items"];
 
-    KKButton *button01 = [cell.contentView viewWithTag:1101];
+    KKButton *button01 = [cell.contentView viewWithTag:199301];
     NSInteger index1 = indexPath.row*2 + 0;
     NSDictionary *info1 = [items objectAtIndex_Safe:index1];
     if (info1) {
