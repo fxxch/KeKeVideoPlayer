@@ -127,7 +127,7 @@
             NSString *str02 = [array objectAtIndex:1];
             NSString *str03 = [array objectAtIndex:2];
           //NSString *str04 = [array objectAtIndex:3];
-            for (NSInteger index=2; index<=150; index++) {
+            for (NSInteger index=2; index<=300; index++) {
                 NSString *fullString = [NSString stringWithFormat:@"%@.%@.%@.%ld",str01,str02,str03,(long)(index)];
                 [self.auto_ipArray addObject:fullString];
             }

@@ -18,7 +18,7 @@
 
 /* 子类可重写该方法，不重写的话默认是白色 */
 - (UIColor*)kk_DefaultNavigationBarBackgroundColor{
-    return [UIColor whiteColor];
+    return [UIColor blackColor];
 }
 
 - (KKButton*)showNavigationDefaultBackButton_ForNavPopBack{
