@@ -180,19 +180,11 @@
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
 //                [KKWaitingView hideForView:weakself];
                 NSString *wifiIP = [request.URL absoluteString];
-                if ([NSString kk_isStringEmpty:self.navBarView.inputTextField.text]) {
+                if ([wifiIP isEqualToString:self.hostRoot]==NO) {
                     weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
                     [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
                     [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
                     weakself.hostRoot = weakself.navBarView.inputTextField.text;
-                }
-                else{
-                    if ([self.navBarView.inputTextField.text rangeOfString:wifiIP].length==0) {
-                        weakself.navBarView.inputTextField.text = [wifiIP stringByAppendingPathComponent:MusicPath];
-                        [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
-                        [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
-                        weakself.hostRoot = weakself.navBarView.inputTextField.text;
-                    }
                 }
             });
         }

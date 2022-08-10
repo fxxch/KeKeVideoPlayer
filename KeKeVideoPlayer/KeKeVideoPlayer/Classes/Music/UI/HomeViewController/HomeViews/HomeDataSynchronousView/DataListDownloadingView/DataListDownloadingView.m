@@ -86,7 +86,8 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.contentView.backgroundColor = [UIColor clearColor];
         cell.backgroundView.backgroundColor = [UIColor clearColor];
-
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         CGSize sizeM = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:16]];
         
         UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, KKApplicationWidth-30, sizeM.height)];

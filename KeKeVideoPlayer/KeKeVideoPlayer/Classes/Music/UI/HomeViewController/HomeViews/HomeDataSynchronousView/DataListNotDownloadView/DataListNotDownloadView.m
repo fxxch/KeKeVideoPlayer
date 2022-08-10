@@ -239,7 +239,7 @@
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier1];
         cell.accessoryType=UITableViewCellAccessoryNone;
-        
+
         CGSize size = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:17]];
         
         UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, (60-size.height)/2.0, KKApplicationWidth-30-30-10, size.height)];
@@ -267,7 +267,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
+    NSString *url = [info kk_validStringForKey:@"url"];
+    NSString *filePath = [KKFileCacheManager cacheDataPath:url];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        KKVideoPlayViewController *viewController = [[KKVideoPlayViewController alloc] initWitFilePath:filePath fileName:url.lastPathComponent];
+        [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
