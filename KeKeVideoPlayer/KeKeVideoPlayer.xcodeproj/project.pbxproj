@@ -193,6 +193,7 @@
 		1148305728A2016600389434 /* MusicSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148305628A2016600389434 /* MusicSearchViewController.m */; };
 		11AFBB3228A3880D00B72F7F /* MusicTagSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */; };
 		11AFBB3628A3A17100B72F7F /* MusicServerAddressListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */; };
+		11AFBB3A28A4B03100B72F7F /* MusicHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */; };
 		11F640E1288901CA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640C7288901CA0050B936 /* HomeViewController.m */; };
 		11F640E2288901CA0050B936 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CC288901CA0050B936 /* WebBrowserViewController.m */; };
 		11F640E3288901CA0050B936 /* InputURLAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CD288901CA0050B936 /* InputURLAddressViewController.m */; };
@@ -532,6 +533,8 @@
 		11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicTagSelectView.m; sourceTree = "<group>"; };
 		11AFBB3428A3A17100B72F7F /* MusicServerAddressListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicServerAddressListView.h; sourceTree = "<group>"; };
 		11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicServerAddressListView.m; sourceTree = "<group>"; };
+		11AFBB3828A4B03100B72F7F /* MusicHTMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicHTMLParser.h; sourceTree = "<group>"; };
+		11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicHTMLParser.m; sourceTree = "<group>"; };
 		11F640C7288901CA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640C9288901CA0050B936 /* InputURLAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputURLAddressViewController.h; sourceTree = "<group>"; };
 		11F640CB288901CA0050B936 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
@@ -1075,10 +1078,10 @@
 		11482F6A289E045600389434 /* GetIPAddress */ = {
 			isa = PBXGroup;
 			children = (
-				11482F6B289E045600389434 /* KKGetIPAddress.m */,
 				11482F6C289E045600389434 /* KKIPAddress.h */,
 				11482F6D289E045600389434 /* KKIPAddress.m */,
 				11482F6E289E045600389434 /* KKGetIPAddress.h */,
+				11482F6B289E045600389434 /* KKGetIPAddress.m */,
 			);
 			path = GetIPAddress;
 			sourceTree = "<group>";
@@ -1246,6 +1249,7 @@
 		11482FF6289E04B700389434 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				11AFBB3728A4B00A00B72F7F /* MusicHTMLParser */,
 				11F755B62898FEE400390931 /* MusicDBManager */,
 				111C1FE9289769DE00F0336D /* KKFileDownloadManager */,
 			);
@@ -1444,6 +1448,15 @@
 				11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */,
 			);
 			path = MusicServerAddressListView;
+			sourceTree = "<group>";
+		};
+		11AFBB3728A4B00A00B72F7F /* MusicHTMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				11AFBB3828A4B03100B72F7F /* MusicHTMLParser.h */,
+				11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */,
+			);
+			path = MusicHTMLParser;
 			sourceTree = "<group>";
 		};
 		11F640C6288901CA0050B936 /* Demo */ = {
@@ -2466,6 +2479,7 @@
 				11482FC3289E045600389434 /* HTMLNode.m in Sources */,
 				1148302F289E0EF200389434 /* KKRefreshFooterDraggingStateView.m in Sources */,
 				1148305728A2016600389434 /* MusicSearchViewController.m in Sources */,
+				11AFBB3A28A4B03100B72F7F /* MusicHTMLParser.m in Sources */,
 				1148302B289E0EF200389434 /* KKRefreshFooterDraggingView.m in Sources */,
 				11482F5A289D3B0000389434 /* HomeMusicPlayerView.m in Sources */,
 				11482FCB289E045600389434 /* KKWaitingView.m in Sources */,

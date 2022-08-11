@@ -26,7 +26,7 @@
     self.backgroundColor = [UIColor whiteColor];
     self.barView = [[UIView alloc] initWithFrame:CGRectMake(0, self.kk_height-KKNavigationBarHeight, self.kk_width, KKNavigationBarHeight)];
     [self addSubview:self.barView];
-    
+        
     self.footerLineView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.barView.kk_bottom-0.5, self.kk_width, 0.5)];
     self.footerLineView.backgroundColor = Theme_Color_DEDEDE;
     [self addSubview:self.footerLineView];
@@ -50,6 +50,7 @@
     self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.barView addSubview:self.titleLabel];
+    [self initTitleButton];
 }
 
 - (void)setTitle:(NSString *)title{
@@ -88,6 +89,26 @@
     }
 }
 
+- (void)initTitleButton{
+    if (self.titleButton) {
+        return;
+    }
+    self.titleButton = [[KKButton alloc] initWithFrame:CGRectMake(60, 0, self.barView.kk_width-120, self.barView.kk_height) type:KKButtonType_ImgLeftTitleRight_Center];
+    self.titleButton.imageViewSize = CGSizeMake(30, 30);
+    self.titleButton.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.titleButton.spaceBetweenImgTitle = 0;
+    [self.titleButton addTarget:self action:@selector(titleButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.titleButton.exclusiveTouch = YES;//关闭多点
+    self.titleButton.backgroundColor = [UIColor clearColor];
+    [self.barView addSubview:self.titleButton];
+}
+
+- (void)titleButtonClicked{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(MusicNavigationBarView_titleClicked:)]) {
+        [self.delegate MusicNavigationBarView_titleClicked:self];
+    }
+}
+
 #pragma mark ==================================================
 #pragma mark == TextField
 #pragma mark ==================================================
@@ -115,6 +136,7 @@
     [textField kk_setBorderColor:Theme_Color_DEDEDE width:0.5];
     [self.barView addSubview:textField];
     self.inputTextField = textField;
+    self.titleButton.hidden = YES;
     
     [self reloadTextFieldFrame];
 }

@@ -61,7 +61,7 @@
                 
                 NSError *aError = nil;
                 HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&aError];
-                [weakself parserHTMLParser:parser];
+                [weakself parserHTMLParser_audio:parser];
             }
             else{
                 NSLog(@"%@",error);
@@ -83,71 +83,16 @@
 #pragma mark ==================================================
 #pragma mark == parserHTMLParser
 #pragma mark ==================================================
-- (void)parserHTMLParser:(HTMLParser*)parser{
-    
-    HTMLNode *body = [parser body];
-    HTMLNode *tableTag = [body findChildTag:@"table"];
-    NSArray *tags = [tableTag findChildTags:@"tr"];
-
-    for (int i=0; i<[tags count]; i++) {
-        HTMLNode *tr_Node = [tags objectAtIndex:i];
-        HTMLNode *top_node = [tr_Node findChildWithAttribute:@"valign" matchingName:@"top" allowPartial:YES];
-        if (top_node==nil) {
-            continue;
-        }
-        else{
-            HTMLNode *imgNode = [top_node findChildTag:@"img"];
-            if (imgNode==nil) {
-                continue;
-            }
-            else{
-                NSString *alt = [imgNode getAttributeNamed:@"alt"];
-                if ([alt isEqualToString:@"[ICO]"]) {
-                    continue;
-                }
-                else{
-                    HTMLNode *a_node = [tr_Node findChildTag:@"a"];
-                    if (a_node) {
-                        //NSString *name = [a_node contents]; 中文有乱码，暂时无法解决
-                        NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
-                        href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
-//                        NSLog(@"href: %@",href);
-                        if ([href hasPrefix:@"."]) {
-                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-                        }
-
-                        NSString *nodeType = alt;
-                        if ([nodeType isEqualToString:@"[DIR]"]) {
-                            KKLogDebugFormat(@"找到目录：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[TXT]"]){
-                            KKLogDebugFormat(@"找到文本文件、：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[IMG]"]){
-                            KKLogDebugFormat(@"找到图片文件：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[SND]"]){
-                            KKLogDebugFormat(@"找到音乐文件：%@",href);
-                            NSString *urlString = [self.url stringByAppendingPathComponent:href];
-                            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                        href,@"fileName",
-                                                        urlString,@"url",
-                                                        nil];
-                            [self.dataSource addObject:dictionary];
-                        }
-                        else if ([nodeType isEqualToString:@"[VID]"]){
-                            KKLogDebugFormat(@"找到视频文件：%@",href);
-                        }
-                        else{
-                            KKLogDebugFormat(@"找到其他文件：%@ - （ %@ ）",href,nodeType);
-                        }
-                    }
-                    else{
-                        KKLogDebugFormat(@"没有找到超链接标签");
-                    }
-                }
-            }
-        }
+- (void)parserHTMLParser_audio:(HTMLParser*)parser{
+    NSArray *audioFileNames = [MusicHTMLParser parserHTMLParser:parser type:MusicHTMLParserType_Audio];
+    for (NSInteger i=0; i<[audioFileNames count]; i++) {
+        NSString *fileName = [audioFileNames objectAtIndex:i];
+        NSString *urlString = [self.url stringByAppendingPathComponent:fileName];
+        NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    fileName,@"fileName",
+                                    urlString,@"url",
+                                    nil];
+        [self.dataSource addObject:dictionary];
     }
 
     [self.table stopRefreshHeader];
@@ -240,6 +185,15 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         KKVideoPlayViewController *viewController = [[KKVideoPlayViewController alloc] initWitFilePath:filePath fileName:url.lastPathComponent];
         [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
+    }
+    else{
+        NSString *requestURL = url;
+        NSString *pathExtension = [[[requestURL lowercaseString] pathExtension] lowercaseString];
+        if ([NSFileManager kk_isFileType_VIDEO:pathExtension] ||
+            [NSFileManager kk_isFileType_AUDIO:pathExtension] ) {
+            KKVideoPlayViewController *viewController = [[KKVideoPlayViewController alloc] initWitFilePath:requestURL fileName:requestURL.lastPathComponent?requestURL.lastPathComponent:@"播放文件"];
+            [self.kk_viewController.navigationController pushViewController:viewController animated:YES];
+        }
     }
 
 }

@@ -10,8 +10,9 @@
 #import "KKVideoPlayer.h"
 #import "MusicControlView.h"
 #import "MusicCell.h"
+#import "MusicSearchViewController.h"
 
-@interface HomeMusicPlayerView ()<KKVideoPlayerDelegate,MusicControlViewDelegate,UITableViewDataSource,UITableViewDelegate,KKRefreshHeaderViewDelegate>
+@interface HomeMusicPlayerView ()<KKVideoPlayerDelegate,MusicControlViewDelegate,UITableViewDataSource,UITableViewDelegate,KKRefreshHeaderViewDelegate,MusicNavigationBarViewDelegate>
 
 @property (nonatomic , strong)UITableView *table;
 
@@ -24,6 +25,7 @@
 @property (nonatomic , assign) NSInteger playType;
 @property (nonatomic , copy) NSString *playerIdentifer;
 @property (nonatomic , assign) CGFloat tableViewOffset;
+@property (nonatomic , assign) BOOL tableScrollOffsetCheckEnable;
 
 @property (nonatomic , copy) NSString *sys_artist_name;//歌手
 @property (nonatomic , copy) NSString *sys_artist_album;//专辑名
@@ -56,8 +58,10 @@
 
 - (void)initUI{
     self.navBarView = [[MusicNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKStatusBarAndNavBarHeight)];
+    self.navBarView.delegate = self;
     [self addSubview:self.navBarView];
     [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_orderRandom") selector:@selector(navPlayTypeButtonClicked) target:self];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_search") selector:@selector(navSearchButtonClicked) target:self];
     [self.navBarView addShadow];
     
     //控制
@@ -220,7 +224,9 @@
 
         NSInteger currentPlayIndex = [self.dataSource indexOfObject:self.currentPlayInformation];
         [self.table reloadData];
-        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        self.tableScrollOffsetCheckEnable = NO;
+        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+        self.tableScrollOffsetCheckEnable = YES;
         self.controlView.hidden = NO;
     }
     else{
@@ -239,6 +245,14 @@
         [self.player removeFromSuperview];
         self.player = nil;
     }
+}
+
+- (void)navSearchButtonClicked{
+    MusicSearchViewController *viewController = [[MusicSearchViewController alloc] init];
+    viewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.kk_viewController.navigationController presentViewController:viewController animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark ==================================================
@@ -362,6 +376,15 @@
     [self kk_postNotification:NotificationName_HomeSelectPlayerView];
 }
 
+#pragma mark ==================================================
+#pragma mark == MusicNavigationBarViewDelegate
+#pragma mark ==================================================
+- (void)MusicNavigationBarView_titleClicked:(MusicNavigationBarView*)aBarView{
+    NSInteger currentPlayIndex = [self.dataSource indexOfObject:self.currentPlayInformation];
+    self.tableScrollOffsetCheckEnable = NO;
+    [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    self.tableScrollOffsetCheckEnable = YES;
+}
 
 
 #pragma mark ==================================================
@@ -548,7 +571,9 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+    if (self.tableScrollOffsetCheckEnable==NO) {
+        return;
+    }
     if (scrollView.contentOffset.y>self.tableViewOffset+25) {
         self.tableViewOffset = scrollView.contentOffset.y;
         self.controlView.hidden = YES;
@@ -558,13 +583,6 @@
         self.tableViewOffset = scrollView.contentOffset.y;
         self.controlView.hidden = NO;
     }
-    
-//    if (scrollView.contentOffset.y>self.tableViewOffset+5) {
-//        self.controlView.hidden = YES;
-//    }
-//    else{
-//        self.controlView.hidden = NO;
-//    }
 }
 
 // called on start of dragging (may require some time and or distance to move)
@@ -578,11 +596,11 @@
     }
 }
 
-//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-//    self.controlView.hidden = NO;
-//}
-//
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (self.tableScrollOffsetCheckEnable==NO) {
+        return;
+    }
+
     self.controlView.hidden = NO;
 }
 

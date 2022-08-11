@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 
     [self reloadRootViewController];
-        
+            
     return YES;
 }
 

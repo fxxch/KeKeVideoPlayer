@@ -12,7 +12,10 @@ typedef void (^MusicServerAddressSelectFinishedBlock)(NSString *_Nullable addres
 
 @interface MusicServerAddressListView : UIView
 
-+ (MusicServerAddressListView*_Nullable)showInView:(UIView*_Nullable)aView dataSource:(NSArray*_Nullable)aArray finishedBlock:(MusicServerAddressSelectFinishedBlock _Nullable )finishedBlock;
++ (MusicServerAddressListView*_Nullable)showInView:(UIView*_Nullable)aView
+                                        dataSource:(NSArray*_Nullable)aArray
+                                          selected:(NSString*_Nullable)aSelected
+                                     finishedBlock:(MusicServerAddressSelectFinishedBlock _Nullable )finishedBlock;
 
 
 @end

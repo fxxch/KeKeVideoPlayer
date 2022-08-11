@@ -15,6 +15,7 @@
 #import "KKFileDownloadManager.h"
 #import "MusicNavigationBarView.h"
 #import "HomeMusicPlayerView.h"
+#import "MusicHTMLParser.h"
 
 //默认主题包
 #define DefaultThemeBundleName    @"Default"

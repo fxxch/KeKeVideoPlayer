@@ -27,7 +27,7 @@
 
 @property (nonatomic , strong) NSMutableArray *auto_ipArray;
 @property (nonatomic , assign) NSInteger auto_ipIndex;
-@property (nonatomic , copy) NSString *hostRoot;
+@property (nonatomic , copy) NSString *hostRootPath;// http://192.168.1.105
 @property (nonatomic , strong) NSArray *synchronousAutoTagsArray;
 
 @end
@@ -47,7 +47,7 @@
     self.navBarView.delegate = self;
     [self addSubview:self.navBarView];
     [self.navBarView showTextField];
-    [self.navBarView showTextFieldRightButtonWithTaget:self selector:@selector(searchHostList) image:KKThemeImage(@"Music_btn_arrow_down")];
+    [self.navBarView showTextFieldRightButtonWithTaget:self selector:@selector(navTextFieldRightButtonClicked) image:KKThemeImage(@"Music_btn_arrow_down")];
     self.navBarView.footerLineView.hidden = YES;
     [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_NavCloud") selector:@selector(navCloudButtonClicked) target:self];
         
@@ -96,7 +96,7 @@
             if (error==nil && data) {
                 NSError *aError = nil;
                 HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&aError];
-                [weakself parserHTMLParser:parser];
+                [weakself parserHTMLParser_audio:parser];
             }
             else{
                 NSLog(@"%@",error);
@@ -113,6 +113,11 @@
 #pragma mark == 自动检索IP地址
 #pragma mark ==================================================
 - (void)autoCheckWifiIP{
+    self.navBarView.inputTextField.text = nil;
+    [self.notDownloadView reloadURL:self.navBarView.inputTextField.text];
+    [self.cloudAllView reloadURL:self.navBarView.inputTextField.text];
+    self.hostRootPath = nil;
+
     if (self.auto_ipArray==nil) {
         self.auto_ipArray = [[NSMutableArray alloc] init];
     }
@@ -142,7 +147,6 @@
 }
 
 - (void)autoSearchIP_Start{
-//    [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:YES text:@"🔍自动搜索中"];
     self.auto_ipIndex = 0;
     for (NSInteger i=0; i<[self.auto_ipArray count]; i++) {
         NSString *ipString = [self.auto_ipArray objectAtIndex:i];
@@ -173,20 +177,20 @@
         }else{
             dispatch_sync(dispatch_get_main_queue(), ^{
                 weakself.auto_ipIndex = weakself.auto_ipIndex+1;
-                NSString *wifiIP = [request.URL absoluteString];
-                if ([wifiIP isEqualToString:self.hostRoot]==NO) {
-                    weakself.navBarView.inputTextField.text = wifiIP;
+                NSString *wifiURL = [request.URL absoluteString];
+                NSString *wifiIP = [wifiURL stringByDeletingLastPathComponent];
+                if ([wifiIP isEqualToString:weakself.hostRootPath]==NO) {
+                    weakself.navBarView.inputTextField.text = wifiURL;
                     [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
                     [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
 
-                    weakself.hostRoot = [wifiIP stringByDeletingLastPathComponent];
+                    weakself.hostRootPath = wifiIP;
                 }
             });
         }
     }];
     [task resume];
 }
-
 
 #pragma mark ==================================================
 #pragma mark == Event
@@ -199,112 +203,56 @@
     }];
 }
 
-- (void)searchHostList{
-    if ([NSString kk_isStringEmpty:self.hostRoot]) {
+- (void)navTextFieldRightButtonClicked{
+    [self searchCloudPaths:self.navBarView.inputTextField.text showParent:YES];
+}
+
+#pragma mark ==================================================
+#pragma mark == 检索目录
+#pragma mark ==================================================
+- (void)searchCloudPaths:(NSString*)aParentPath showParent:(BOOL)showParent{
+    if ([NSString kk_isStringEmpty:aParentPath]) {
         return;
     }
-    
     [KKWaitingView showInView:self withType:KKWaitingViewType_Gray blackBackground:NO text:@""];
     KKWeakSelf(self);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.navBarView.inputTextField.text]];
+    __block NSString *headPath = aParentPath;
+    __block BOOL needCheckParent = showParent;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:headPath]];
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             if (error==nil && data) {
                 NSError *aError = nil;
                 HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&aError];
-                [weakself parserHostParser:parser];
+                [weakself parserHTMLParser_directory:parser headPath:headPath showParent:needCheckParent];
             }
             else{
                 NSLog(@"%@",error);
                 [KKWaitingView hideForView:self];
             }
-
         });
-        
     }];
     [task resume];
 }
 
-
 #pragma mark ==================================================
 #pragma mark == parserHTMLParser
 #pragma mark ==================================================
-- (void)parserHTMLParser:(HTMLParser*)parser{
-    
-    BOOL haveData = NO;
-    
-    HTMLNode *body = [parser body];
-    HTMLNode *tableTag = [body findChildTag:@"table"];
-    NSArray *tags = [tableTag findChildTags:@"tr"];
-
-    for (int i=0; i<[tags count]; i++) {
-        HTMLNode *tr_Node = [tags objectAtIndex:i];
-        HTMLNode *top_node = [tr_Node findChildWithAttribute:@"valign" matchingName:@"top" allowPartial:YES];
-        if (top_node==nil) {
-            continue;
-        }
-        else{
-            HTMLNode *imgNode = [top_node findChildTag:@"img"];
-            if (imgNode==nil) {
-                continue;
-            }
-            else{
-                NSString *alt = [imgNode getAttributeNamed:@"alt"];
-                if ([alt isEqualToString:@"[ICO]"]) {
-                    continue;
-                }
-                else{
-                    HTMLNode *a_node = [tr_Node findChildTag:@"a"];
-                    if (a_node) {
-                        //NSString *name = [a_node contents]; 中文有乱码，暂时无法解决
-                        NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
-                        href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
-//                        NSLog(@"href: %@",href);
-                        if ([href hasPrefix:@"."]) {
-                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-                        }
-
-                        NSString *nodeType = alt;
-                        if ([nodeType isEqualToString:@"[DIR]"]) {
-                            KKLogDebugFormat(@"找到目录：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[TXT]"]){
-                            KKLogDebugFormat(@"找到文本文件、：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[IMG]"]){
-                            KKLogDebugFormat(@"找到图片文件：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[SND]"]){
-                            KKLogDebugFormat(@"找到音乐文件：%@",href);
-                            NSString *urlString = [self.navBarView.inputTextField.text stringByAppendingPathComponent:href];
-                            if ([MusicDBManager.defaultManager DBQuery_Table:TableName_Media isExistValue:href forKey:Table_Media_local_name]) {
-
-                            }
-                            else{
-                                haveData = YES;
-                                [KKFileDownloadManager.defaultManager downloadFileWithURL:urlString toTagsArray:self.synchronousAutoTagsArray];
-                            }
-                        }
-                        else if ([nodeType isEqualToString:@"[VID]"]){
-                            KKLogDebugFormat(@"找到视频文件：%@",href);
-                        }
-                        else{
-                            KKLogDebugFormat(@"找到其他文件：%@ - （ %@ ）",href,nodeType);
-                        }
-                    }
-                    else{
-                        KKLogDebugFormat(@"没有找到超链接标签");
-                    }
-                }
-            }
-        }
-    }
-
+- (void)parserHTMLParser_audio:(HTMLParser*)parser{
     [KKWaitingView hideForView:self];
 
-    if (haveData) {
+    NSArray *audioFileNames = [MusicHTMLParser parserHTMLParser:parser type:MusicHTMLParserType_Audio];
+    for (NSInteger i=0; i<[audioFileNames count]; i++) {
+        NSString *fileName = [audioFileNames objectAtIndex:i];
+        NSString *urlString = [self.navBarView.inputTextField.text stringByAppendingPathComponent:fileName];
+        if ([MusicDBManager.defaultManager DBQuery_Table:TableName_Media isExistValue:fileName forKey:Table_Media_local_name]) {
+
+        }
+        else{
+            [KKFileDownloadManager.defaultManager downloadFileWithURL:urlString toTagsArray:self.synchronousAutoTagsArray];
+        }
+    }
+    if (audioFileNames.count>0) {
         [self.segmentView selectedIndex:1 needRespondsDelegate:YES];
     }
     else{
@@ -313,80 +261,29 @@
     self.synchronousAutoTagsArray = nil;
 }
 
-- (void)parserHostParser:(HTMLParser*)parser{
-    
-    NSMutableArray *pathArray = [NSMutableArray array];
-        
-    HTMLNode *body = [parser body];
-    HTMLNode *tableTag = [body findChildTag:@"table"];
-    NSArray *tags = [tableTag findChildTags:@"tr"];
-
-    for (int i=0; i<[tags count]; i++) {
-        HTMLNode *tr_Node = [tags objectAtIndex:i];
-        HTMLNode *top_node = [tr_Node findChildWithAttribute:@"valign" matchingName:@"top" allowPartial:YES];
-        if (top_node==nil) {
-            continue;
-        }
-        else{
-            HTMLNode *imgNode = [top_node findChildTag:@"img"];
-            if (imgNode==nil) {
-                continue;
-            }
-            else{
-                NSString *alt = [imgNode getAttributeNamed:@"alt"];
-                if ([alt isEqualToString:@"[ICO]"]) {
-                    continue;
-                }
-                else{
-                    HTMLNode *a_node = [tr_Node findChildTag:@"a"];
-                    if (a_node) {
-                        //NSString *name = [a_node contents]; 中文有乱码，暂时无法解决
-                        NSString *href = [[a_node getAttributeNamed:@"href"] kk_KKURLDecodedString];
-                        href = [href stringByReplacingOccurrencesOfString:@"/" withString:@""];
-//                        NSLog(@"href: %@",href);
-                        if ([href hasPrefix:@"."]) {
-                            href = [href stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
-                        }
-
-                        NSString *nodeType = alt;
-                        if ([nodeType isEqualToString:@"[DIR]"]) {
-                            KKLogDebugFormat(@"找到目录：%@",href);
-                            NSString *pathTemp = [self.hostRoot stringByAppendingPathComponent:href];
-                            [pathArray addObject:pathTemp];
-                        }
-                        else if ([nodeType isEqualToString:@"[TXT]"]){
-                            KKLogDebugFormat(@"找到文本文件、：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[IMG]"]){
-                            KKLogDebugFormat(@"找到图片文件：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[SND]"]){
-                            KKLogDebugFormat(@"找到音乐文件：%@",href);
-                        }
-                        else if ([nodeType isEqualToString:@"[VID]"]){
-                            KKLogDebugFormat(@"找到视频文件：%@",href);
-                        }
-                        else{
-                            KKLogDebugFormat(@"找到其他文件：%@ - （ %@ ）",href,nodeType);
-                        }
-                    }
-                    else{
-                        KKLogDebugFormat(@"没有找到超链接标签");
-                    }
-                }
-            }
-        }
-    }
-
+/// 解析目录
+/// @param parser 源数据
+/// @param aHeadPath 头部地址
+/// @param showParent 如果没解析到子目录，是否继续解析父节点
+- (void)parserHTMLParser_directory:(HTMLParser*)parser headPath:(NSString*)aHeadPath showParent:(BOOL)showParent{
     [KKWaitingView hideForView:self];
+
+    NSMutableArray *pathArray = [NSMutableArray array];
+
+    NSArray *directoryNames = [MusicHTMLParser parserHTMLParser:parser type:MusicHTMLParserType_Directory];
+    for (NSInteger i=0; i<[directoryNames count]; i++) {
+        NSString *directory = [directoryNames objectAtIndex:i];
+        NSString *pathTemp = [aHeadPath stringByAppendingPathComponent:directory];
+        [pathArray addObject:pathTemp];
+    }
 
     //找到了子目录，显示当前目录+子目录
     if (pathArray.count>0) {
         NSMutableArray *arrayShow = [NSMutableArray array];
-        [arrayShow addObject:self.navBarView.inputTextField.text];
+        [arrayShow addObject:aHeadPath];
         [arrayShow addObjectsFromArray:pathArray];
         KKWeakSelf(self);
-        [MusicServerAddressListView showInView:[UIWindow kk_currentKeyWindow] dataSource:arrayShow finishedBlock:^(NSString * _Nullable address) {
+        [MusicServerAddressListView showInView:[UIWindow kk_currentKeyWindow] dataSource:arrayShow selected:self.navBarView.inputTextField.text finishedBlock:^(NSString * _Nullable address) {
             weakself.navBarView.inputTextField.text = address;
             [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
             [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
@@ -396,25 +293,19 @@
     else{
         //如果当前目录已经是根目录了，不显示任何东西
         NSString *currentPath = self.navBarView.inputTextField.text;
-        if ([currentPath isEqualToString:self.hostRoot]) {
+        NSString *rootPath = [self.hostRootPath stringByAppendingPathComponent:MusicPath];
+        if ([currentPath isEqualToString:rootPath]) {
             
         }
+        //显示父目录和其子目录
         else{
-            NSMutableArray *arrayShow = [NSMutableArray array];
-            NSString *parent = [currentPath stringByDeletingLastPathComponent];
-            [arrayShow addObject:parent];
-            [arrayShow addObject:currentPath];
-            KKWeakSelf(self);
-            [MusicServerAddressListView showInView:[UIWindow kk_currentKeyWindow] dataSource:arrayShow finishedBlock:^(NSString * _Nullable address) {
-                weakself.navBarView.inputTextField.text = address;
-                [weakself.notDownloadView reloadURL:weakself.navBarView.inputTextField.text];
-                [weakself.cloudAllView reloadURL:weakself.navBarView.inputTextField.text];
-            }];
+            if (showParent) {
+                NSString *parentPath = [aHeadPath stringByDeletingLastPathComponent];
+                [self searchCloudPaths:parentPath showParent:NO];
+            }
         }
     }
-    
 }
-
 
 #pragma mark ==================================================
 #pragma mark == MusicNavigationBarViewDelegate

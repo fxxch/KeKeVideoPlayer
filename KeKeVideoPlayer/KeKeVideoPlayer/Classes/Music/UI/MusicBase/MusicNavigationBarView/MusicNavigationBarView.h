@@ -16,6 +16,7 @@
 @property (nonatomic , strong) UIView *barView;
 @property (nonatomic , strong) KKButton *leftButton;
 @property (nonatomic , strong) KKButton *rightButton;
+@property (nonatomic , strong) KKButton *titleButton;
 @property (nonatomic , strong) UILabel *titleLabel;
 @property (nonatomic , strong) UIImageView *footerLineView;
 @property (nonatomic , strong) KKTextField *inputTextField;
@@ -55,6 +56,9 @@
 #pragma mark ==================================================
 @protocol MusicNavigationBarViewDelegate <NSObject>
 @optional
+
+/// 点击了标题（当显示标题的时候有效，显示输入框的时候无效）
+- (void)MusicNavigationBarView_titleClicked:(MusicNavigationBarView*)aBarView;
 
 /// 输入View开始输入（键盘弹起）
 /// @param aTextFieldView 当前输入View

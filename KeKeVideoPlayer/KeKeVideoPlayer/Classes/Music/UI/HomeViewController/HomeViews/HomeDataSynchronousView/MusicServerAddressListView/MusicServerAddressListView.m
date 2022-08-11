@@ -14,6 +14,7 @@
 @property (nonatomic , strong) UIButton *contentView;
 @property (nonatomic , strong) UITableView *table;
 @property (nonatomic , strong) NSArray *dataSource;
+@property (nonatomic , copy) NSString *selectedString;
 
 @property (nonatomic , copy) MusicServerAddressSelectFinishedBlock completeBlock;
 
@@ -28,7 +29,10 @@
 #pragma mark == 接口
 #pragma mark ==================================================
 
-+ (MusicServerAddressListView*_Nullable)showInView:(UIView*_Nullable)aView dataSource:(NSArray*)aArray finishedBlock:(MusicServerAddressSelectFinishedBlock _Nullable )finishedBlock{
++ (MusicServerAddressListView*_Nullable)showInView:(UIView*_Nullable)aView
+                                        dataSource:(NSArray*_Nullable)aArray
+                                          selected:(NSString*_Nullable)aSelected
+                                     finishedBlock:(MusicServerAddressSelectFinishedBlock _Nullable )finishedBlock{
     if ([aView viewWithTag:kMusicServerAddressListViewTag]) {
         return nil;
     }
@@ -36,7 +40,7 @@
         return nil;
     }
 
-    MusicServerAddressListView *pickerView = [[MusicServerAddressListView alloc] initWithFrame:aView.bounds dataSource:aArray finishedBlock:finishedBlock];
+    MusicServerAddressListView *pickerView = [[MusicServerAddressListView alloc] initWithFrame:aView.bounds dataSource:aArray selected:aSelected finishedBlock:finishedBlock];
     pickerView.tag = kMusicServerAddressListViewTag;
     [aView addSubview:pickerView];
     [aView bringSubviewToFront:pickerView];
@@ -48,12 +52,13 @@
 #pragma mark ==================================================
 #pragma mark == 初始化
 #pragma mark ==================================================
-- (id)initWithFrame:(CGRect)frame dataSource:(NSArray*)aArray finishedBlock:(MusicServerAddressSelectFinishedBlock)finishedBlock{
+- (id)initWithFrame:(CGRect)frame dataSource:(NSArray*)aArray selected:(NSString*)aSelected finishedBlock:(MusicServerAddressSelectFinishedBlock)finishedBlock{
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.dataSource = aArray;
         self.completeBlock = finishedBlock;
+        self.selectedString = aSelected;
         
         self.backButton = [[UIButton alloc] initWithFrame:self.bounds];
         self.backButton.backgroundColor = [UIColor clearColor];
@@ -157,8 +162,15 @@
     }
     
     UILabel *mainLabel = (UILabel*)[cell.contentView viewWithTag:199701];
-    mainLabel.text = [self.dataSource objectAtIndex:indexPath.row];
-
+    NSString *pathString = [self.dataSource objectAtIndex:indexPath.row];
+    mainLabel.text = pathString;
+    if ([pathString isEqualToString:self.selectedString]) {
+        mainLabel.textColor = Theme_Color_D31925;
+    }
+    else{
+        mainLabel.textColor = Theme_Color_333333;
+    }
+    
     return cell;
 }
 
