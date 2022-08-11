@@ -21,6 +21,7 @@
 
 @property (nonatomic,strong)UIImageView *backgroundImageView;
 @property (nonatomic,strong)MusicPlayerSlider *mySlider;
+@property (nonatomic,strong)UILabel *indexLabel;
 @property (nonatomic,strong)UILabel *currentTimeLabel;
 @property (nonatomic,strong)UILabel *durationtimeLabel;
 @property (nonatomic,assign)NSTimeInterval currentTime;//当前时间

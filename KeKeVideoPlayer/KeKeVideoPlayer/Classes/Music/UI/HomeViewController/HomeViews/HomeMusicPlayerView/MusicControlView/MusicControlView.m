@@ -46,6 +46,14 @@
         self.mySlider.minimumValue = 0;
         self.mySlider.maximumValue = 1.0;
 
+        //歌曲索引
+        self.indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
+        [self.indexLabel kk_clearBackgroundColor];
+        self.indexLabel.textAlignment = NSTextAlignmentCenter;
+        self.indexLabel.textColor = Theme_Color_999999;
+        self.indexLabel.font = [UIFont systemFontOfSize:12];
+        [self addSubview:self.indexLabel];
+
         //当前时间
         self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
         [self.currentTimeLabel kk_clearBackgroundColor];

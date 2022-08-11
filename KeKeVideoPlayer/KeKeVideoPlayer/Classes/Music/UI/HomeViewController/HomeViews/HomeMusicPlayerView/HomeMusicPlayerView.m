@@ -223,6 +223,7 @@
         }
 
         NSInteger currentPlayIndex = [self.dataSource indexOfObject:self.currentPlayInformation];
+        self.controlView.indexLabel.text = [NSString stringWithFormat:@"%ld/%ld",currentPlayIndex+1,self.dataSource.count];
         [self.table reloadData];
         self.tableScrollOffsetCheckEnable = NO;
         [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
@@ -244,6 +245,7 @@
         [self.player stopPlay];
         [self.player removeFromSuperview];
         self.player = nil;
+        self.controlView.indexLabel.text = @"";
     }
 }
 
