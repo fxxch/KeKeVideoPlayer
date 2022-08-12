@@ -194,6 +194,7 @@
 		11AFBB3228A3880D00B72F7F /* MusicTagSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */; };
 		11AFBB3628A3A17100B72F7F /* MusicServerAddressListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */; };
 		11AFBB3A28A4B03100B72F7F /* MusicHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */; };
+		11AFBB4228A610BC00B72F7F /* MusicSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB4128A610BC00B72F7F /* MusicSettingViewController.m */; };
 		11F640E1288901CA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640C7288901CA0050B936 /* HomeViewController.m */; };
 		11F640E2288901CA0050B936 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CC288901CA0050B936 /* WebBrowserViewController.m */; };
 		11F640E3288901CA0050B936 /* InputURLAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640CD288901CA0050B936 /* InputURLAddressViewController.m */; };
@@ -535,6 +536,8 @@
 		11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicServerAddressListView.m; sourceTree = "<group>"; };
 		11AFBB3828A4B03100B72F7F /* MusicHTMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicHTMLParser.h; sourceTree = "<group>"; };
 		11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicHTMLParser.m; sourceTree = "<group>"; };
+		11AFBB4028A610BC00B72F7F /* MusicSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicSettingViewController.h; sourceTree = "<group>"; };
+		11AFBB4128A610BC00B72F7F /* MusicSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicSettingViewController.m; sourceTree = "<group>"; };
 		11F640C7288901CA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640C9288901CA0050B936 /* InputURLAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputURLAddressViewController.h; sourceTree = "<group>"; };
 		11F640CB288901CA0050B936 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
@@ -1015,7 +1018,6 @@
 		11482F54289D3A0800389434 /* HomeTagListView */ = {
 			isa = PBXGroup;
 			children = (
-				11483039289E1CA700389434 /* HomeTagListView */,
 				11482F55289D3A2400389434 /* HomeTagListView.h */,
 				11482F56289D3A2400389434 /* HomeTagListView.m */,
 			);
@@ -1259,6 +1261,7 @@
 		11482FF7289E04CB00389434 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				11AFBB3F28A6109D00B72F7F /* MusicSettingViewController */,
 				11482FF4289E049100389434 /* MusicBase */,
 				1148305428A2012000389434 /* MusicSearchViewController */,
 				1148304C28A1053400389434 /* MusicDataListViewController */,
@@ -1371,13 +1374,6 @@
 			path = KKRefreshHeaderStateView;
 			sourceTree = "<group>";
 		};
-		11483039289E1CA700389434 /* HomeTagListView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomeTagListView;
-			sourceTree = "<group>";
-		};
 		1148303A289E1CAE00389434 /* MusicNavigationBarView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1457,6 +1453,15 @@
 				11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */,
 			);
 			path = MusicHTMLParser;
+			sourceTree = "<group>";
+		};
+		11AFBB3F28A6109D00B72F7F /* MusicSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11AFBB4028A610BC00B72F7F /* MusicSettingViewController.h */,
+				11AFBB4128A610BC00B72F7F /* MusicSettingViewController.m */,
+			);
+			path = MusicSettingViewController;
 			sourceTree = "<group>";
 		};
 		11F640C6288901CA0050B936 /* Demo */ = {
@@ -2473,6 +2478,7 @@
 				11AFBB3228A3880D00B72F7F /* MusicTagSelectView.m in Sources */,
 				11483040289E1CD800389434 /* MusicNavigationBarView.m in Sources */,
 				11483047289E276E00389434 /* MusicControlView.m in Sources */,
+				11AFBB4228A610BC00B72F7F /* MusicSettingViewController.m in Sources */,
 				11482FAB289E045600389434 /* KKIPAddress.m in Sources */,
 				111C1FF128976A1000F0336D /* KKVideoPlayerNavigationView.m in Sources */,
 				11482FB7289E045600389434 /* KKWindowActionView.m in Sources */,
@@ -2747,6 +2753,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = YES;
+				CURRENT_PROJECT_VERSION = 2022.08.12;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = L76KY7YU4W;
 				ENABLE_BITCODE = NO;
@@ -2806,6 +2813,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2022.08.12;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = L76KY7YU4W;
 				ENABLE_BITCODE = NO;

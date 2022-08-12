@@ -9,6 +9,7 @@
 #import "HomeTagListView.h"
 #import "MusicDataListViewController.h"
 #import "MusicSearchViewController.h"
+#import "MusicSettingViewController.h"
 
 #define TagCellHeight (60.0f)
 
@@ -41,7 +42,8 @@
     [self addSubview:self.navBarView];
     [self.navBarView setTitle:@"标签"];
     [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
-    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_search") selector:@selector(navSearchButtonClicked) target:self];
+//    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_search") selector:@selector(navSearchButtonClicked) target:self];
+    [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_Setting_version") selector:@selector(navSettingButtonClicked) target:self];
 
     self.table = [UITableView kk_initWithFrame:CGRectMake(0, self.navBarView.kk_height, KKApplicationWidth, self.kk_height-self.navBarView.kk_height) style:UITableViewStyleGrouped delegate:self datasource:self];
     self.table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -104,6 +106,14 @@
 - (void)navSearchButtonClicked{
     MusicSearchViewController *viewController = [[MusicSearchViewController alloc] init];
     viewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.kk_viewController.navigationController presentViewController:viewController animated:YES completion:^{
+        
+    }];
+}
+
+- (void)navSettingButtonClicked{
+    MusicSettingViewController *viewController = [[MusicSettingViewController alloc] init];
+//    viewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.kk_viewController.navigationController presentViewController:viewController animated:YES completion:^{
         
     }];

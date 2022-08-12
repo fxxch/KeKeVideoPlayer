@@ -254,6 +254,10 @@
 	<string>Music/Music_Home_BottomBtn_2H.png</string>
 	<key>Music_Home_BottomBtn_2N</key>
 	<string>Music/Music_Home_BottomBtn_2N.png</string>
+	<key>Music_Home_BottomBtn_3H</key>
+	<string>Music/Music_Home_BottomBtn_3H.png</string>
+	<key>Music_Home_BottomBtn_3N</key>
+	<string>Music/Music_Home_BottomBtn_3N.png</string>
 	<key>Music_btn_NavCloud</key>
 	<string>Music/Music_btn_NavCloud.png</string>
 	<key>Music_btn_NavPlus</key>
@@ -288,6 +292,14 @@
 	<string>Music/Music_btn_pop_cha.png</string>
 	<key>Music_btn_arrow_down</key>
 	<string>Music/Music_btn_arrow_down.png</string>
+	<key>Music_Setting_developer</key>
+	<string>Music/Music_Setting_developer.png</string>
+	<key>Music_Setting_version</key>
+	<string>Music/Music_Setting_version.png</string>
+	<key>Music_Setting_ip</key>
+	<string>Music/Music_Setting_ip.png</string>
+	<key>Music_btn_NavSetting</key>
+	<string>Music/Music_btn_NavSetting.png</string>
 	<key>★★★★★----------End-----------★★★★★</key>
 	<string>★★★★★----------End-----------★★★★★</string>
 </dict>

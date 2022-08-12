@@ -405,7 +405,12 @@
         [self.player startPlay];
     }
     else{
-        [self playNext];
+        if ([NSArray kk_isArrayEmpty:self.dataSource]) {
+            [self.controlView setButtonStatusStop];
+        }
+        else{
+            [self playNext];
+        }
     }
 }
 
