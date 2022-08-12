@@ -369,6 +369,7 @@
 
     if (aNewIndex==0) {
         self.notDownloadView.hidden = NO;
+        [self.notDownloadView reloadURL:self.navBarView.inputTextField.text];
         self.downloadingView.hidden = YES;
         self.cloudAllView.hidden = YES;
     }
@@ -382,6 +383,7 @@
         self.notDownloadView.hidden = YES;
         self.downloadingView.hidden = YES;
         self.cloudAllView.hidden = NO;
+        [self.cloudAllView reloadURL:self.navBarView.inputTextField.text];
     }
 }
 

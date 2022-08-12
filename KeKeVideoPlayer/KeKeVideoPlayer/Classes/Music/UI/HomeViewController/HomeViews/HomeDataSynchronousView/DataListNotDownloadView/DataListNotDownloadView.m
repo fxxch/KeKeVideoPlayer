@@ -56,11 +56,10 @@
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+            [weakself.dataSource removeAllObjects];
+            [weakself.table reloadData];
+
             if (error==nil && data) {
-                [weakself.dataSource removeAllObjects];
-                [weakself.table reloadData];
-                
                 NSError *aError = nil;
                 HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&aError];
                 [weakself parserHTMLParser_audio:parser];
