@@ -20,6 +20,10 @@
 @property (nonatomic , strong) KKVideoPlayer *player;
 @property (nonatomic , strong) MusicControlView *controlView;
 
+@property (nonatomic , strong) NSMutableArray *dataSourceRandom;
+@property (nonatomic , assign) NSInteger indexOfRandom;
+
+
 @property (nonatomic , strong) NSMutableArray *dataSource;
 @property (nonatomic , strong) NSDictionary *currentPlayInformation;
 @property (nonatomic , assign) NSInteger playType;
@@ -43,6 +47,8 @@
         [self kk_observeNotification:NotificationName_MusicDeleteFinished selector:@selector(Notification_MusicDeleteFinished:)];
         [self kk_observeNotification:NotificationName_MusicPlayerStartPlayMusicItem selector:@selector(Notification_MusicPlayerStartPlayMusicItem:)];
 
+        self.dataSourceRandom = [[NSMutableArray alloc] init];
+        self.indexOfRandom = NSNotFound;
         
         self.dataSource = [[NSMutableArray alloc] init];
         NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_All];
@@ -84,6 +90,8 @@
 }
 
 - (void)navPlayTypeButtonClicked{
+    [self.dataSourceRandom removeAllObjects];
+    self.indexOfRandom = NSNotFound;
     if (self.playType==0) {
         self.playType=1;
         [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_orderRandom") selector:@selector(navPlayTypeButtonClicked) target:self];
@@ -111,6 +119,7 @@
         return;
     }
     
+    BOOL saveRadom = YES;
     //顺序播放
     if (self.playType==0) {
         currentPlayIndex = currentPlayIndex - 1;
@@ -120,7 +129,14 @@
     }
     //随机播放
     else if (self.playType==1){
-        currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
+        if (self.dataSourceRandom.count==0) {
+            self.indexOfRandom = NSNotFound;
+            currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
+        }
+        else{
+            currentPlayIndex = [self prevInfoIndexForRandom];
+            saveRadom = NO;
+        }
     }
     //单曲循环
     else{
@@ -131,7 +147,24 @@
     
     self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:currentPlayIndex];
     if (self.currentPlayInformation) {
-        [self startPlayer];
+        [self startPlayer:saveRadom];
+    }
+}
+
+- (NSInteger)prevInfoIndexForRandom{
+    self.indexOfRandom = MAX(self.indexOfRandom - 1, 0);
+    NSDictionary *info = [self.dataSourceRandom kk_objectAtIndex_Safe:self.indexOfRandom];
+    if (info) {
+        NSInteger index = [self.dataSource indexOfObject:info];
+        if (index!=NSNotFound) {
+            return index;
+        }
+        else{
+            return [self prevInfoIndexForRandom];
+        }
+    }
+    else{
+        return [self prevInfoIndexForRandom];
     }
 }
 
@@ -147,6 +180,7 @@
         return;
     }
 
+    BOOL saveRadom = YES;
     //顺序播放
     if (self.playType==0) {
         currentPlayIndex = currentPlayIndex + 1;
@@ -156,7 +190,14 @@
     }
     //随机播放
     else if (self.playType==1){
-        currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
+        NSInteger index = [self nextInfoIndexForRandom];
+        if (index==NSNotFound) {
+            currentPlayIndex = [NSNumber kk_randomIntegerBetween:0 and:(int)self.dataSource.count];
+        }
+        else{
+            currentPlayIndex = index;
+            saveRadom = NO;
+        }
     }
     //单曲循环
     else{
@@ -167,11 +208,29 @@
     
     self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:currentPlayIndex];
     if (self.currentPlayInformation) {
-        [self startPlayer];
+        [self startPlayer:saveRadom];
     }
 }
 
-- (void)startPlayer{
+- (NSInteger)nextInfoIndexForRandom{
+    self.indexOfRandom = self.indexOfRandom + 1;
+    NSDictionary *info = [self.dataSourceRandom kk_objectAtIndex_Safe:self.indexOfRandom];
+    if (info) {
+        NSInteger index = [self.dataSource indexOfObject:info];
+        if (index!=NSNotFound) {
+            return index;
+        }
+        else{
+            return [self nextInfoIndexForRandom];
+        }
+    }
+    else{
+        return NSNotFound;
+    }
+}
+
+
+- (void)startPlayer:(BOOL)NeedCacheToRandomDataSource{
     [self clearPlayer];
     
     if (self.currentPlayInformation==nil) {
@@ -229,9 +288,16 @@
         [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentPlayIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
         self.tableScrollOffsetCheckEnable = YES;
         self.controlView.hidden = NO;
+        
+        //随机播放
+        if (self.playType==1 && NeedCacheToRandomDataSource){
+            [self.dataSourceRandom addObject:self.currentPlayInformation];
+            self.indexOfRandom = self.dataSourceRandom.count - 1;
+        }
     }
     else{
         [self.dataSource removeObject:info];
+        [self.dataSourceRandom removeObject:info];
         [self playNext];
     }
 }
@@ -338,12 +404,14 @@
             if (info==self.currentPlayInformation) {
                 [self clearPlayer];
                 [self.dataSource removeObject:info];
+                [self.dataSourceRandom removeObject:info];
                 [self.table reloadData];
                 [self playNext];
                 break;;
             }
             else{
                 [self.dataSource removeObject:info];
+                [self.dataSourceRandom removeObject:info];
                 [self.table reloadData];
                 break;;
             }
@@ -367,13 +435,13 @@
     
     if (index>=0) {
         self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:index];
-        [self startPlayer];
+        [self startPlayer:YES];
     }
     else{
         [self.dataSource addObject:notiDic];
         [self.table reloadData];
         self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:self.dataSource.count-1];
-        [self startPlayer];
+        [self startPlayer:YES];
     }
     [self kk_postNotification:NotificationName_HomeSelectPlayerView];
 }
@@ -574,7 +642,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     self.currentPlayInformation = [self.dataSource kk_objectAtIndex_Safe:indexPath.row];
-    [self startPlayer];
+    [self startPlayer:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -633,6 +701,7 @@
         completionHandler (YES);
         
         [weakself.dataSource removeObject:info];
+        [weakself.dataSourceRandom removeObject:info];
         [weakself.table reloadData];
     }];
     deleteRowAction.backgroundColor = [UIColor kk_colorWithHexString:@"#FF4646"];
