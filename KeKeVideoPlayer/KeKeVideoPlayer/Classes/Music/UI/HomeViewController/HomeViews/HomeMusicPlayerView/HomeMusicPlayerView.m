@@ -84,7 +84,8 @@
     [self.table setTableFooterView:header];
     UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, self.controlView.kk_height)];
     [self.table setTableFooterView:footer];
-    
+    self.tableScrollOffsetCheckEnable = YES;
+
     [self bringSubviewToFront:self.controlView];
     [self bringSubviewToFront:self.navBarView];
 }

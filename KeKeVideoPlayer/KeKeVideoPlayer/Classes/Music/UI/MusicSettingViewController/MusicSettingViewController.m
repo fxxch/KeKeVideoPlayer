@@ -28,10 +28,16 @@
 //    [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_btn_NavPlus") selector:@selector(navAddTagButtonClicked) target:self];
     [self.navBarView setNavRightButtonImage:KKThemeImage(@"Music_btn_pop_cha") selector:@selector(navChaButtonClicked) target:self];
 
+    //图标
+    UIImageView *iconImage = [[UIImageView alloc] initWithFrame:CGRectMake((KKScreenWidth-70)/2.0, self.navBarView.kk_bottom+30, 70, 70)];
+    iconImage.image = [UIImage kk_appIconImage];
+    [self.view addSubview:iconImage];
+    [iconImage kk_setCornerRadius:10];
+    
     //当前版本
     NSString *version = [NSString stringWithFormat:@"Version  %@",[NSBundle kk_bundleVersion]];
     UILabel *versionLabel = [UILabel kk_initWithTextColor:Theme_Color_939393 font:[UIFont boldSystemFontOfSize:17] text:version lines:0 maxWidth:KKScreenWidth];
-    versionLabel.frame = CGRectMake(15, self.navBarView.kk_bottom+30, KKScreenWidth-30, versionLabel.kk_height);
+    versionLabel.frame = CGRectMake(15, iconImage.kk_bottom+30, KKScreenWidth-30, versionLabel.kk_height);
     versionLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:versionLabel];
     
