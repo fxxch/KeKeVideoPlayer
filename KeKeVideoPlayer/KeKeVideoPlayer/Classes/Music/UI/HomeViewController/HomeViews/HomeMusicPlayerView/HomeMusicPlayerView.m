@@ -330,6 +330,8 @@
     NSArray *array = notice.object;
     [self.dataSource removeAllObjects];
     [self.dataSource addObjectsFromArray:array];
+    [self.dataSourceRandom removeAllObjects];
+    self.indexOfRandom = NSNotFound;
     [self.table reloadData];
     
     [self clearPlayer];
