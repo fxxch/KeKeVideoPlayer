@@ -24,7 +24,7 @@
 #define HiddenPlayerBarTimerMax 5
 
 @interface AudioImageViewController ()
-<KKVideoPlayerNavigationViewDelegate,KKVideoPlayerBarViewDelegate,KKVideoPlayerVolumeViewDelegate,UIGestureRecognizerDelegate,KKVideoPlayerDelegate>
+<KKVideoPlayerNavigationViewDelegate,KKVideoPlayerBarViewDelegate,KKVideoPlayerVolumeViewDelegate,UIGestureRecognizerDelegate,KKVideoPlayerDelegate,ENImagePageViewDelegate>
 
 @property (nonatomic,strong)UIImageView *audioBackgroundView;
 
@@ -198,9 +198,9 @@
             self.audioBackgroundView.frame = self.player.frame;
             self.imagePageView.frame = CGRectMake(0, 0, KKScreenWidth, KKScreenHeight);
             
-            self.navigationBarView.frame = CGRectMake(0, 0, self.player.width, KKStatusBarAndNavBarHeight);
-            self.toolBarView.frame = CGRectMake(0, self.player.height-(KKSafeAreaBottomHeight+120), self.player.width, 120+KKSafeAreaBottomHeight);
-            self.volumeView.frame = CGRectMake(0, (self.player.height-180)/2.0, 40, 180);
+            self.navigationBarView.frame = CGRectMake(0, 0, self.player.kk_width, KKStatusBarAndNavBarHeight);
+            self.toolBarView.frame = CGRectMake(0, self.player.kk_height-(KKSafeAreaBottomHeight+120), self.player.kk_width, 120+KKSafeAreaBottomHeight);
+            self.volumeView.frame = CGRectMake(0, (self.player.kk_height-180)/2.0, 40, 180);
             [self.playButton setCenter:self.player.center];
             break;
         }
@@ -214,9 +214,9 @@
             self.audioBackgroundView.frame = self.player.frame;
             self.imagePageView.frame = CGRectMake(0, 0, KKScreenWidth, KKScreenHeight);
 
-            self.navigationBarView.frame = CGRectMake(0, 0, self.player.width, KKSafeAreaBottomHeight+KKNavigationBarHeight);
-            self.toolBarView.frame = CGRectMake(0, self.player.height-(statusH+120), self.player.width, 120+statusH);
-            self.volumeView.frame = CGRectMake(0, (self.player.height-180)/2.0, 40, 180);
+            self.navigationBarView.frame = CGRectMake(0, 0, self.player.kk_width, KKSafeAreaBottomHeight+KKNavigationBarHeight);
+            self.toolBarView.frame = CGRectMake(0, self.player.kk_height-(statusH+120), self.player.kk_width, 120+statusH);
+            self.volumeView.frame = CGRectMake(0, (self.player.kk_height-180)/2.0, 40, 180);
             [self.playButton setCenter:self.player.center];
             break;
         }
@@ -231,15 +231,15 @@
             self.imagePageView.frame = CGRectMake(0, 0, KKScreenWidth, KKScreenHeight);
 
             /* 横屏 */
-            self.navigationBarView.frame = CGRectMake(0, 0, self.player.width, 64);
-            self.toolBarView.frame = CGRectMake(0, self.player.height-60, self.player.width, 60);
-            self.volumeView.frame = CGRectMake(safeAreaBottomH, (self.player.height-180)/2.0, 40, 180);
+            self.navigationBarView.frame = CGRectMake(0, 0, self.player.kk_width, 64);
+            self.toolBarView.frame = CGRectMake(0, self.player.kk_height-60, self.player.kk_width, 60);
+            self.volumeView.frame = CGRectMake(safeAreaBottomH, (self.player.kk_height-180)/2.0, 40, 180);
             [self.playButton setCenter:self.player.center];
             break;
         }
         case UIInterfaceOrientationLandscapeRight:{
             CGFloat statusH = 0;
-            if ([[UIDevice currentDevice] isiPhoneX]) {
+            if ([[UIDevice currentDevice] kk_isiPhoneX]) {
                 statusH = KKStatusBarHeight;
             }
             
@@ -248,9 +248,9 @@
             self.imagePageView.frame = CGRectMake(0, 0, KKScreenWidth, KKScreenHeight);
 
             /* 横屏 */
-            self.navigationBarView.frame = CGRectMake(0, 0, self.player.width, 64);
-            self.toolBarView.frame = CGRectMake(0, self.player.height-60, self.player.width, 60);
-            self.volumeView.frame = CGRectMake(statusH, (self.player.height-180)/2.0, 40, 180);
+            self.navigationBarView.frame = CGRectMake(0, 0, self.player.kk_width, 64);
+            self.toolBarView.frame = CGRectMake(0, self.player.kk_height-60, self.player.kk_width, 60);
+            self.volumeView.frame = CGRectMake(statusH, (self.player.kk_height-180)/2.0, 40, 180);
             [self.playButton setCenter:self.player.center];
             break;
         }
@@ -489,7 +489,7 @@
 //准备播放
 - (void)KKVideoPlayer_IJKMediaPlaybackIsPreparedToPlayDidChange:(NSDictionary*)aVideoInfo
                                                       audioInfo:(NSDictionary*)aAudioInfo{
-    if ([NSDictionary isDictionaryNotEmpty:aVideoInfo]) {
+    if ([NSDictionary kk_isDictionaryNotEmpty:aVideoInfo]) {
         self.audioBackgroundView.hidden = YES;
         self.isVideo = YES;
     } else {
@@ -551,7 +551,7 @@
     [alertView show];
     
     KKButton *button = [alertView buttonAtIndex:0];
-    [button setTitleColor:[UIColor colorWithHexString:@"#24C875"]   forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor kk_colorWithHexString:@"#24C875"]   forState:UIControlStateNormal];
 }
 
 //播放时间改变
@@ -576,7 +576,7 @@
     self.myTimerCount = HiddenPlayerBarTimerMax;
     [self destroyTimer];
     KKWeakSelf(self);
-    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 block:^{
+    self.myTimer = [NSTimer kk_scheduledTimerWithTimeInterval:1.0 block:^{
         [weakself timerLoop];
     } repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.myTimer forMode:NSRunLoopCommonModes];
@@ -604,7 +604,10 @@
     if (self.isBarHidden == hidden) {
         return;
     }
-    
+    if (self.player.hidden == YES) {
+        return;
+    }
+
     self.isBarHidden = hidden;
     CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
     if (self.isBarHidden) {

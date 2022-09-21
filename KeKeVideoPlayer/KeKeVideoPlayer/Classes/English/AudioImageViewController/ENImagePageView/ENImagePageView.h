@@ -15,7 +15,7 @@
 
 @property (nonatomic , weak) id<ENImagePageViewDelegate> _Nullable delegate;
 
-- (id)initWithFrame:(CGRect)frame items:(NSArray*_Nullable)aItemsArray;
+- (id _Nullable )initWithFrame:(CGRect)frame items:(NSArray*_Nullable)aItemsArray;
 
 @end
 

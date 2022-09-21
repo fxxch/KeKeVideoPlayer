@@ -107,7 +107,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];
-    NSString *fileName = [info validStringForKey:@"name"];
+    NSString *fileName = [info kk_validStringForKey:@"name"];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
     NSURL *url = [NSURL fileURLWithPath:filePath];
     
@@ -149,7 +149,7 @@
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];
     UILabel *mainLabel = [cell.contentView viewWithTag:199201];
-    mainLabel.text = [info validStringForKey:@"displayName"];
+    mainLabel.text = [info kk_validStringForKey:@"displayName"];
     
 //    UIImageView *previewImageView = [cell.contentView viewWithTag:1102];
 //    KKWeakSelf(self)

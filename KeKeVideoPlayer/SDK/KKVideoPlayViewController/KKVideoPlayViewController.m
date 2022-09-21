@@ -590,7 +590,10 @@
     if (self.isBarHidden == hidden) {
         return;
     }
-    
+    if (self.player.hidden == YES) {
+        return;
+    }
+
     self.isBarHidden = hidden;
     CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
     if (self.isBarHidden) {
