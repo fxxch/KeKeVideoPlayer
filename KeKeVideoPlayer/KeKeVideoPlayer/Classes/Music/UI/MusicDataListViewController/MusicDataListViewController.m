@@ -98,6 +98,7 @@
 - (void)navPlayAllButtonClicked{
     [self kk_postNotification:NotificationName_MusicPlayerStartPlayDataSouce object:self.dataSource];
     [self kk_postNotification:NotificationName_HomeSelectPlayerView];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)navDeleteAllButtonClicked{

@@ -551,39 +551,41 @@
 - (void)KKVideoPlayer:(KKVideoPlayer*)player playBackTimeChanged:(NSTimeInterval)currentTime durationtime:(NSTimeInterval)durationtime{
     
     NSDictionary *info = self.currentPlayInformation;
-    NSString *local_name = [info kk_validStringForKey:Table_Media_local_name];
+    if (info && [info isKindOfClass:[NSDictionary class]] && [info count]>0){
+        NSString *local_name = [info kk_validStringForKey:Table_Media_local_name];
 
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-   //设置歌曲题目
-   [dict setObject:local_name forKey:MPMediaItemPropertyTitle];
-   //设置歌手名
-    [dict setObject:self.sys_artist_name?self.sys_artist_name:@"" forKey:MPMediaItemPropertyArtist];
-   //设置专辑名
-   [dict setObject:self.sys_artist_album?self.sys_artist_album:@"" forKey:MPMediaItemPropertyAlbumTitle];
-   //设置显示的图片
-    if (self.sys_artist_image) {
-        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(KKScreenWidth, KKScreenWidth) requestHandler:^UIImage * _Nonnull(CGSize size) {
-            return self.sys_artist_image;
-        }];
-        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
-    }
-    else{
-        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(KKScreenWidth, KKScreenWidth) requestHandler:^UIImage * _Nonnull(CGSize size) {
-            return KKThemeImage(@"Music_placeholder");
-        }];
-        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
-    }
-   //设置歌曲时长
-   [dict setObject:[NSNumber numberWithDouble:durationtime] forKey:MPMediaItemPropertyPlaybackDuration];
-   //设置已经播放时长
-   [dict setObject:[NSNumber numberWithDouble:currentTime] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-   //更新字典
-   [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+       //设置歌曲题目
+       [dict setObject:local_name forKey:MPMediaItemPropertyTitle];
+       //设置歌手名
+        [dict setObject:self.sys_artist_name?self.sys_artist_name:@"" forKey:MPMediaItemPropertyArtist];
+       //设置专辑名
+       [dict setObject:self.sys_artist_album?self.sys_artist_album:@"" forKey:MPMediaItemPropertyAlbumTitle];
+       //设置显示的图片
+        if (self.sys_artist_image) {
+            MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(KKScreenWidth, KKScreenWidth) requestHandler:^UIImage * _Nonnull(CGSize size) {
+                return self.sys_artist_image;
+            }];
+            [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+        }
+        else{
+            MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(KKScreenWidth, KKScreenWidth) requestHandler:^UIImage * _Nonnull(CGSize size) {
+                return KKThemeImage(@"Music_placeholder");
+            }];
+            [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+        }
+       //设置歌曲时长
+       [dict setObject:[NSNumber numberWithDouble:durationtime] forKey:MPMediaItemPropertyPlaybackDuration];
+       //设置已经播放时长
+       [dict setObject:[NSNumber numberWithDouble:currentTime] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+       //更新字典
+       [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
 
-    if (self.controlView.isSliderTouched==NO) {
-        self.controlView.currentTime = currentTime;
-        self.controlView.durationtime = durationtime;
-        self.controlView.mySlider.value = currentTime;
+        if (self.controlView.isSliderTouched==NO) {
+            self.controlView.currentTime = currentTime;
+            self.controlView.durationtime = durationtime;
+            self.controlView.mySlider.value = currentTime;
+        }
     }
 }
 
