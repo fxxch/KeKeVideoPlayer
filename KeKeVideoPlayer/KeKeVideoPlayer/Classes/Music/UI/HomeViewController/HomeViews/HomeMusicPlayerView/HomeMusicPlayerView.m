@@ -44,6 +44,7 @@
     if (self) {
         [self kk_observeNotification:NotificationName_UIEventSubtypeRemoteControl selector:@selector(Notification_UIEventSubtypeRemoteControl:)];
         [self kk_observeNotification:NotificationName_MusicPlayerStartPlayDataSouce selector:@selector(Notification_MusicPlayerStartPlayDataSouce:)];
+        [self kk_observeNotification:NotificationName_MusicPlayerAddDataSouce selector:@selector(Notification_MusicPlayerAddDataSouce:)];
         [self kk_observeNotification:NotificationName_MusicDeleteFinished selector:@selector(Notification_MusicDeleteFinished:)];
         [self kk_observeNotification:NotificationName_MusicPlayerStartPlayMusicItem selector:@selector(Notification_MusicPlayerStartPlayMusicItem:)];
 
@@ -89,6 +90,18 @@
     [self bringSubviewToFront:self.controlView];
     [self bringSubviewToFront:self.navBarView];
 }
+
+- (BOOL)isCurrentPlayListContainInformation:(NSDictionary*)aDic{
+    NSString *identifier = [aDic kk_validStringForKey:Table_Media_identifier];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF['identifier'] = %@",identifier];
+    NSArray *filteredArray = [self.dataSource filteredArrayUsingPredicate:predicate];
+    if ([NSArray kk_isArrayNotEmpty:filteredArray]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 
 - (void)navPlayTypeButtonClicked{
     [self.dataSourceRandom removeAllObjects];
@@ -331,6 +344,29 @@
     NSArray *array = notice.object;
     [self.dataSource removeAllObjects];
     [self.dataSource addObjectsFromArray:array];
+    [self.dataSourceRandom removeAllObjects];
+    self.indexOfRandom = NSNotFound;
+    [self.table reloadData];
+    
+    [self clearPlayer];
+    self.currentPlayInformation = nil;
+    [self playNext];
+}
+
+- (void)Notification_MusicPlayerAddDataSouce:(NSNotification*)notice{
+    NSArray *array = notice.object;
+    NSMutableDictionary *allMusic = [[NSMutableDictionary alloc] init];
+    for (NSDictionary *dic in self.dataSource) {
+        NSString *identifier = [dic kk_validStringForKey:Table_Media_identifier];
+        [allMusic setObject:dic forKey:identifier];
+    }
+    for (NSDictionary *dic in array) {
+        NSString *identifier = [dic kk_validStringForKey:Table_Media_identifier];
+        [allMusic setObject:dic forKey:identifier];
+    }
+
+    [self.dataSource removeAllObjects];
+    [self.dataSource addObjectsFromArray:[allMusic allValues]];
     [self.dataSourceRandom removeAllObjects];
     self.indexOfRandom = NSNotFound;
     [self.table reloadData];

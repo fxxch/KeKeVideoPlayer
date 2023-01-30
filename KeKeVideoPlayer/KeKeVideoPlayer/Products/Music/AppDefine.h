@@ -26,6 +26,7 @@
 #define NotificationName_HomeSelectPlayerView          @"NotificationName_HomeSelectPlayerView"
 #define NotificationName_MusicDeleteFinished           @"NotificationName_MusicDeleteFinished"
 #define NotificationName_MusicPlayerStartPlayDataSouce @"NotificationName_MusicPlayerStartPlayDataSouce"
+#define NotificationName_MusicPlayerAddDataSouce       @"NotificationName_MusicPlayerAddDataSouce"
 #define NotificationName_UIEventSubtypeRemoteControl   @"NotificationName_UIEventSubtypeRemoteControl"
 #define NotificationName_MusicPlayerStartPlayMusicItem @"NotificationName_MusicPlayerStartPlayMusicItem"
 

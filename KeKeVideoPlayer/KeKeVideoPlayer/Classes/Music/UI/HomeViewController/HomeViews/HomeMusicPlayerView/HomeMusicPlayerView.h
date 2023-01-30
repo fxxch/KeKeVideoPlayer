@@ -10,4 +10,6 @@
 
 @interface HomeMusicPlayerView : UIView
 
+- (BOOL)isCurrentPlayListContainInformation:(NSDictionary*)aDic;
+
 @end

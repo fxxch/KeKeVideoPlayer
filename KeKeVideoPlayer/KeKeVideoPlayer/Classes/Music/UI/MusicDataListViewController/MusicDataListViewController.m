@@ -8,8 +8,9 @@
 
 #import "MusicDataListViewController.h"
 #import "MusicCell.h"
+#import "AppDelegate.h"
 
-@interface MusicDataListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface MusicDataListViewController ()<UITableViewDataSource,UITableViewDelegate,KKWindowActionViewDelegate>
 
 @property (nonatomic , strong)UITableView *table;
 @property (nonatomic , strong) NSMutableArray *dataSource;
@@ -54,7 +55,7 @@
         }
         case MusicDataListType_NoTag:{
             self.title = @"未分类歌曲";
-            KKButton *button = [self setNavRightButtonTitle:@"播放全部" selector:@selector(navPlayAllButtonClicked)];
+            KKButton *button = [self setNavRightButtonTitle:@"More" selector:@selector(navMoreButtonClicked)];
             [button setTitleColor:Theme_Color_666666 forState:UIControlStateNormal];
             break;
         }
@@ -65,7 +66,7 @@
             break;
         }
         case MusicDataListType_Tag:{
-            KKButton *button = [self setNavRightButtonTitle:@"播放全部" selector:@selector(navPlayAllButtonClicked)];
+            KKButton *button = [self setNavRightButtonTitle:@"More" selector:@selector(navMoreButtonClicked)];
             [button setTitleColor:Theme_Color_666666 forState:UIControlStateNormal];
 
             NSString *tagId = [self.tagInformation kk_validStringForKey:Table_Tag_tag_id];
@@ -95,12 +96,6 @@
     [self.table setTableFooterView:footer];
 }
 
-- (void)navPlayAllButtonClicked{
-    [self kk_postNotification:NotificationName_MusicPlayerStartPlayDataSouce object:self.dataSource];
-    [self kk_postNotification:NotificationName_HomeSelectPlayerView];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)navDeleteAllButtonClicked{
     for (NSDictionary *info in self.dataSource) {
         NSString *identifier = [info kk_validStringForKey:Table_Media_identifier];
@@ -119,6 +114,38 @@
     [self.table reloadData];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)navPlayAllButtonClicked{
+    [self kk_postNotification:NotificationName_MusicPlayerStartPlayDataSouce object:self.dataSource];
+    [self kk_postNotification:NotificationName_HomeSelectPlayerView];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)navMoreButtonClicked{
+    
+    KKWindowActionViewItem *item0 = [[KKWindowActionViewItem alloc] initWithImage:nil title:@"取消" keyId:nil];
+
+    KKWindowActionViewItem *item1 = [[KKWindowActionViewItem alloc] initWithImage:nil title:@"播放当前歌单" keyId:nil];
+
+    KKWindowActionViewItem *item2 = [[KKWindowActionViewItem alloc] initWithImage:nil title:@"添加到正在播放列表" keyId:nil];
+
+    KKWindowActionView *actionView = [KKWindowActionView showWithItems:[NSArray arrayWithObjects:item1,item2, nil] cancelItem:item0 delegate:self];
+}
+
+- (void)KKWindowActionView:(KKWindowActionView *)aView clickedIndex:(NSInteger)buttonIndex item:(KKWindowActionViewItem *)aItem{
+    if ([aItem.title isEqualToString:@"播放当前歌单"]) {
+        [self kk_postNotification:NotificationName_MusicPlayerStartPlayDataSouce object:self.dataSource];
+        [self kk_postNotification:NotificationName_HomeSelectPlayerView];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if ([aItem.title isEqualToString:@"添加到正在播放列表"]) {
+        [self kk_postNotification:NotificationName_MusicPlayerAddDataSouce object:self.dataSource];
+        [self kk_postNotification:NotificationName_HomeSelectPlayerView];
+    }
+    else {
+        
+    }
 }
 
 #pragma mark ========================================
@@ -169,6 +196,13 @@
 
     if (self.type==MusicDataListType_Error) {
         cell.tag_Button.hidden = YES;
+    }
+    
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    if ([delegate isCurrentPlayListContainInformation:info]) {
+        [cell.icon_imageView kk_setBorderColor:[UIColor redColor] width:3.0];
+    } else {
+        [cell.icon_imageView kk_setBorderColor:[UIColor clearColor] width:0.01];
     }
     
     return cell;

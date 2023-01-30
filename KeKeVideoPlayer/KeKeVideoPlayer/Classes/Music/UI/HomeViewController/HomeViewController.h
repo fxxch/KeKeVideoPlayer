@@ -10,4 +10,6 @@
 
 @interface HomeViewController : MusicBaseViewController
 
+- (BOOL)isCurrentPlayListContainInformation:(NSDictionary*)aDic;
+
 @end

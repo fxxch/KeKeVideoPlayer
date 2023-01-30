@@ -45,4 +45,20 @@
     }
 }
 
+- (BOOL)isCurrentPlayListContainInformation:(NSDictionary*)aDic{
+    if ([self.window.rootViewController isKindOfClass:[BaseNavigationController class]]) {
+        BaseNavigationController *nav = (BaseNavigationController*)self.window.rootViewController;
+        UIViewController *viewController = [[nav viewControllers] firstObject];
+        if (viewController && [viewController isKindOfClass:[HomeViewController class]]) {
+            HomeViewController *home = (HomeViewController*)viewController;
+            return [home isCurrentPlayListContainInformation:aDic];
+        } else {
+            return NO;
+        }
+    }
+    else{
+        return NO;
+    }
+}
+
 @end

@@ -40,6 +40,10 @@
     [self.segmentView selectedIndex:1 needRespondsDelegate:YES];
 }
 
+- (BOOL)isCurrentPlayListContainInformation:(NSDictionary*)aDic{
+    return [self.home_musicPlayerView isCurrentPlayListContainInformation:aDic];
+}
+
 #pragma mark -
 #pragma mark ==================================================
 #pragma mark == UI界面
