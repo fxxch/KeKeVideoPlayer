@@ -118,7 +118,7 @@
         }
     }
     else{
-        self.myTextView.text = @"http://192.168.43.250";
+        self.myTextView.text = @"http://192.168.43.250/test/2022/2021/2020";
 //        [self.myTextView becomeFirstResponder];
     }
 }

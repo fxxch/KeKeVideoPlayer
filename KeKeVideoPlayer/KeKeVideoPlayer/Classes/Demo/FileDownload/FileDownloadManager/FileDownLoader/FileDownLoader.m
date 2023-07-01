@@ -23,6 +23,7 @@ NSAttributedStringKey const FileDownloadManager_Files_CachePath  = @"FileDownloa
 
 - (void)dealloc
 {
+    [self kk_unobserveAllNotification];
     NSLog(@"FileDownLoader dealloc");
 }
 
@@ -54,12 +55,26 @@ NSAttributedStringKey const FileDownloadManager_Files_CachePath  = @"FileDownloa
     self.bytesReceived = 0;
     self.bytesExpected = 0;
     
+    [self kk_observeNotification:UIApplicationDidEnterBackgroundNotification selector:@selector(Notification_UIApplicationDidEnterBackgroundNotification:)];
+    [self kk_observeNotification:UIApplicationWillEnterForegroundNotification selector:@selector(Notification_UIApplicationWillEnterForegroundNotification:)];
+
     //请求数据
     NSURLRequest *DownloadRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[self.urlString kk_KKURLEncodedString]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     self.DownloadConnection = [[NSURLConnection alloc] initWithRequest:DownloadRequest delegate:self startImmediately:YES];
     if(self.DownloadConnection == nil) {
         return;
     }
+}
+
+#pragma mark ==================================================
+#pragma mark == Notification
+#pragma mark ==================================================
+- (void)Notification_UIApplicationDidEnterBackgroundNotification:(NSNotification*)notice{
+    
+}
+
+- (void)Notification_UIApplicationWillEnterForegroundNotification:(NSNotification*)notice{
+    
 }
 
 #pragma mark ========================================
