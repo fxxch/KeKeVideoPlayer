@@ -621,6 +621,10 @@
 		11F755B72898FEE400390931 /* MusicDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicDBManager.m; sourceTree = "<group>"; };
 		11F755B82898FEE400390931 /* MusicDBManager.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MusicDBManager.sqlite; sourceTree = "<group>"; };
 		11F755B92898FEE400390931 /* MusicDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicDBManager.h; sourceTree = "<group>"; };
+		11FDC0882A85138900D45CBA /* Demo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
+		11FDC0892A8515AE00D45CBA /* English.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = English.entitlements; sourceTree = "<group>"; };
+		11FDC08A2A8515BB00D45CBA /* Japanese.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Japanese.entitlements; sourceTree = "<group>"; };
+		11FDC08B2A8515C700D45CBA /* Music.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Music.entitlements; sourceTree = "<group>"; };
 		2C32EEDC7B547EDD2B9BCE95 /* Pods-English.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-English.release.xcconfig"; path = "Target Support Files/Pods-English/Pods-English.release.xcconfig"; sourceTree = "<group>"; };
 		3A79E2FF2637A9D300B83609 /* KKVideoPlayerNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKVideoPlayerNavigationView.h; sourceTree = "<group>"; };
 		3A79E3002637A9D300B83609 /* KKVideoPlayerNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKVideoPlayerNavigationView.m; sourceTree = "<group>"; };
@@ -927,6 +931,7 @@
 				111C204A28976A5000F0336D /* AppDefine.h */,
 				111C204B28976A5000F0336D /* Images.xcassets */,
 				111C204928976A5000F0336D /* Music-Prefix.pch */,
+				11FDC08B2A8515C700D45CBA /* Music.entitlements */,
 				111C203E28976A5000F0336D /* Music_Info.plist */,
 			);
 			path = Music;
@@ -1800,6 +1805,7 @@
 				3A79E3A82637AC1200B83609 /* Images.xcassets */,
 				3A79E39C2637AC1100B83609 /* Demo-Prefix.pch */,
 				3A79E3A92637AC1200B83609 /* Demo_Info.plist */,
+				11FDC0882A85138900D45CBA /* Demo.entitlements */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -1830,6 +1836,7 @@
 				3A79E4502637B50100B83609 /* AppDefine.h */,
 				3A79E4512637B50100B83609 /* Images.xcassets */,
 				3A79E4522637B50100B83609 /* English-Prefix.pch */,
+				11FDC0892A8515AE00D45CBA /* English.entitlements */,
 				3A79E4482637B50100B83609 /* English_Info.plist */,
 			);
 			path = English;
@@ -1886,6 +1893,7 @@
 				3AAE5CB826354939009D0534 /* AppDefine.h */,
 				3AAE5CBA26354939009D0534 /* Images.xcassets */,
 				3AAE5CB926354939009D0534 /* Japanese-Prefix.pch */,
+				11FDC08A2A8515BB00D45CBA /* Japanese.entitlements */,
 				3AAE5CB026354939009D0534 /* Japanese_Info.plist */,
 			);
 			path = Japanese;
@@ -2749,6 +2757,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/Music/Music.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2810,6 +2819,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/Music/Music.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2872,12 +2882,14 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/Demo/Demo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = L76KY7YU4W;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = L76KY7YU4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2913,6 +2925,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = LiuBoDemo_Dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = LiuBoDemo_Dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_WORKSPACE = YES;
@@ -2930,6 +2943,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/Demo/Demo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2937,6 +2951,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = L76KY7YU4W;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = L76KY7YU4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2972,6 +2987,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = LiuBoDemo_AdHoc;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = LiuBoDemo_AdHoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_WORKSPACE = YES;
@@ -2989,6 +3005,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/English/English.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -3047,6 +3064,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/English/English.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -3106,6 +3124,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/Japanese/Japanese.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -3164,6 +3183,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/KeKeVideoPlayer/Products/Japanese/Japanese.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
