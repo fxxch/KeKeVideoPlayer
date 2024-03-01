@@ -20,7 +20,7 @@
 //默认主题包
 #define DefaultThemeBundleName    @"Default"
 
-#define IS_APP_For_English 1
+#define IS_APP_For_English 0
 
 
 //============================================================

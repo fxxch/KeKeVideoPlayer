@@ -65,7 +65,12 @@
         self.playType = 1;
         
         [self initUI];
-        
+
+        if (IS_APP_For_English) {
+            self.playType=0;
+            [self.navBarView setNavLeftButtonImage:KKThemeImage(@"Music_order") selector:@selector(navPlayTypeButtonClicked) target:self];
+        }
+
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     }
     return self;

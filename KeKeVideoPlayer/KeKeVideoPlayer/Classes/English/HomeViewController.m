@@ -7,75 +7,151 @@
 //
 
 #import "HomeViewController.h"
-#import "KKVideoPlayViewController.h"
-#import "AudioImageViewController.h"
+#import "EnglishVideoListViewController.h"
 
 @interface HomeViewController ()
 <UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)UITableView *table;
-@property(nonatomic,strong)NSMutableArray *sectionTitleArray;
 @property(nonatomic,strong)NSMutableArray *dataSource;
+@property (nonatomic , assign) NSInteger bookCount;
+
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"英语学习";
+    self.title = @"英语视频";
     
     [self initUI];
 }
 
 - (void)initUI{
-    self.sectionTitleArray = [[NSMutableArray alloc] init];
     self.dataSource = [[NSMutableArray alloc] init];
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"EnglishFileSource.plist" ofType:nil];
-    NSArray *array = [NSArray arrayWithContentsOfFile:filePath];
-    for (NSInteger i=[array count]-1; i>=0; i--) {
-        NSArray *item = [array objectAtIndex_Safe:i];
-        NSString *sectionName = [item objectAtIndex_Safe:0];
+    NSArray *array1_1 = [NSArray arrayWithObjects:
+                         @"Grade11_Module_01_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_01_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_01_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_01_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_01_Unit_3_Song.mp4",
+                         @"Grade11_Module_01_Unit_4_Words.mp4",
+                         @"Grade11_Module_02_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_02_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_02_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_02_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_02_Unit_3_Song.mp4",
+                         @"Grade11_Module_02_Unit_4_Words.mp4",
+                         @"Grade11_Module_03_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_03_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_03_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_03_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_03_Unit_3_Song.mp4",
+                         @"Grade11_Module_03_Unit_4_Words.mp4",
+                         @"Grade11_Module_04_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_04_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_04_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_04_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_04_Unit_3_Song.mp4",
+                         @"Grade11_Module_04_Unit_4_Words.mp4",
+                         @"Grade11_Module_05_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_05_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_05_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_05_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_05_Unit_3_Song.mp4",
+                         @"Grade11_Module_05_Unit_4_Words.mp4",
+                         @"Grade11_Module_06_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_06_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_06_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_06_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_06_Unit_3_Song.mp4",
+                         @"Grade11_Module_06_Unit_4_Words.mp4",
+                         @"Grade11_Module_07_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_07_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_07_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_07_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_07_Unit_3_Song.mp4",
+                         @"Grade11_Module_07_Unit_4_Words.mp4",
+                         @"Grade11_Module_08_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_08_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_08_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_08_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_08_Unit_3_Song.mp4",
+                         @"Grade11_Module_08_Unit_4_Words.mp4",
+                         @"Grade11_Module_09_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_09_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_09_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_09_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_09_Unit_3_Song.mp4",
+                         @"Grade11_Module_09_Unit_4_Words.mp4",
+                         @"Grade11_Module_10_Unit_1_Activity_1.mp4",
+                         @"Grade11_Module_10_Unit_1_Activity_2.mp4",
+                         @"Grade11_Module_10_Unit_2_Activity_1.mp4",
+                         @"Grade11_Module_10_Unit_2_Activity_2.mp4",
+                         @"Grade11_Module_10_Unit_3_Song.mp4",
+                         @"Grade11_Module_10_Unit_4_Words.mp4",
+                         nil];
+    [self.dataSource addObject:array1_1];
 
-        NSMutableArray *arrayImage = [[NSMutableArray alloc] init];
-        NSMutableArray *arrayMedia = [[NSMutableArray alloc] init];
-        //现将文件名分类分组
-        for (NSInteger j=1; j<[item count]; j++) {
-            NSString *fileName = [item objectAtIndex_Safe:j];
-            if ([NSFileManager isFileType_IMG:[fileName pathExtension]]) {
-                [arrayImage addObject:fileName];
-            }
-            else if ([NSFileManager isFileType_AUDIO:[fileName pathExtension]]) {
-                [arrayMedia addObject:fileName];
-            }
-            else if ([NSFileManager isFileType_VIDEO:[fileName pathExtension]]) {
-                [arrayMedia addObject:fileName];
-            }
-            else{
-                
-            }
-        }
-        
-        //根据多媒体组的元素个数，创建一个Section的元素个数
-        NSMutableArray *arrayRowItems = [[NSMutableArray alloc] init];
-        for (NSInteger n=0; n<[arrayMedia count]; n++) {
-            NSString *fileName = [arrayMedia objectAtIndex:n];
-            NSMutableDictionary *itemDic = [[NSMutableDictionary alloc] init];
-            [itemDic setObject:arrayImage forKey:@"images"];
-            [itemDic setObject:fileName forKey:@"fileName"];
-            [arrayRowItems addObject:itemDic];
-        }
-        
-        //组装section
-        NSMutableDictionary *setionsInfo = [[NSMutableDictionary alloc] init];
-        [setionsInfo setObject:arrayRowItems forKey:@"items"];
-        [setionsInfo setObject:sectionName forKey:@"title"];
-        [self.dataSource addObject:setionsInfo];
-    }
+    NSArray *array1_2 = [NSArray arrayWithObjects:
+                         @"Grade12_Module_01_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_01_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_01_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_01_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_01_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_02_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_02_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_02_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_02_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_02_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_03_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_03_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_03_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_03_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_03_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_04_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_04_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_04_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_04_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_04_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_05_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_05_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_05_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_05_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_05_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_06_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_06_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_06_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_06_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_06_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_07_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_07_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_07_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_07_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_07_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_08_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_08_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_08_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_08_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_08_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_09_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_09_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_09_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_09_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_09_Unit_2_Activity_4.MP4",
+                         @"Grade12_Module_10_Unit_1_Activity_1.MP4",
+                         @"Grade12_Module_10_Unit_1_Activity_2.MP4",
+                         @"Grade12_Module_10_Unit_2_Activity_1.MP4",
+                         @"Grade12_Module_10_Unit_2_Activity_2.MP4",
+                         @"Grade12_Module_10_Unit_2_Activity_4.MP4",
+                         nil];
+    [self.dataSource addObject:array1_2];
+    self.bookCount = [self.dataSource count];
 
     self.table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKScreenHeight-KKStatusBarAndNavBarHeight) style:UITableViewStyleGrouped];
-    self.table.backgroundColor = [UIColor colorWithHexString:@"#FB89BA"];
-    self.table.backgroundView.backgroundColor = [UIColor colorWithHexString:@"#FB89BA"];
+    self.table.backgroundColor = [UIColor clearColor];
+    self.table.backgroundView.backgroundColor = [UIColor clearColor];
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    self.table.separatorColor = [UIColor colorWithRed:0.86f green:0.87f blue:0.87f alpha:1.00f];
     self.table.delegate = self;
@@ -84,7 +160,6 @@
     
     [self.table setTableHeaderView:[UIView new]];
     [self.table setTableFooterView:[UIView new]];
-    //    [self.table setBorderColor:[UIColor redColor] width:3.0];
 }
 
 
@@ -93,27 +168,19 @@
 #pragma mark ==================================================
 /* heightForRow */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (KKScreenWidth - 240)/3.0;
-    CGFloat height = width*4/3;
+    CGFloat width = (KKScreenWidth - 45)/2.0;
+    CGFloat height = width*1473/1047;
     return height + 30;
 }
 
 /* Header Height */
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 75;
+    return 0.01;
 }
 
 /* Header View */
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KKScreenWidth, 75)];
-    NSDictionary *dic = [self.dataSource objectAtIndex:section];
-    NSString *title = [dic validStringForKey:@"title"];
-    UILabel *label = [UILabel kk_initWithTextColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:28] text:title maxWidth:KKScreenWidth];
-    label.frame = CGRectMake(60, (75-label.height)/2.0, label.width, label.height);
-    [headerView addSubview:label];
-    headerView.backgroundColor = [UIColor colorWithHexString:@"#7BBFEA"];
-    return headerView;
+    return [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 /* Footer Height */
@@ -137,18 +204,15 @@
 #pragma mark ==================================================
 /* numberOfSections */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [self.dataSource count];
+    return 1;
 }
 
 /* numberOfRowsInSection */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSDictionary *dic = [self.dataSource objectAtIndex:section];
-    NSArray *array = [dic validArrayForKey:@"items"];
-    if ([array count]%2==0) {
-        return [array count]/2;
-    }
-    else{
-        return [array count]/2+1;
+    if (self.bookCount%2==0) {
+        return self.bookCount/2;
+    } else {
+        return self.bookCount/2 + 1;
     }
 }
 
@@ -165,106 +229,86 @@
         cell.backgroundView.backgroundColor = [UIColor clearColor];
         cell.contentView.backgroundColor = [UIColor clearColor];
 
-        CGFloat width = (KKScreenWidth - 180)/2.0;
-        CGFloat height = width*3/4;
+        CGFloat width = (KKScreenWidth - 45)/2.0;
+        CGFloat height = width*1473/1047;
 
-        KKButton *button01 = [[KKButton alloc] initWithFrame:CGRectMake(60, 15, width, height) type:KKButtonType_ImgFull_TitleLeftCenter];
-        button01.imageViewSize = CGSizeMake(width, height);
-        button01.spaceBetweenImgTitle = 0;
-        button01.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        button01.textLabel.font = [UIFont systemFontOfSize:16];
+        UIButton *button01 = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, width, height)];
         [button01 addTarget:self action:@selector(cellItemButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        button01.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        button01.imageView.contentMode = UIViewContentModeScaleAspectFill;
         button01.tag = 199301;
         [cell.contentView addSubview:button01];
-        [button01 setCornerRadius:8.0];
 
-        KKButton *button02 = [[KKButton alloc] initWithFrame:CGRectMake(button01.right+60, 15, width, height) type:KKButtonType_ImgFull_TitleLeftCenter];
-        button02.imageViewSize = CGSizeMake(width, height);
-        button02.spaceBetweenImgTitle = 0;
-        button02.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        button02.textLabel.font = [UIFont systemFontOfSize:16];
-        button02.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        UIButton *button02 = [[UIButton alloc] initWithFrame:CGRectMake(button01.kk_right+15, 15, width, height)];
+        button02.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [button02 addTarget:self action:@selector(cellItemButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        button02.tag = 1102;
+        button02.tag = 199302;
         [cell.contentView addSubview:button02];
-        [button02 setCornerRadius:8.0];
     }
-    
-    NSDictionary *dic = [self.dataSource objectAtIndex:indexPath.section];
-    NSArray *items = [dic validArrayForKey:@"items"];
-
-    KKButton *button01 = [cell.contentView viewWithTag:199301];
+        
+    UIButton *button01 = [cell.contentView viewWithTag:199301];
     NSInteger index1 = indexPath.row*2 + 0;
-    NSDictionary *info1 = [items objectAtIndex_Safe:index1];
-    if (info1) {
+    if (index1<self.bookCount) {
+        [self setButtonBackgroundImage:button01 index:index1];
         button01.hidden = NO;
-        [self setItemWithDictionary:info1 button:button01];
-    }
-    else{
+    } else {
         button01.hidden = YES;
     }
-    button01.tagInfo = info1;
+    button01.kk_tagInfo = [NSString kk_stringWithInteger:index1];
 
-    KKButton *button02 = [cell.contentView viewWithTag:1102];
+    UIButton *button02 = [cell.contentView viewWithTag:199302];
     NSInteger index2 = indexPath.row*2 + 1;
-    NSDictionary *info2 = [items objectAtIndex_Safe:index2];
-    if (info2) {
-        button02.hidden = NO;
-        [self setItemWithDictionary:info2 button:button02];
+    if (index2<self.bookCount) {
+        [self setButtonBackgroundImage:button02 index:index2];
+        button01.hidden = NO;
+    } else {
+        button01.hidden = YES;
     }
-    else{
-        button02.hidden = YES;
-    }
-    button02.tagInfo = info2;
+    button02.kk_tagInfo = [NSString kk_stringWithInteger:index2];
     
     return cell;
 }
 
-- (void)setItemWithDictionary:(NSDictionary*)aDic button:(KKButton*)aButton{
-    NSString *fileName = [aDic validStringForKey:@"fileName"];
-    if ([NSFileManager isFileType_AUDIO:[fileName pathExtension]]) {
-        NSArray *images = [aDic validArrayForKey:@"images"];
-        NSString *imageName = [images firstObject];
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
-        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-        [aButton setImage:image title:nil titleColor:nil backgroundColor:[UIColor colorWithHexString:@"#FDD403"] forState:UIControlStateNormal];
+- (void)setButtonBackgroundImage:(UIButton*)aButton index:(NSInteger)aIndex{
+    
+    switch (aIndex) {
+        case 0:{
+            NSString *fileName = @"Grade1_1.png";
+            NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+            UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+            [aButton setBackgroundImage:image forState:UIControlStateNormal];
+            break;
+        }
+        case 1:{
+            NSString *fileName = @"Grade1_2.png";
+            NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+            UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+            [aButton setBackgroundImage:image forState:UIControlStateNormal];
+            break;
+        }
+        default:
+            break;
     }
-    else{
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-        NSURL *url = [NSURL fileURLWithPath:filePath];
-
-        // 为了防止界面卡住，可以异步执行
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
-            UIImage *image = [NSFileManager getVideoPreViewImageWithURL:url];
-
-            //回到主线程
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [aButton setImage:image title:nil titleColor:nil backgroundColor:[UIColor colorWithHexString:@"#FDD403"] forState:UIControlStateNormal];
-            });
-
-        });
-    }
+    
 }
 
-- (void)cellItemButtonClicked:(KKButton*)aButton{
-    NSDictionary *aDic = aButton.tagInfo;
-    NSString *fileName = [aDic validStringForKey:@"fileName"];
-    if ([NSFileManager isFileType_AUDIO:[fileName pathExtension]]) {
-        NSArray *images = [aDic validArrayForKey:@"images"];
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-        NSURL *url = [NSURL fileURLWithPath:filePath];
-
-        AudioImageViewController *viewController = [[AudioImageViewController alloc] initWitAudioFilePath:[url absoluteString] imageNames:images fileName:fileName];
-        [self.navigationController pushViewController:viewController animated:YES];
-    }
-    else{
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-        NSURL *url = [NSURL fileURLWithPath:filePath];
-        
-        KKVideoPlayViewController *viewController = [[KKVideoPlayViewController alloc] initWitFilePath:[url absoluteString] fileName:fileName];
-        [self.navigationController pushViewController:viewController animated:YES];
+- (void)cellItemButtonClicked:(UIButton*)aButton{
+    NSInteger aIndex = [aButton.kk_tagInfo integerValue];
+    NSArray *array = [self.dataSource kk_objectAtIndex_Safe:aIndex];
+    switch (aIndex) {
+        case 0:{
+            NSString *title = @"一年级上册";
+            EnglishVideoListViewController *viewController = [[EnglishVideoListViewController alloc] initWithFileNames:array title:title];
+            [self.navigationController pushViewController:viewController animated:YES];
+            break;
+        }
+        case 1:{
+            NSString *title = @"一年级下册";
+            EnglishVideoListViewController *viewController = [[EnglishVideoListViewController alloc] initWithFileNames:array title:title];
+            [self.navigationController pushViewController:viewController animated:YES];
+            break;
+        }
+        default:
+            break;
     }
 }
 

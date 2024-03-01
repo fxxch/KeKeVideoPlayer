@@ -6,11 +6,11 @@
 //  Copyright © 2021 KeKeStudio. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "EnglishBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : BaseViewController
+@interface HomeViewController : EnglishBaseViewController
 
 @end
 

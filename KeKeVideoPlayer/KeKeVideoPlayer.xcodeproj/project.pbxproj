@@ -191,6 +191,121 @@
 		1148304F28A1055C00389434 /* MusicDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148304E28A1055B00389434 /* MusicDataListViewController.m */; };
 		1148305328A1161800389434 /* MusicTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148305228A1161800389434 /* MusicTagView.m */; };
 		1148305728A2016600389434 /* MusicSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148305628A2016600389434 /* MusicSearchViewController.m */; };
+		114D51C82B922B3C0080397F /* EnglishVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114D51C72B922B3C0080397F /* EnglishVideoListViewController.m */; };
+		114D51CC2B922F9F0080397F /* EnglishBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114D51CB2B922F9F0080397F /* EnglishBaseViewController.m */; };
+		114D51CF2B922FBE0080397F /* EnglishBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114D51CE2B922FBE0080397F /* EnglishBaseNavigationController.m */; };
+		114D51D22B9232560080397F /* Grade1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 114D51D02B9232560080397F /* Grade1_2.png */; };
+		114D51D32B9232560080397F /* Grade1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 114D51D12B9232560080397F /* Grade1_1.png */; };
+		114D54012B92410F0080397F /* Grade11_Module_01_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53922B92410F0080397F /* Grade11_Module_01_Unit_3_Song.mp4 */; };
+		114D54022B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53932B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_1.mp4 */; };
+		114D54032B92410F0080397F /* Grade11_Module_06_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53942B92410F0080397F /* Grade11_Module_06_Unit_4_Words.mp4 */; };
+		114D54042B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53952B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_2.mp4 */; };
+		114D54052B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53962B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_1.mp4 */; };
+		114D54062B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53972B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_2.mp4 */; };
+		114D54072B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53982B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_1.mp4 */; };
+		114D54082B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53992B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_2.mp4 */; };
+		114D54092B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D539A2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_2.mp4 */; };
+		114D540A2B92410F0080397F /* Grade11_Module_09_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D539B2B92410F0080397F /* Grade11_Module_09_Unit_4_Words.mp4 */; };
+		114D540B2B92410F0080397F /* Grade11_Module_09_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D539C2B92410F0080397F /* Grade11_Module_09_Unit_3_Song.mp4 */; };
+		114D540C2B92410F0080397F /* Grade11_Module_10_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D539D2B92410F0080397F /* Grade11_Module_10_Unit_3_Song.mp4 */; };
+		114D540D2B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D539E2B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_1.mp4 */; };
+		114D540E2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D539F2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_1.mp4 */; };
+		114D540F2B92410F0080397F /* Grade11_Module_02_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A02B92410F0080397F /* Grade11_Module_02_Unit_4_Words.mp4 */; };
+		114D54102B92410F0080397F /* Grade11_Module_06_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A12B92410F0080397F /* Grade11_Module_06_Unit_3_Song.mp4 */; };
+		114D54112B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A22B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_2.mp4 */; };
+		114D54122B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A32B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_1.mp4 */; };
+		114D54132B92410F0080397F /* Grade11_Module_08_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A42B92410F0080397F /* Grade11_Module_08_Unit_3_Song.mp4 */; };
+		114D54142B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A52B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_2.mp4 */; };
+		114D54152B92410F0080397F /* Grade11_Module_07_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A62B92410F0080397F /* Grade11_Module_07_Unit_4_Words.mp4 */; };
+		114D54162B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A72B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_1.mp4 */; };
+		114D54172B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A82B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_2.mp4 */; };
+		114D54182B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53A92B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_1.mp4 */; };
+		114D54192B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53AA2B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_2.mp4 */; };
+		114D541A2B92410F0080397F /* Grade11_Module_07_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53AB2B92410F0080397F /* Grade11_Module_07_Unit_3_Song.mp4 */; };
+		114D541B2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53AC2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_1.mp4 */; };
+		114D541C2B92410F0080397F /* Grade11_Module_08_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53AD2B92410F0080397F /* Grade11_Module_08_Unit_4_Words.mp4 */; };
+		114D541D2B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53AE2B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_2.mp4 */; };
+		114D541E2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53AF2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_2.mp4 */; };
+		114D541F2B92410F0080397F /* Grade11_Module_03_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B02B92410F0080397F /* Grade11_Module_03_Unit_4_Words.mp4 */; };
+		114D54202B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B12B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_1.mp4 */; };
+		114D54212B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B22B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_2.mp4 */; };
+		114D54222B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B32B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_2.mp4 */; };
+		114D54232B92410F0080397F /* Grade11_Module_10_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B42B92410F0080397F /* Grade11_Module_10_Unit_4_Words.mp4 */; };
+		114D54242B92410F0080397F /* Grade11_Module_05_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B52B92410F0080397F /* Grade11_Module_05_Unit_3_Song.mp4 */; };
+		114D54252B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B62B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_1.mp4 */; };
+		114D54262B92410F0080397F /* Grade11_Module_04_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B72B92410F0080397F /* Grade11_Module_04_Unit_4_Words.mp4 */; };
+		114D54272B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B82B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_1.mp4 */; };
+		114D54282B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53B92B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_1.mp4 */; };
+		114D54292B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53BA2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_2.mp4 */; };
+		114D542A2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53BB2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_2.mp4 */; };
+		114D542B2B92410F0080397F /* Grade11_Module_02_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53BC2B92410F0080397F /* Grade11_Module_02_Unit_3_Song.mp4 */; };
+		114D542C2B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53BD2B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_2.mp4 */; };
+		114D542D2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53BE2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_1.mp4 */; };
+		114D542E2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53BF2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_1.mp4 */; };
+		114D542F2B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C02B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_2.mp4 */; };
+		114D54302B92410F0080397F /* Grade11_Module_03_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C12B92410F0080397F /* Grade11_Module_03_Unit_3_Song.mp4 */; };
+		114D54312B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C22B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_2.mp4 */; };
+		114D54322B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C32B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_1.mp4 */; };
+		114D54332B92410F0080397F /* Grade11_Module_05_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C42B92410F0080397F /* Grade11_Module_05_Unit_4_Words.mp4 */; };
+		114D54342B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C52B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_1.mp4 */; };
+		114D54352B92410F0080397F /* Grade11_Module_01_Unit_4_Words.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C62B92410F0080397F /* Grade11_Module_01_Unit_4_Words.mp4 */; };
+		114D54362B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C72B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_2.mp4 */; };
+		114D54372B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C82B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_2.mp4 */; };
+		114D54382B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53C92B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_1.mp4 */; };
+		114D54392B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53CA2B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_1.mp4 */; };
+		114D543A2B92410F0080397F /* Grade11_Module_04_Unit_3_Song.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53CB2B92410F0080397F /* Grade11_Module_04_Unit_3_Song.mp4 */; };
+		114D543B2B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53CC2B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_1.mp4 */; };
+		114D543C2B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53CD2B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_2.mp4 */; };
+		114D543D2B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53CF2B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_1.MP4 */; };
+		114D543E2B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D02B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_4.MP4 */; };
+		114D543F2B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D12B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_2.MP4 */; };
+		114D54402B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D22B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_2.MP4 */; };
+		114D54412B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D32B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_4.MP4 */; };
+		114D54422B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D42B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_1.MP4 */; };
+		114D54432B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D52B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_1.MP4 */; };
+		114D54442B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D62B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_2.MP4 */; };
+		114D54452B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D72B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_1.MP4 */; };
+		114D54462B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D82B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_4.MP4 */; };
+		114D54472B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53D92B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_2.MP4 */; };
+		114D54482B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53DA2B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_1.MP4 */; };
+		114D54492B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53DB2B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_2.MP4 */; };
+		114D544A2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53DC2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_2.MP4 */; };
+		114D544B2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53DD2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_1.MP4 */; };
+		114D544C2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53DE2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_1.MP4 */; };
+		114D544D2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53DF2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_4.MP4 */; };
+		114D544E2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E02B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_2.MP4 */; };
+		114D544F2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E12B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_1.MP4 */; };
+		114D54502B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E22B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_2.MP4 */; };
+		114D54512B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E32B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_1.MP4 */; };
+		114D54522B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E42B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_2.MP4 */; };
+		114D54532B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E52B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_1.MP4 */; };
+		114D54542B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E62B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_4.MP4 */; };
+		114D54552B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E72B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_2.MP4 */; };
+		114D54562B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E82B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_2.MP4 */; };
+		114D54572B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53E92B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_2.MP4 */; };
+		114D54582B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53EA2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_4.MP4 */; };
+		114D54592B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53EB2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_1.MP4 */; };
+		114D545A2B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53EC2B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_1.MP4 */; };
+		114D545B2B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53ED2B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_1.MP4 */; };
+		114D545C2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53EE2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_2.MP4 */; };
+		114D545D2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53EF2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_2.MP4 */; };
+		114D545E2B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F02B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_2.MP4 */; };
+		114D545F2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F12B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_1.MP4 */; };
+		114D54602B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F22B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_4.MP4 */; };
+		114D54612B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F32B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_1.MP4 */; };
+		114D54622B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F42B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_4.MP4 */; };
+		114D54632B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F52B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_1.MP4 */; };
+		114D54642B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F62B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_2.MP4 */; };
+		114D54652B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F72B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_2.MP4 */; };
+		114D54662B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F82B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_2.MP4 */; };
+		114D54672B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53F92B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_1.MP4 */; };
+		114D54682B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53FA2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_1.MP4 */; };
+		114D54692B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53FB2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_2.MP4 */; };
+		114D546A2B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53FC2B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_4.MP4 */; };
+		114D546B2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53FD2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_2.MP4 */; };
+		114D546C2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_4.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53FE2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_4.MP4 */; };
+		114D546D2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D53FF2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_1.MP4 */; };
+		114D546E2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 114D54002B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_1.MP4 */; };
 		11AFBB3228A3880D00B72F7F /* MusicTagSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */; };
 		11AFBB3628A3A17100B72F7F /* MusicServerAddressListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3528A3A17100B72F7F /* MusicServerAddressListView.m */; };
 		11AFBB3A28A4B03100B72F7F /* MusicHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFBB3928A4B03100B72F7F /* MusicHTMLParser.m */; };
@@ -205,10 +320,6 @@
 		11F640E8288901CA0050B936 /* DemoLocalFileList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11F640DE288901CA0050B936 /* DemoLocalFileList.plist */; };
 		11F640E9288901CA0050B936 /* DemoLocalFilesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640DF288901CA0050B936 /* DemoLocalFilesListViewController.m */; };
 		11F640F8288901D20050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640EB288901D20050B936 /* HomeViewController.m */; };
-		11F640F9288901D20050B936 /* EnglishFileSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11F640ED288901D20050B936 /* EnglishFileSource.plist */; };
-		11F640FA288901D20050B936 /* ENImagePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640F0288901D20050B936 /* ENImagePageView.m */; };
-		11F640FB288901D20050B936 /* ENImageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640F3288901D20050B936 /* ENImageItemView.m */; };
-		11F640FC288901D20050B936 /* AudioImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640F5288901D20050B936 /* AudioImageViewController.m */; };
 		11F64100288901DA0050B936 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F640FE288901DA0050B936 /* HomeViewController.m */; };
 		11F641CE2889234D0050B936 /* JapaneseA09.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 11F6419C2889234B0050B936 /* JapaneseA09.wmv */; };
 		11F641CF2889234D0050B936 /* JapaneseA44.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 11F6419D2889234B0050B936 /* JapaneseA44.wmv */; };
@@ -371,23 +482,6 @@
 		3AAE5D0226356867009D0534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAE5D0026356867009D0534 /* LaunchScreen.storyboard */; };
 		3AAE5D0326356867009D0534 /* LaunchScreen.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAE5D0126356867009D0534 /* LaunchScreen.xcassets */; };
 		3AB160C92445C3770068E8A3 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB160C82445C3770068E8A3 /* CoreServices.framework */; };
-		3AD2E67528891ED70086DEFE /* Unit1_Lesson4 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E65F28891ED60086DEFE /* Unit1_Lesson4 */; };
-		3AD2E67828891ED70086DEFE /* Unit1_Lesson2 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66228891ED60086DEFE /* Unit1_Lesson2 */; };
-		3AD2E67928891ED70086DEFE /* Unit2_Lesson2 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66328891ED60086DEFE /* Unit2_Lesson2 */; };
-		3AD2E67B28891ED70086DEFE /* Unit1_Lesson3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66528891ED60086DEFE /* Unit1_Lesson3 */; };
-		3AD2E67C28891ED70086DEFE /* Unit4_Lesson2 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66628891ED60086DEFE /* Unit4_Lesson2 */; };
-		3AD2E67D28891ED70086DEFE /* Unit4_Lesson3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66728891ED60086DEFE /* Unit4_Lesson3 */; };
-		3AD2E67E28891ED70086DEFE /* Unit2_Lesson1 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66828891ED60086DEFE /* Unit2_Lesson1 */; };
-		3AD2E67F28891ED70086DEFE /* Unit3_Lesson3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66928891ED70086DEFE /* Unit3_Lesson3 */; };
-		3AD2E68028891ED70086DEFE /* Unit2_Lesson3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66A28891ED70086DEFE /* Unit2_Lesson3 */; };
-		3AD2E68128891ED70086DEFE /* Unit3_Lesson1 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66B28891ED70086DEFE /* Unit3_Lesson1 */; };
-		3AD2E68228891ED70086DEFE /* Unit2_Lesson4 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66C28891ED70086DEFE /* Unit2_Lesson4 */; };
-		3AD2E68328891ED70086DEFE /* Unit0_Lesson0 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66D28891ED70086DEFE /* Unit0_Lesson0 */; };
-		3AD2E68428891ED70086DEFE /* Unit1_Lesson1 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66E28891ED70086DEFE /* Unit1_Lesson1 */; };
-		3AD2E68528891ED70086DEFE /* Unit3_Lesson2 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E66F28891ED70086DEFE /* Unit3_Lesson2 */; };
-		3AD2E68628891ED70086DEFE /* Unit3_Lesson4 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E67028891ED70086DEFE /* Unit3_Lesson4 */; };
-		3AD2E68728891ED70086DEFE /* Unit4_Lesson1 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E67128891ED70086DEFE /* Unit4_Lesson1 */; };
-		3AD2E68828891ED70086DEFE /* Unit4_Lesson4 in Resources */ = {isa = PBXBuildFile; fileRef = 3AD2E67228891ED70086DEFE /* Unit4_Lesson4 */; };
 		82607ADE21C991FB82E7122B /* Pods_Japanese.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49C57A4F7D249A5E40BA863 /* Pods_Japanese.framework */; };
 		8814058A1CAD5DD700151721 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881405881CAD5DCB00151721 /* Security.framework */; };
 		88301FE21C27A06400DADBA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EA33DA1BEE4CF8008052C1 /* main.m */; };
@@ -530,6 +624,124 @@
 		1148305228A1161800389434 /* MusicTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicTagView.m; sourceTree = "<group>"; };
 		1148305528A2016600389434 /* MusicSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicSearchViewController.h; sourceTree = "<group>"; };
 		1148305628A2016600389434 /* MusicSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicSearchViewController.m; sourceTree = "<group>"; };
+		114D51C62B922B3C0080397F /* EnglishVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnglishVideoListViewController.h; sourceTree = "<group>"; };
+		114D51C72B922B3C0080397F /* EnglishVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnglishVideoListViewController.m; sourceTree = "<group>"; };
+		114D51CA2B922F9F0080397F /* EnglishBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnglishBaseViewController.h; sourceTree = "<group>"; };
+		114D51CB2B922F9F0080397F /* EnglishBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnglishBaseViewController.m; sourceTree = "<group>"; };
+		114D51CD2B922FBE0080397F /* EnglishBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnglishBaseNavigationController.h; sourceTree = "<group>"; };
+		114D51CE2B922FBE0080397F /* EnglishBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnglishBaseNavigationController.m; sourceTree = "<group>"; };
+		114D51D02B9232560080397F /* Grade1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grade1_2.png; sourceTree = "<group>"; };
+		114D51D12B9232560080397F /* Grade1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grade1_1.png; sourceTree = "<group>"; };
+		114D53922B92410F0080397F /* Grade11_Module_01_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_01_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53932B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_05_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53942B92410F0080397F /* Grade11_Module_06_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_06_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53952B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_01_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53962B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_09_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53972B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_05_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53982B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_01_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53992B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_09_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D539A2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_03_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D539B2B92410F0080397F /* Grade11_Module_09_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_09_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D539C2B92410F0080397F /* Grade11_Module_09_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_09_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D539D2B92410F0080397F /* Grade11_Module_10_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_10_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D539E2B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_07_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D539F2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_03_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53A02B92410F0080397F /* Grade11_Module_02_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_02_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53A12B92410F0080397F /* Grade11_Module_06_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_06_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53A22B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_07_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53A32B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_09_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53A42B92410F0080397F /* Grade11_Module_08_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_08_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53A52B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_01_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53A62B92410F0080397F /* Grade11_Module_07_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_07_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53A72B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_05_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53A82B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_09_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53A92B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_01_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53AA2B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_05_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53AB2B92410F0080397F /* Grade11_Module_07_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_07_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53AC2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_07_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53AD2B92410F0080397F /* Grade11_Module_08_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_08_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53AE2B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_03_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53AF2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_07_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53B02B92410F0080397F /* Grade11_Module_03_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_03_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53B12B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_03_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53B22B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_04_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53B32B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_08_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53B42B92410F0080397F /* Grade11_Module_10_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_10_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53B52B92410F0080397F /* Grade11_Module_05_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_05_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53B62B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_04_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53B72B92410F0080397F /* Grade11_Module_04_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_04_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53B82B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_08_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53B92B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_02_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53BA2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_06_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53BB2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_10_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53BC2B92410F0080397F /* Grade11_Module_02_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_02_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53BD2B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_02_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53BE2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_06_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53BF2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_10_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53C02B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_08_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53C12B92410F0080397F /* Grade11_Module_03_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_03_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53C22B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_04_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53C32B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_08_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53C42B92410F0080397F /* Grade11_Module_05_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_05_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53C52B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_04_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53C62B92410F0080397F /* Grade11_Module_01_Unit_4_Words.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_01_Unit_4_Words.mp4; sourceTree = "<group>"; };
+		114D53C72B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_10_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53C82B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_06_Unit_1_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53C92B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_02_Unit_2_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53CA2B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_10_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53CB2B92410F0080397F /* Grade11_Module_04_Unit_3_Song.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_04_Unit_3_Song.mp4; sourceTree = "<group>"; };
+		114D53CC2B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_06_Unit_1_Activity_1.mp4; sourceTree = "<group>"; };
+		114D53CD2B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade11_Module_02_Unit_2_Activity_2.mp4; sourceTree = "<group>"; };
+		114D53CF2B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_07_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53D02B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_01_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53D12B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_03_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53D22B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_07_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53D32B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_09_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53D42B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_03_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53D52B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_09_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53D62B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_01_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53D72B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_05_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53D82B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_03_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53D92B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_09_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53DA2B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_01_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53DB2B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_05_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53DC2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_03_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53DD2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_07_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53DE2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_03_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53DF2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_05_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53E02B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_07_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53E12B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_05_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53E22B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_01_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53E32B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_09_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53E42B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_05_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53E52B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_01_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53E62B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_07_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53E72B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_09_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53E82B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_10_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53E92B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_06_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53EA2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_08_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53EB2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_02_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53EC2B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_10_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53ED2B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_06_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53EE2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_02_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53EF2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_08_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53F02B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_04_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53F12B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_08_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53F22B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_02_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53F32B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_04_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53F42B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_04_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53F52B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_02_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53F62B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_06_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53F72B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_10_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53F82B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_02_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53F92B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_06_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53FA2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_10_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D53FB2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_04_Unit_2_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53FC2B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_06_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53FD2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_08_Unit_1_Activity_2.MP4; sourceTree = "<group>"; };
+		114D53FE2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_4.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_10_Unit_2_Activity_4.MP4; sourceTree = "<group>"; };
+		114D53FF2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_04_Unit_2_Activity_1.MP4; sourceTree = "<group>"; };
+		114D54002B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grade12_Module_08_Unit_1_Activity_1.MP4; sourceTree = "<group>"; };
 		11AFBB3028A3880D00B72F7F /* MusicTagSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicTagSelectView.h; sourceTree = "<group>"; };
 		11AFBB3128A3880D00B72F7F /* MusicTagSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicTagSelectView.m; sourceTree = "<group>"; };
 		11AFBB3428A3A17100B72F7F /* MusicServerAddressListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicServerAddressListView.h; sourceTree = "<group>"; };
@@ -556,13 +768,6 @@
 		11F640DF288901CA0050B936 /* DemoLocalFilesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoLocalFilesListViewController.m; sourceTree = "<group>"; };
 		11F640E0288901CA0050B936 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		11F640EB288901D20050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		11F640ED288901D20050B936 /* EnglishFileSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnglishFileSource.plist; sourceTree = "<group>"; };
-		11F640F0288901D20050B936 /* ENImagePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENImagePageView.m; sourceTree = "<group>"; };
-		11F640F2288901D20050B936 /* ENImageItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENImageItemView.h; sourceTree = "<group>"; };
-		11F640F3288901D20050B936 /* ENImageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENImageItemView.m; sourceTree = "<group>"; };
-		11F640F4288901D20050B936 /* ENImagePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENImagePageView.h; sourceTree = "<group>"; };
-		11F640F5288901D20050B936 /* AudioImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioImageViewController.m; sourceTree = "<group>"; };
-		11F640F6288901D20050B936 /* AudioImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioImageViewController.h; sourceTree = "<group>"; };
 		11F640F7288901D20050B936 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		11F640FE288901DA0050B936 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		11F640FF288901DA0050B936 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -675,23 +880,6 @@
 		3AAE5D0026356867009D0534 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AAE5D0126356867009D0534 /* LaunchScreen.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LaunchScreen.xcassets; sourceTree = "<group>"; };
 		3AB160C82445C3770068E8A3 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		3AD2E65F28891ED60086DEFE /* Unit1_Lesson4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit1_Lesson4; path = ../../../../../../English/Unit1_Lesson4; sourceTree = "<group>"; };
-		3AD2E66228891ED60086DEFE /* Unit1_Lesson2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit1_Lesson2; path = ../../../../../../English/Unit1_Lesson2; sourceTree = "<group>"; };
-		3AD2E66328891ED60086DEFE /* Unit2_Lesson2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit2_Lesson2; path = ../../../../../../English/Unit2_Lesson2; sourceTree = "<group>"; };
-		3AD2E66528891ED60086DEFE /* Unit1_Lesson3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit1_Lesson3; path = ../../../../../../English/Unit1_Lesson3; sourceTree = "<group>"; };
-		3AD2E66628891ED60086DEFE /* Unit4_Lesson2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit4_Lesson2; path = ../../../../../../English/Unit4_Lesson2; sourceTree = "<group>"; };
-		3AD2E66728891ED60086DEFE /* Unit4_Lesson3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit4_Lesson3; path = ../../../../../../English/Unit4_Lesson3; sourceTree = "<group>"; };
-		3AD2E66828891ED60086DEFE /* Unit2_Lesson1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit2_Lesson1; path = ../../../../../../English/Unit2_Lesson1; sourceTree = "<group>"; };
-		3AD2E66928891ED70086DEFE /* Unit3_Lesson3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit3_Lesson3; path = ../../../../../../English/Unit3_Lesson3; sourceTree = "<group>"; };
-		3AD2E66A28891ED70086DEFE /* Unit2_Lesson3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit2_Lesson3; path = ../../../../../../English/Unit2_Lesson3; sourceTree = "<group>"; };
-		3AD2E66B28891ED70086DEFE /* Unit3_Lesson1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit3_Lesson1; path = ../../../../../../English/Unit3_Lesson1; sourceTree = "<group>"; };
-		3AD2E66C28891ED70086DEFE /* Unit2_Lesson4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit2_Lesson4; path = ../../../../../../English/Unit2_Lesson4; sourceTree = "<group>"; };
-		3AD2E66D28891ED70086DEFE /* Unit0_Lesson0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit0_Lesson0; path = ../../../../../../English/Unit0_Lesson0; sourceTree = "<group>"; };
-		3AD2E66E28891ED70086DEFE /* Unit1_Lesson1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit1_Lesson1; path = ../../../../../../English/Unit1_Lesson1; sourceTree = "<group>"; };
-		3AD2E66F28891ED70086DEFE /* Unit3_Lesson2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit3_Lesson2; path = ../../../../../../English/Unit3_Lesson2; sourceTree = "<group>"; };
-		3AD2E67028891ED70086DEFE /* Unit3_Lesson4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit3_Lesson4; path = ../../../../../../English/Unit3_Lesson4; sourceTree = "<group>"; };
-		3AD2E67128891ED70086DEFE /* Unit4_Lesson1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit4_Lesson1; path = ../../../../../../English/Unit4_Lesson1; sourceTree = "<group>"; };
-		3AD2E67228891ED70086DEFE /* Unit4_Lesson4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Unit4_Lesson4; path = ../../../../../../English/Unit4_Lesson4; sourceTree = "<group>"; };
 		4C1BD7571AE15C7900B899B0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		4C1BD7591AE15CA800B899B0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		4C1BD75B1AE15CC900B899B0 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -1433,6 +1621,152 @@
 			path = MusicSearchViewController;
 			sourceTree = "<group>";
 		};
+		114D51C92B922F7E0080397F /* EnglishBase */ = {
+			isa = PBXGroup;
+			children = (
+				114D51CA2B922F9F0080397F /* EnglishBaseViewController.h */,
+				114D51CB2B922F9F0080397F /* EnglishBaseViewController.m */,
+				114D51CD2B922FBE0080397F /* EnglishBaseNavigationController.h */,
+				114D51CE2B922FBE0080397F /* EnglishBaseNavigationController.m */,
+			);
+			path = EnglishBase;
+			sourceTree = "<group>";
+		};
+		114D51D42B9237200080397F /* FileSource */ = {
+			isa = PBXGroup;
+			children = (
+				114D53912B92410F0080397F /* Grade1_1 */,
+				114D53CE2B92410F0080397F /* Grade1_2 */,
+				114D51D12B9232560080397F /* Grade1_1.png */,
+				114D51D02B9232560080397F /* Grade1_2.png */,
+			);
+			path = FileSource;
+			sourceTree = "<group>";
+		};
+		114D53912B92410F0080397F /* Grade1_1 */ = {
+			isa = PBXGroup;
+			children = (
+				114D53922B92410F0080397F /* Grade11_Module_01_Unit_3_Song.mp4 */,
+				114D53932B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_1.mp4 */,
+				114D53942B92410F0080397F /* Grade11_Module_06_Unit_4_Words.mp4 */,
+				114D53952B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_2.mp4 */,
+				114D53962B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_1.mp4 */,
+				114D53972B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_2.mp4 */,
+				114D53982B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_1.mp4 */,
+				114D53992B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_2.mp4 */,
+				114D539A2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_2.mp4 */,
+				114D539B2B92410F0080397F /* Grade11_Module_09_Unit_4_Words.mp4 */,
+				114D539C2B92410F0080397F /* Grade11_Module_09_Unit_3_Song.mp4 */,
+				114D539D2B92410F0080397F /* Grade11_Module_10_Unit_3_Song.mp4 */,
+				114D539E2B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_1.mp4 */,
+				114D539F2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_1.mp4 */,
+				114D53A02B92410F0080397F /* Grade11_Module_02_Unit_4_Words.mp4 */,
+				114D53A12B92410F0080397F /* Grade11_Module_06_Unit_3_Song.mp4 */,
+				114D53A22B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_2.mp4 */,
+				114D53A32B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_1.mp4 */,
+				114D53A42B92410F0080397F /* Grade11_Module_08_Unit_3_Song.mp4 */,
+				114D53A52B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_2.mp4 */,
+				114D53A62B92410F0080397F /* Grade11_Module_07_Unit_4_Words.mp4 */,
+				114D53A72B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_1.mp4 */,
+				114D53A82B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_2.mp4 */,
+				114D53A92B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_1.mp4 */,
+				114D53AA2B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_2.mp4 */,
+				114D53AB2B92410F0080397F /* Grade11_Module_07_Unit_3_Song.mp4 */,
+				114D53AC2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_1.mp4 */,
+				114D53AD2B92410F0080397F /* Grade11_Module_08_Unit_4_Words.mp4 */,
+				114D53AE2B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_2.mp4 */,
+				114D53AF2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_2.mp4 */,
+				114D53B02B92410F0080397F /* Grade11_Module_03_Unit_4_Words.mp4 */,
+				114D53B12B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_1.mp4 */,
+				114D53B22B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_2.mp4 */,
+				114D53B32B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_2.mp4 */,
+				114D53B42B92410F0080397F /* Grade11_Module_10_Unit_4_Words.mp4 */,
+				114D53B52B92410F0080397F /* Grade11_Module_05_Unit_3_Song.mp4 */,
+				114D53B62B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_1.mp4 */,
+				114D53B72B92410F0080397F /* Grade11_Module_04_Unit_4_Words.mp4 */,
+				114D53B82B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_1.mp4 */,
+				114D53B92B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_1.mp4 */,
+				114D53BA2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_2.mp4 */,
+				114D53BB2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_2.mp4 */,
+				114D53BC2B92410F0080397F /* Grade11_Module_02_Unit_3_Song.mp4 */,
+				114D53BD2B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_2.mp4 */,
+				114D53BE2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_1.mp4 */,
+				114D53BF2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_1.mp4 */,
+				114D53C02B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_2.mp4 */,
+				114D53C12B92410F0080397F /* Grade11_Module_03_Unit_3_Song.mp4 */,
+				114D53C22B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_2.mp4 */,
+				114D53C32B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_1.mp4 */,
+				114D53C42B92410F0080397F /* Grade11_Module_05_Unit_4_Words.mp4 */,
+				114D53C52B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_1.mp4 */,
+				114D53C62B92410F0080397F /* Grade11_Module_01_Unit_4_Words.mp4 */,
+				114D53C72B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_2.mp4 */,
+				114D53C82B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_2.mp4 */,
+				114D53C92B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_1.mp4 */,
+				114D53CA2B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_1.mp4 */,
+				114D53CB2B92410F0080397F /* Grade11_Module_04_Unit_3_Song.mp4 */,
+				114D53CC2B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_1.mp4 */,
+				114D53CD2B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_2.mp4 */,
+			);
+			path = Grade1_1;
+			sourceTree = "<group>";
+		};
+		114D53CE2B92410F0080397F /* Grade1_2 */ = {
+			isa = PBXGroup;
+			children = (
+				114D53CF2B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_1.MP4 */,
+				114D53D02B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_4.MP4 */,
+				114D53D12B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_2.MP4 */,
+				114D53D22B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_2.MP4 */,
+				114D53D32B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_4.MP4 */,
+				114D53D42B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_1.MP4 */,
+				114D53D52B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_1.MP4 */,
+				114D53D62B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_2.MP4 */,
+				114D53D72B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_1.MP4 */,
+				114D53D82B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_4.MP4 */,
+				114D53D92B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_2.MP4 */,
+				114D53DA2B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_1.MP4 */,
+				114D53DB2B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_2.MP4 */,
+				114D53DC2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_2.MP4 */,
+				114D53DD2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_1.MP4 */,
+				114D53DE2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_1.MP4 */,
+				114D53DF2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_4.MP4 */,
+				114D53E02B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_2.MP4 */,
+				114D53E12B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_1.MP4 */,
+				114D53E22B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_2.MP4 */,
+				114D53E32B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_1.MP4 */,
+				114D53E42B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_2.MP4 */,
+				114D53E52B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_1.MP4 */,
+				114D53E62B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_4.MP4 */,
+				114D53E72B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_2.MP4 */,
+				114D53E82B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_2.MP4 */,
+				114D53E92B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_2.MP4 */,
+				114D53EA2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_4.MP4 */,
+				114D53EB2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_1.MP4 */,
+				114D53EC2B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_1.MP4 */,
+				114D53ED2B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_1.MP4 */,
+				114D53EE2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_2.MP4 */,
+				114D53EF2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_2.MP4 */,
+				114D53F02B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_2.MP4 */,
+				114D53F12B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_1.MP4 */,
+				114D53F22B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_4.MP4 */,
+				114D53F32B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_1.MP4 */,
+				114D53F42B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_4.MP4 */,
+				114D53F52B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_1.MP4 */,
+				114D53F62B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_2.MP4 */,
+				114D53F72B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_2.MP4 */,
+				114D53F82B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_2.MP4 */,
+				114D53F92B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_1.MP4 */,
+				114D53FA2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_1.MP4 */,
+				114D53FB2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_2.MP4 */,
+				114D53FC2B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_4.MP4 */,
+				114D53FD2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_2.MP4 */,
+				114D53FE2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_4.MP4 */,
+				114D53FF2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_1.MP4 */,
+				114D54002B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_1.MP4 */,
+			);
+			path = Grade1_2;
+			sourceTree = "<group>";
+		};
 		11AFBB2F28A387ED00B72F7F /* MusicTagSelectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1568,10 +1902,13 @@
 		11F640EA288901D20050B936 /* English */ = {
 			isa = PBXGroup;
 			children = (
+				114D51D42B9237200080397F /* FileSource */,
+				114D51C92B922F7E0080397F /* EnglishBase */,
 				11F640F7288901D20050B936 /* HomeViewController.h */,
 				11F640EB288901D20050B936 /* HomeViewController.m */,
+				114D51C62B922B3C0080397F /* EnglishVideoListViewController.h */,
+				114D51C72B922B3C0080397F /* EnglishVideoListViewController.m */,
 				11F640EC288901D20050B936 /* FileSource */,
-				11F640EE288901D20050B936 /* AudioImageViewController */,
 			);
 			path = English;
 			sourceTree = "<group>";
@@ -1579,55 +1916,8 @@
 		11F640EC288901D20050B936 /* FileSource */ = {
 			isa = PBXGroup;
 			children = (
-				3AD2E66D28891ED70086DEFE /* Unit0_Lesson0 */,
-				3AD2E66E28891ED70086DEFE /* Unit1_Lesson1 */,
-				3AD2E66228891ED60086DEFE /* Unit1_Lesson2 */,
-				3AD2E66528891ED60086DEFE /* Unit1_Lesson3 */,
-				3AD2E65F28891ED60086DEFE /* Unit1_Lesson4 */,
-				3AD2E66828891ED60086DEFE /* Unit2_Lesson1 */,
-				3AD2E66328891ED60086DEFE /* Unit2_Lesson2 */,
-				3AD2E66A28891ED70086DEFE /* Unit2_Lesson3 */,
-				3AD2E66C28891ED70086DEFE /* Unit2_Lesson4 */,
-				3AD2E66B28891ED70086DEFE /* Unit3_Lesson1 */,
-				3AD2E66F28891ED70086DEFE /* Unit3_Lesson2 */,
-				3AD2E66928891ED70086DEFE /* Unit3_Lesson3 */,
-				3AD2E67028891ED70086DEFE /* Unit3_Lesson4 */,
-				3AD2E67128891ED70086DEFE /* Unit4_Lesson1 */,
-				3AD2E66628891ED60086DEFE /* Unit4_Lesson2 */,
-				3AD2E66728891ED60086DEFE /* Unit4_Lesson3 */,
-				3AD2E67228891ED70086DEFE /* Unit4_Lesson4 */,
-				11F640ED288901D20050B936 /* EnglishFileSource.plist */,
 			);
 			path = FileSource;
-			sourceTree = "<group>";
-		};
-		11F640EE288901D20050B936 /* AudioImageViewController */ = {
-			isa = PBXGroup;
-			children = (
-				11F640EF288901D20050B936 /* ENImagePageView */,
-				11F640F5288901D20050B936 /* AudioImageViewController.m */,
-				11F640F6288901D20050B936 /* AudioImageViewController.h */,
-			);
-			path = AudioImageViewController;
-			sourceTree = "<group>";
-		};
-		11F640EF288901D20050B936 /* ENImagePageView */ = {
-			isa = PBXGroup;
-			children = (
-				11F640F0288901D20050B936 /* ENImagePageView.m */,
-				11F640F1288901D20050B936 /* ENImageItemView */,
-				11F640F4288901D20050B936 /* ENImagePageView.h */,
-			);
-			path = ENImagePageView;
-			sourceTree = "<group>";
-		};
-		11F640F1288901D20050B936 /* ENImageItemView */ = {
-			isa = PBXGroup;
-			children = (
-				11F640F2288901D20050B936 /* ENImageItemView.h */,
-				11F640F3288901D20050B936 /* ENImageItemView.m */,
-			);
-			path = ENImageItemView;
 			sourceTree = "<group>";
 		};
 		11F640FD288901DA0050B936 /* Japanese */ = {
@@ -2193,34 +2483,128 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AD2E67B28891ED70086DEFE /* Unit1_Lesson3 in Resources */,
 				3A79E4572637B50100B83609 /* InfoPlist.strings in Resources */,
+				114D54482B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_1.MP4 in Resources */,
+				114D54232B92410F0080397F /* Grade11_Module_10_Unit_4_Words.mp4 in Resources */,
+				114D54592B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_1.MP4 in Resources */,
 				3A79E4582637B50100B83609 /* Images.xcassets in Resources */,
+				114D54392B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_1.mp4 in Resources */,
+				114D545B2B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_1.MP4 in Resources */,
+				114D545A2B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_1.MP4 in Resources */,
+				114D54202B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_1.mp4 in Resources */,
+				114D54352B92410F0080397F /* Grade11_Module_01_Unit_4_Words.mp4 in Resources */,
+				114D54672B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_1.MP4 in Resources */,
+				114D544D2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_4.MP4 in Resources */,
+				114D545F2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_1.MP4 in Resources */,
+				114D54222B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_2.mp4 in Resources */,
+				114D54502B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_2.MP4 in Resources */,
+				114D54362B92410F0080397F /* Grade11_Module_10_Unit_1_Activity_2.mp4 in Resources */,
 				3A79E58C2637C6F600B83609 /* Default.bundle in Resources */,
+				114D540F2B92410F0080397F /* Grade11_Module_02_Unit_4_Words.mp4 in Resources */,
+				114D54692B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_2.MP4 in Resources */,
+				114D54652B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_2.MP4 in Resources */,
+				114D54182B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_1.mp4 in Resources */,
+				114D540C2B92410F0080397F /* Grade11_Module_10_Unit_3_Song.mp4 in Resources */,
+				114D54072B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_1.mp4 in Resources */,
+				114D54522B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_2.MP4 in Resources */,
+				114D54552B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_2.MP4 in Resources */,
+				114D542E2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_1.mp4 in Resources */,
 				3A79E4562637B50100B83609 /* Localizable.strings in Resources */,
-				3AD2E68128891ED70086DEFE /* Unit3_Lesson1 in Resources */,
+				114D54292B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_2.mp4 in Resources */,
 				3A79E4542637B50100B83609 /* LaunchScreen.xcassets in Resources */,
+				114D54122B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_1.mp4 in Resources */,
+				114D541D2B92410F0080397F /* Grade11_Module_03_Unit_2_Activity_2.mp4 in Resources */,
+				114D542A2B92410F0080397F /* Grade11_Module_10_Unit_2_Activity_2.mp4 in Resources */,
 				3A79E4532637B50100B83609 /* LaunchScreen.storyboard in Resources */,
-				3AD2E67F28891ED70086DEFE /* Unit3_Lesson3 in Resources */,
-				3AD2E67928891ED70086DEFE /* Unit2_Lesson2 in Resources */,
+				114D540D2B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_1.mp4 in Resources */,
+				114D54662B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_2.MP4 in Resources */,
+				114D54582B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_4.MP4 in Resources */,
+				114D542D2B92410F0080397F /* Grade11_Module_06_Unit_2_Activity_1.mp4 in Resources */,
+				114D54402B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_2.MP4 in Resources */,
+				114D542F2B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_2.mp4 in Resources */,
+				114D54312B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_2.mp4 in Resources */,
+				114D54252B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_1.mp4 in Resources */,
+				114D54022B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_1.mp4 in Resources */,
+				114D54532B92410F0080397F /* Grade12_Module_01_Unit_1_Activity_1.MP4 in Resources */,
+				114D54082B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_2.mp4 in Resources */,
+				114D543E2B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_4.MP4 in Resources */,
 				11482FD5289E045600389434 /* KKLibraryLocalization.plist in Resources */,
 				3A79E4332637B4A100B83609 /* KKVideoPlay_Resource.bundle in Resources */,
-				3AD2E68728891ED70086DEFE /* Unit4_Lesson1 in Resources */,
-				3AD2E68228891ED70086DEFE /* Unit2_Lesson4 in Resources */,
-				11F640F9288901D20050B936 /* EnglishFileSource.plist in Resources */,
-				3AD2E67528891ED70086DEFE /* Unit1_Lesson4 in Resources */,
-				3AD2E68328891ED70086DEFE /* Unit0_Lesson0 in Resources */,
-				3AD2E68628891ED70086DEFE /* Unit3_Lesson4 in Resources */,
-				3AD2E67E28891ED70086DEFE /* Unit2_Lesson1 in Resources */,
-				3AD2E68828891ED70086DEFE /* Unit4_Lesson4 in Resources */,
-				3AD2E68028891ED70086DEFE /* Unit2_Lesson3 in Resources */,
-				3AD2E67C28891ED70086DEFE /* Unit4_Lesson2 in Resources */,
-				3AD2E67D28891ED70086DEFE /* Unit4_Lesson3 in Resources */,
+				114D54332B92410F0080397F /* Grade11_Module_05_Unit_4_Words.mp4 in Resources */,
+				114D546C2B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_4.MP4 in Resources */,
+				114D54542B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_4.MP4 in Resources */,
 				11483015289E0EF200389434 /* KKScrollVewRefresh.bundle in Resources */,
+				114D54132B92410F0080397F /* Grade11_Module_08_Unit_3_Song.mp4 in Resources */,
+				114D54432B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_1.MP4 in Resources */,
+				114D54492B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_2.MP4 in Resources */,
+				114D54172B92410F0080397F /* Grade11_Module_09_Unit_2_Activity_2.mp4 in Resources */,
+				114D54572B92410F0080397F /* Grade12_Module_06_Unit_1_Activity_2.MP4 in Resources */,
+				114D54642B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_2.MP4 in Resources */,
 				11482FC5289E045600389434 /* KKWaitingView.bundle in Resources */,
-				3AD2E68528891ED70086DEFE /* Unit3_Lesson2 in Resources */,
-				3AD2E68428891ED70086DEFE /* Unit1_Lesson1 in Resources */,
-				3AD2E67828891ED70086DEFE /* Unit1_Lesson2 in Resources */,
+				114D54612B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_1.MP4 in Resources */,
+				114D546D2B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_1.MP4 in Resources */,
+				114D54462B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_4.MP4 in Resources */,
+				114D51D22B9232560080397F /* Grade1_2.png in Resources */,
+				114D543A2B92410F0080397F /* Grade11_Module_04_Unit_3_Song.mp4 in Resources */,
+				114D54452B92410F0080397F /* Grade12_Module_05_Unit_1_Activity_1.MP4 in Resources */,
+				114D54192B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_2.mp4 in Resources */,
+				114D542C2B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_2.mp4 in Resources */,
+				114D544C2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_1.MP4 in Resources */,
+				114D54212B92410F0080397F /* Grade11_Module_04_Unit_2_Activity_2.mp4 in Resources */,
+				114D54512B92410F0080397F /* Grade12_Module_09_Unit_1_Activity_1.MP4 in Resources */,
+				114D54472B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_2.MP4 in Resources */,
+				114D54322B92410F0080397F /* Grade11_Module_08_Unit_2_Activity_1.mp4 in Resources */,
+				114D54282B92410F0080397F /* Grade11_Module_02_Unit_1_Activity_1.mp4 in Resources */,
+				114D54042B92410F0080397F /* Grade11_Module_01_Unit_1_Activity_2.mp4 in Resources */,
+				114D54442B92410F0080397F /* Grade12_Module_01_Unit_2_Activity_2.MP4 in Resources */,
+				114D54112B92410F0080397F /* Grade11_Module_07_Unit_2_Activity_2.mp4 in Resources */,
+				114D541F2B92410F0080397F /* Grade11_Module_03_Unit_4_Words.mp4 in Resources */,
+				114D54372B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_2.mp4 in Resources */,
+				114D54272B92410F0080397F /* Grade11_Module_08_Unit_1_Activity_1.mp4 in Resources */,
+				114D54102B92410F0080397F /* Grade11_Module_06_Unit_3_Song.mp4 in Resources */,
+				114D54262B92410F0080397F /* Grade11_Module_04_Unit_4_Words.mp4 in Resources */,
+				114D545C2B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_2.MP4 in Resources */,
+				114D541E2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_2.mp4 in Resources */,
+				114D54012B92410F0080397F /* Grade11_Module_01_Unit_3_Song.mp4 in Resources */,
+				114D546A2B92410F0080397F /* Grade12_Module_06_Unit_2_Activity_4.MP4 in Resources */,
+				114D544E2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_2.MP4 in Resources */,
+				114D541C2B92410F0080397F /* Grade11_Module_08_Unit_4_Words.mp4 in Resources */,
+				114D543B2B92410F0080397F /* Grade11_Module_06_Unit_1_Activity_1.mp4 in Resources */,
+				114D544B2B92410F0080397F /* Grade12_Module_07_Unit_2_Activity_1.MP4 in Resources */,
+				114D54632B92410F0080397F /* Grade12_Module_02_Unit_1_Activity_1.MP4 in Resources */,
+				114D51D32B9232560080397F /* Grade1_1.png in Resources */,
+				114D543C2B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_2.mp4 in Resources */,
+				114D54302B92410F0080397F /* Grade11_Module_03_Unit_3_Song.mp4 in Resources */,
+				114D54052B92410F0080397F /* Grade11_Module_09_Unit_1_Activity_1.mp4 in Resources */,
+				114D54162B92410F0080397F /* Grade11_Module_05_Unit_1_Activity_1.mp4 in Resources */,
+				114D541B2B92410F0080397F /* Grade11_Module_07_Unit_1_Activity_1.mp4 in Resources */,
+				114D546B2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_2.MP4 in Resources */,
+				114D543D2B92410F0080397F /* Grade12_Module_07_Unit_1_Activity_1.MP4 in Resources */,
+				114D54622B92410F0080397F /* Grade12_Module_04_Unit_2_Activity_4.MP4 in Resources */,
+				114D543F2B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_2.MP4 in Resources */,
+				114D541A2B92410F0080397F /* Grade11_Module_07_Unit_3_Song.mp4 in Resources */,
+				114D540B2B92410F0080397F /* Grade11_Module_09_Unit_3_Song.mp4 in Resources */,
+				114D545E2B92410F0080397F /* Grade12_Module_04_Unit_1_Activity_2.MP4 in Resources */,
+				114D544F2B92410F0080397F /* Grade12_Module_05_Unit_2_Activity_1.MP4 in Resources */,
+				114D546E2B92410F0080397F /* Grade12_Module_08_Unit_1_Activity_1.MP4 in Resources */,
+				114D540E2B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_1.mp4 in Resources */,
+				114D54032B92410F0080397F /* Grade11_Module_06_Unit_4_Words.mp4 in Resources */,
+				114D54422B92410F0080397F /* Grade12_Module_03_Unit_2_Activity_1.MP4 in Resources */,
+				114D54152B92410F0080397F /* Grade11_Module_07_Unit_4_Words.mp4 in Resources */,
+				114D54562B92410F0080397F /* Grade12_Module_10_Unit_1_Activity_2.MP4 in Resources */,
+				114D542B2B92410F0080397F /* Grade11_Module_02_Unit_3_Song.mp4 in Resources */,
+				114D540A2B92410F0080397F /* Grade11_Module_09_Unit_4_Words.mp4 in Resources */,
+				114D54682B92410F0080397F /* Grade12_Module_10_Unit_2_Activity_1.MP4 in Resources */,
+				114D54142B92410F0080397F /* Grade11_Module_01_Unit_2_Activity_2.mp4 in Resources */,
+				114D54092B92410F0080397F /* Grade11_Module_03_Unit_1_Activity_2.mp4 in Resources */,
+				114D54062B92410F0080397F /* Grade11_Module_05_Unit_2_Activity_2.mp4 in Resources */,
+				114D54602B92410F0080397F /* Grade12_Module_02_Unit_2_Activity_4.MP4 in Resources */,
+				114D545D2B92410F0080397F /* Grade12_Module_08_Unit_2_Activity_2.MP4 in Resources */,
+				114D54412B92410F0080397F /* Grade12_Module_09_Unit_2_Activity_4.MP4 in Resources */,
+				114D54382B92410F0080397F /* Grade11_Module_02_Unit_2_Activity_1.mp4 in Resources */,
+				114D544A2B92410F0080397F /* Grade12_Module_03_Unit_1_Activity_2.MP4 in Resources */,
+				114D54342B92410F0080397F /* Grade11_Module_04_Unit_1_Activity_1.mp4 in Resources */,
+				114D54242B92410F0080397F /* Grade11_Module_05_Unit_3_Song.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2600,18 +2984,17 @@
 				3A79E3D42637B4A100B83609 /* KKVideoPlayer.m in Sources */,
 				3A79E3D72637B4A100B83609 /* KKVideoPlayViewController.m in Sources */,
 				11483019289E0EF200389434 /* KKRefreshFooterTouchStateView.m in Sources */,
-				11F640FB288901D20050B936 /* ENImageItemView.m in Sources */,
 				1148302D289E0EF200389434 /* KKRefreshFooterDraggingStateView.m in Sources */,
 				11482FDD289E045600389434 /* KKAlertInputController.m in Sources */,
 				11482FCD289E045600389434 /* KKAlertView.m in Sources */,
 				11482FBD289E045600389434 /* HTMLParser.m in Sources */,
 				11482FAD289E045600389434 /* KKActionSheet.m in Sources */,
+				114D51C82B922B3C0080397F /* EnglishVideoListViewController.m in Sources */,
 				11483035289E0EF200389434 /* KKRefreshHeaderView.m in Sources */,
 				11482FB9289E045600389434 /* KKWindowActionViewItem.m in Sources */,
-				11F640FC288901D20050B936 /* AudioImageViewController.m in Sources */,
 				11F640F8288901D20050B936 /* HomeViewController.m in Sources */,
 				11482FC1289E045600389434 /* HTMLNode.m in Sources */,
-				11F640FA288901D20050B936 /* ENImagePageView.m in Sources */,
+				114D51CF2B922FBE0080397F /* EnglishBaseNavigationController.m in Sources */,
 				11482FD9289E045600389434 /* KKLocalizationManager.m in Sources */,
 				3A79E3D92637B4A100B83609 /* main.m in Sources */,
 				3A79E3DC2637B4A100B83609 /* AppDelegate.m in Sources */,
@@ -2622,6 +3005,7 @@
 				11482FA9289E045600389434 /* KKIPAddress.m in Sources */,
 				11482FD1289E045600389434 /* KKLibraryLocalization.m in Sources */,
 				11483029289E0EF200389434 /* KKRefreshFooterDraggingView.m in Sources */,
+				114D51CC2B922F9F0080397F /* EnglishBaseViewController.m in Sources */,
 				3A79E3DD2637B4A100B83609 /* KKVideoPlayerForwardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3058,7 +3442,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kekestudio.com.liubo.english;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kekestudio.liubo.english;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = LiuBoEnglish_Dev;
@@ -3123,7 +3507,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kekestudio.com.liubo.english;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kekestudio.liubo.english;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = LiuBoEnglish_AdHoc;
