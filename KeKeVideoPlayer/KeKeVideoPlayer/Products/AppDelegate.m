@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "BaseNavigationController.h"
+#if KK_SUPORT_APNS
 #import <UserNotifications/UserNotifications.h>
+#endif
 
 /**
  *  RemoteNotificationProcessType
@@ -30,7 +32,10 @@ typedef NS_ENUM(NSInteger,RemoteNotificationProcessType) {
 #define KKUserDefaultsManagerKey_DeviceTokenAPNS @"DeviceToken_APNS"
 #define KKUserDefaultsManagerKey_DeviceTokenVOIP @"DeviceToken_VOIP"
 
-@interface AppDelegate ()<UNUserNotificationCenterDelegate>
+@interface AppDelegate ()
+#if KK_SUPORT_APNS
+<UNUserNotificationCenterDelegate>
+#endif
 
 @end
 
@@ -43,10 +48,14 @@ typedef NS_ENUM(NSInteger,RemoteNotificationProcessType) {
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 
     [self reloadRootViewController];
-            
+
+#if KK_SUPORT_APNS
     [self registerAppleNotification:^(BOOL granted) {
         
     }];
+#endif
+    
+    [UIApplication.sharedApplication setApplicationIconBadgeNumber:0];
     
     return YES;
 }
@@ -85,6 +94,7 @@ typedef NS_ENUM(NSInteger,RemoteNotificationProcessType) {
     }
 }
 
+#if KK_SUPORT_APNS
 #pragma mark ==================================================
 #pragma mark === APNS
 #pragma mark ==================================================
@@ -274,5 +284,6 @@ typedef NS_ENUM(NSInteger,RemoteNotificationProcessType) {
 - (void)KKAlertView:(KKAlertView*_Nonnull)aAlertView clickedButtonAtIndex:(NSInteger)aButtonIndex{
     
 }
+#endif
 
 @end

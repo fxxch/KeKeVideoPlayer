@@ -12,8 +12,10 @@
 typedef NS_ENUM(NSInteger,MusicHTMLParserType) {
     
     MusicHTMLParserType_Audio = 0,/* 音频 */
-    
-    MusicHTMLParserType_Directory = 1,/* 目录 */
+
+    MusicHTMLParserType_Video = 1,/* 视频 */
+
+    MusicHTMLParserType_Directory = 2,/* 目录 */
 };
 
 

@@ -53,7 +53,15 @@
         
         self.dataSource = [[NSMutableArray alloc] init];
         NSArray *array = [MusicDBManager.defaultManager DBQuery_Media_All];
-        [self.dataSource addObjectsFromArray:array];
+        if (IS_APP_For_English) {
+            NSMutableArray *myMutableArr = [[NSMutableArray alloc] init];
+            [myMutableArr addObjectsFromArray:array];
+            NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:Table_Media_display_name ascending:YES]];
+            [myMutableArr sortUsingDescriptors:sortDescriptors];
+            [self.dataSource addObjectsFromArray:myMutableArr];
+        } else{
+            [self.dataSource addObjectsFromArray:array];
+        }
         self.playType = 1;
         
         [self initUI];
@@ -343,7 +351,15 @@
 - (void)Notification_MusicPlayerStartPlayDataSouce:(NSNotification*)notice{
     NSArray *array = notice.object;
     [self.dataSource removeAllObjects];
-    [self.dataSource addObjectsFromArray:array];
+    if (IS_APP_For_English) {
+        NSMutableArray *myMutableArr = [[NSMutableArray alloc] init];
+        [myMutableArr addObjectsFromArray:array];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:Table_Media_display_name ascending:YES]];
+            [myMutableArr sortUsingDescriptors:sortDescriptors];
+        [self.dataSource addObjectsFromArray:myMutableArr];
+    } else{
+        [self.dataSource addObjectsFromArray:array];
+    }
     [self.dataSourceRandom removeAllObjects];
     self.indexOfRandom = NSNotFound;
     [self.table reloadData];
@@ -366,7 +382,15 @@
     }
 
     [self.dataSource removeAllObjects];
-    [self.dataSource addObjectsFromArray:[allMusic allValues]];
+    if (IS_APP_For_English) {
+        NSMutableArray *myMutableArr = [[NSMutableArray alloc] init];
+        [myMutableArr addObjectsFromArray:[allMusic allValues]];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:Table_Media_display_name ascending:YES]];
+            [myMutableArr sortUsingDescriptors:sortDescriptors];
+        [self.dataSource addObjectsFromArray:myMutableArr];
+    } else{
+        [self.dataSource addObjectsFromArray:[allMusic allValues]];
+    }
     [self.dataSourceRandom removeAllObjects];
     self.indexOfRandom = NSNotFound;
     [self.table reloadData];
