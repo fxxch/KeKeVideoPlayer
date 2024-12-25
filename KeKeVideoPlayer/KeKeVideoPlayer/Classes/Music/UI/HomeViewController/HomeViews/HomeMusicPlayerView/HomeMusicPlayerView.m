@@ -697,7 +697,7 @@
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
-    [cell reloadWithInformation:info];
+    [cell reloadWithInformation:info indexPath:indexPath];
     if (info==self.currentPlayInformation) {
         cell.name_Label.textColor = Theme_Color_D31925;
     }

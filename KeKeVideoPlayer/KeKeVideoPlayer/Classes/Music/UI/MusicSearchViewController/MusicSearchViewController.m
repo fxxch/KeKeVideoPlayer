@@ -117,7 +117,7 @@
     }
     
     NSDictionary *info = [self.dataSource objectAtIndex:indexPath.row];;
-    [cell reloadWithInformation:info];
+    [cell reloadWithInformation:info indexPath:indexPath];
     cell.name_Label.textColor = [UIColor blackColor];
 
     return cell;

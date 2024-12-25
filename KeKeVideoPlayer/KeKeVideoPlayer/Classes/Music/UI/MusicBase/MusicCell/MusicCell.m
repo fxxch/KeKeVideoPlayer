@@ -22,7 +22,18 @@
 }
 
 - (void)initUI{
-    
+
+    CGFloat indexHeight = [UIFont kk_sizeOfFont:[UIFont systemFontOfSize:10]].height;
+    self.index_Label  = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 25, indexHeight)];
+    self.index_Label.font = [UIFont systemFontOfSize:10];
+    self.index_Label.textColor = [UIColor whiteColor];
+    self.index_Label.textAlignment = NSTextAlignmentCenter;
+    [self.index_Label kk_setCornerRadius:indexHeight/2.0];
+    self.index_Label.backgroundColor = [UIColor colorWithRed:0.82f green:0.10f blue:0.15f alpha:1.00f];
+    [self.index_Label kk_setBorderColor:[UIColor whiteColor] width:1.0];
+    self.index_Label.adjustsFontSizeToFitWidth = YES;
+    [self.contentView addSubview:self.index_Label];
+
     self.icon_imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 60, 60)];
     [self.icon_imageView kk_setCornerRadius:5];
     [self.contentView addSubview:self.icon_imageView];
@@ -50,6 +61,8 @@
     [self.tag_Button setBackgroundImage:KKThemeImage(@"Music_btn_cell_tag") forState:UIControlStateNormal];
     [self.tag_Button addTarget:self action:@selector(tagButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.tag_Button];
+
+    [self.contentView bringSubviewToFront:self.index_Label];
 }
 
 + (CGFloat)cellHeightWithInformation:(NSDictionary*)aInformation{
@@ -57,8 +70,10 @@
     
 }
 
-- (void)reloadWithInformation:(NSDictionary*)aInformation{
-    
+- (void)reloadWithInformation:(NSDictionary*)aInformation indexPath:(NSIndexPath*)aIndexPath{
+
+    self.index_Label.text = [NSString kk_stringWithInteger:aIndexPath.row+1];
+
     self.cellInformation = nil;
     self.cellInformation = aInformation;
 

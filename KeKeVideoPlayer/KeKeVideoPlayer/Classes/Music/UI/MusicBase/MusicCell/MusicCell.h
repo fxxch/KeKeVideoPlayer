@@ -14,6 +14,7 @@
 @interface MusicCell : UITableViewCell
 
 @property (nonatomic , strong) UIImageView *icon_imageView;
+@property (nonatomic , strong) UILabel *index_Label;
 @property (nonatomic , strong) UILabel *name_Label;
 @property (nonatomic , strong) UILabel *artist_Label;
 @property (nonatomic , strong) UILabel *fileSize_Label;
@@ -24,6 +25,6 @@
 
 + (CGFloat)cellHeightWithInformation:(NSDictionary*)aInformation;
 
-- (void)reloadWithInformation:(NSDictionary*)aInformation;
+- (void)reloadWithInformation:(NSDictionary*)aInformation indexPath:(NSIndexPath*)aIndexPath;
 
 @end
