@@ -63,7 +63,7 @@
     [self.view addSubview:self.myTextView];
         
     UIButton *button01 = [[UIButton alloc] initWithFrame:CGRectMake(30, KKApplicationHeight-44-30-40-15-40-15-40-15-40, KKApplicationWidth-60, 40)];
-    [button01 setTitle:@"http://192.168.0.100" forState:UIControlStateNormal];
+    [button01 setTitle:@"http://192.168.0.100/test/2022/2021/2020" forState:UIControlStateNormal];
     button01.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [button01 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button01 kk_setBorderColor:[UIColor greenColor] width:1.0];
@@ -72,7 +72,7 @@
     [self.view addSubview:button01];
 
     UIButton *button02 = [[UIButton alloc] initWithFrame:CGRectMake(30, KKApplicationHeight-44-30-40-15-40-15-40, KKApplicationWidth-60, 40)];
-    [button02 setTitle:@"http://192.168.43.250" forState:UIControlStateNormal];
+    [button02 setTitle:@"http://192.168.0.101/test/2022/2021/2020" forState:UIControlStateNormal];
     button02.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [button02 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button02 kk_setBorderColor:[UIColor greenColor] width:1.0];
@@ -118,7 +118,7 @@
         }
     }
     else{
-        self.myTextView.text = @"http://192.168.43.250/test/2022/2021/2020";
+        self.myTextView.text = @"http://192.168.0.100/test/2022/2021/2020";
 //        [self.myTextView becomeFirstResponder];
     }
 }
@@ -144,24 +144,24 @@
 }
 
 - (void)showAddress104{
-    self.myTextView.text = @"http://192.168.0.100";
+    self.myTextView.text = @"http://192.168.0.100/test/2022/2021/2020";
 }
 
 - (void)showAddress108{
-    self.myTextView.text = @"http://192.168.43.250";
+    self.myTextView.text = @"http://192.168.0.101/test/2022/2021/2020";
 }
 
 - (void)addressPlus{
     NSString *originString = self.myTextView.text;
     NSString *string01 = [originString stringByReplacingOccurrencesOfString:@"http://" withString:@""];
-    NSString *string02 = [string01 stringByReplacingOccurrencesOfString:@"/test" withString:@""];
+    NSString *string02 = [string01 stringByReplacingOccurrencesOfString:@"/test/2022/2021/2020" withString:@""];
     NSArray *array = [string02 componentsSeparatedByString:@"."];
     if ([array count]>=4) {
         NSString *str01 = [array objectAtIndex:0];
         NSString *str02 = [array objectAtIndex:1];
         NSString *str03 = [array objectAtIndex:2];
         NSString *str04 = [array objectAtIndex:3];
-        NSString *fullString = [NSString stringWithFormat:@"http://%@.%@.%@.%ld",str01,str02,str03,(long)([str04 integerValue]+1)];
+        NSString *fullString = [NSString stringWithFormat:@"http://%@.%@.%@.%ld/test/2022/2021/2020",str01,str02,str03,(long)([str04 integerValue]+1)];
         self.myTextView.text = fullString;
     }
 }
@@ -176,7 +176,7 @@
         NSString *str02 = [array objectAtIndex:1];
         NSString *str03 = [array objectAtIndex:2];
         NSString *str04 = [array objectAtIndex:3];
-        NSString *fullString = [NSString stringWithFormat:@"http://%@.%@.%@.%ld",str01,str02,str03,(long)([str04 integerValue]-1)];
+        NSString *fullString = [NSString stringWithFormat:@"http://%@.%@.%@.%ld/test/2022/2021/2020",str01,str02,str03,(long)([str04 integerValue]-1)];
         self.myTextView.text = fullString;
     }
 }
@@ -202,7 +202,7 @@
         return;
     }
     
-    NSString *ulr = [NSString stringWithFormat:@"http://%@/music",ipAddress];
+    NSString *ulr = [NSString stringWithFormat:@"http://%@/test/2022/2021/2020",ipAddress];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:ulr]];
     [request setHTTPMethod:@"HEAD"];
     request.timeoutInterval = 2.0;

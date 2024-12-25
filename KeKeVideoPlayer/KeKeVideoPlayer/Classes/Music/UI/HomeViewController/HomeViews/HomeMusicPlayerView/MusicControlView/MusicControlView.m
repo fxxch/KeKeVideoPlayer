@@ -31,7 +31,7 @@
         [self addSubview:self.backgroundImageView];
         
         //滑动条
-        self.mySlider = [[MusicPlayerSlider alloc] initWithFrame:CGRectMake(15, 25, self.frame.size.width-30, 5)];
+        self.mySlider = [[MusicPlayerSlider alloc] initWithFrame:CGRectMake(15, 0, self.frame.size.width-30, 40)];
         self.mySlider.minimumTrackTintColor = Theme_Color_FF7C03;
         self.mySlider.maximumTrackTintColor = Theme_Color_DEDEDE;
         [self.mySlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -47,7 +47,7 @@
         self.mySlider.maximumValue = 1.0;
 
         //歌曲索引
-        self.indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
+        self.indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom, self.frame.size.width-30, 20)];
         [self.indexLabel kk_clearBackgroundColor];
         self.indexLabel.textAlignment = NSTextAlignmentCenter;
         self.indexLabel.textColor = Theme_Color_999999;
@@ -55,7 +55,7 @@
         [self addSubview:self.indexLabel];
 
         //当前时间
-        self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
+        self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom, self.frame.size.width-30, 20)];
         [self.currentTimeLabel kk_clearBackgroundColor];
         self.currentTimeLabel.text = KKLocalization(@"00:00:00");
         self.currentTimeLabel.textAlignment = NSTextAlignmentLeft;
@@ -64,7 +64,7 @@
         [self addSubview:self.currentTimeLabel];
 
         //总时长
-        self.durationtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom+10, self.frame.size.width-30, 20)];
+        self.durationtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.mySlider.kk_bottom, self.frame.size.width-30, 20)];
         [self.durationtimeLabel kk_clearBackgroundColor];
         self.durationtimeLabel.text = KKLocalization(@"--:--:--");
         self.durationtimeLabel.textAlignment = NSTextAlignmentRight;
